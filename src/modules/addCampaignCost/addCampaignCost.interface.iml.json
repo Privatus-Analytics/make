@@ -1,0 +1,37 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "campaign",
+    "label": "Campaign",
+    "type": "text"
+  },
+  {
+    "name": "month",
+    "label": "Month",
+    "type": "text"
+  },
+  {
+    "name": "amount_minor",
+    "label": "Amount Minor",
+    "type": "number"
+  },
+  {
+    "name": "currency",
+    "label": "Currency",
+    "type": "text"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "updated_at",
+    "label": "Updated At",
+    "type": "date"
+  }
+]

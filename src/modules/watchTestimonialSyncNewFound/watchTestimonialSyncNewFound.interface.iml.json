@@ -1,0 +1,67 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "site_id",
+        "label": "Site",
+        "type": "text"
+      },
+      {
+        "name": "import_source_id",
+        "label": "Import Source",
+        "type": "text"
+      },
+      {
+        "name": "platform",
+        "label": "Platform",
+        "type": "text"
+      },
+      {
+        "name": "run_id",
+        "label": "Run",
+        "type": "text"
+      },
+      {
+        "name": "new_count",
+        "label": "New Count",
+        "type": "number"
+      },
+      {
+        "name": "testimonial_ids",
+        "label": "Testimonials",
+        "type": "array",
+        "spec": {
+          "type": "text"
+        }
+      },
+      {
+        "name": "auto_approved_count",
+        "label": "Auto Approved Count",
+        "type": "number"
+      }
+    ]
+  }
+]

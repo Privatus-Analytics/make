@@ -1,0 +1,15 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/people.json",
+  "method": "POST",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "title": "{{ifempty(parameters.title, undefined)}}",
+    "company": "{{ifempty(parameters.company, undefined)}}",
+    "company_url": "{{ifempty(parameters.company_url, undefined)}}",
+    "social_url": "{{ifempty(parameters.social_url, undefined)}}",
+    "email": "{{ifempty(parameters.email, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

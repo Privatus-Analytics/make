@@ -1,0 +1,69 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "help": "Link name, up to 120 characters",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "destination",
+    "label": "Destination",
+    "help": "Landing page URL, http or https, up to 2048 characters. Existing utm_ parameters in it are replaced by the ones you set",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "utm_source",
+    "label": "UTM Source",
+    "help": "Where the traffic comes from, e.g. newsletter. Lowercased, trimmed, spaces become underscores. Personal data is rejected",
+    "type": "text"
+  },
+  {
+    "name": "utm_medium",
+    "label": "UTM Medium",
+    "help": "Marketing medium, e.g. email or cpc. Lowercased, trimmed, spaces become underscores",
+    "type": "text"
+  },
+  {
+    "name": "utm_campaign",
+    "label": "UTM Campaign",
+    "help": "Campaign name, e.g. spring_sale. Lowercased, trimmed, spaces become underscores",
+    "type": "text"
+  },
+  {
+    "name": "utm_content",
+    "label": "UTM Content",
+    "help": "Variant, e.g. header_button. Lowercased, trimmed, spaces become underscores",
+    "type": "text"
+  },
+  {
+    "name": "utm_term",
+    "label": "UTM Term",
+    "help": "Paid search keyword. Lowercased, trimmed, spaces become underscores",
+    "type": "text"
+  },
+  {
+    "name": "tags",
+    "label": "Tags",
+    "help": "Tags for finding the link later. Up to 20, lowercased and cut at 40 characters. Comma separated entries are split",
+    "type": "array",
+    "spec": {
+      "type": "text"
+    }
+  },
+  {
+    "name": "notes",
+    "label": "Notes",
+    "help": "Free text notes",
+    "type": "text"
+  }
+]

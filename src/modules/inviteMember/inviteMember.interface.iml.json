@@ -1,0 +1,12 @@
+[
+  {
+    "name": "invitations",
+    "label": "Invitations",
+    "type": "array"
+  },
+  {
+    "name": "count",
+    "label": "Count",
+    "type": "number"
+  }
+]

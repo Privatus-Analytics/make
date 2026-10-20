@@ -1,0 +1,20 @@
+{
+  "url": "/sites/{{parameters.site_id}}/uptime.json",
+  "method": "POST",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "kind": "{{ifempty(parameters.kind, undefined)}}",
+    "url": "{{ifempty(parameters.url, undefined)}}",
+    "host": "{{ifempty(parameters.host, undefined)}}",
+    "port": "{{parameters.port}}",
+    "keyword": "{{ifempty(parameters.keyword, undefined)}}",
+    "expected_status": "{{parameters.expected_status}}",
+    "http_method": "{{ifempty(parameters.http_method, undefined)}}",
+    "interval_seconds": "{{parameters.interval_seconds}}",
+    "timeout_seconds": "{{parameters.timeout_seconds}}",
+    "public": "{{parameters.public}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

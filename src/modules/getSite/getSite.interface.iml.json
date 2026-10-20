@@ -1,0 +1,152 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace",
+    "type": "text"
+  },
+  {
+    "name": "domain",
+    "label": "Domain",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "extra_domains",
+    "label": "Extra Domains",
+    "type": "array"
+  },
+  {
+    "name": "multi_domain_mode",
+    "label": "Multi Domain Mode",
+    "type": "text"
+  },
+  {
+    "name": "timezone",
+    "label": "Timezone",
+    "type": "text"
+  },
+  {
+    "name": "currency",
+    "label": "Currency",
+    "type": "text"
+  },
+  {
+    "name": "labels",
+    "label": "Labels",
+    "type": "array"
+  },
+  {
+    "name": "honor_dnt",
+    "label": "Honor Dnt",
+    "type": "boolean"
+  },
+  {
+    "name": "honor_gpc",
+    "label": "Honor Gpc",
+    "type": "boolean"
+  },
+  {
+    "name": "pii_scrubber",
+    "label": "Pii Scrubber",
+    "type": "boolean"
+  },
+  {
+    "name": "redaction_rules",
+    "label": "Redaction Rules",
+    "type": "array"
+  },
+  {
+    "name": "allowed_params",
+    "label": "Allowed Params",
+    "type": "array"
+  },
+  {
+    "name": "path_masks",
+    "label": "Path Masks",
+    "type": "array"
+  },
+  {
+    "name": "retention_months",
+    "label": "Retention Months",
+    "type": "number"
+  },
+  {
+    "name": "bot_filtering",
+    "label": "Bot Filtering",
+    "type": "boolean"
+  },
+  {
+    "name": "traffic_rule_modes",
+    "label": "Traffic Rule Modes",
+    "type": "collection"
+  },
+  {
+    "name": "vitals_sample_rate",
+    "label": "Vitals Sample Rate",
+    "type": "number"
+  },
+  {
+    "name": "conversion_denominator",
+    "label": "Conversion Denominator",
+    "type": "text"
+  },
+  {
+    "name": "public_dashboard",
+    "label": "Public Dashboard",
+    "type": "boolean"
+  },
+  {
+    "name": "public_indexable",
+    "label": "Public Indexable",
+    "type": "boolean"
+  },
+  {
+    "name": "ingest_key_prefix",
+    "label": "Ingest Key Prefix",
+    "type": "text"
+  },
+  {
+    "name": "verified_at",
+    "label": "Verified At",
+    "type": "date"
+  },
+  {
+    "name": "first_event_at",
+    "label": "First Event At",
+    "type": "date"
+  },
+  {
+    "name": "last_event_at",
+    "label": "Last Event At",
+    "type": "date"
+  },
+  {
+    "name": "domain_rating",
+    "label": "Domain Rating",
+    "type": "number"
+  },
+  {
+    "name": "snippet",
+    "label": "Snippet",
+    "type": "text"
+  },
+  {
+    "name": "favorite",
+    "label": "Favorite",
+    "type": "boolean"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  }
+]

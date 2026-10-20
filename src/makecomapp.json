@@ -1,0 +1,1418 @@
+{
+  "fileVersion": 2,
+  "generalCodeFiles": {
+    "base": "general/base.iml.json",
+    "groups": "general/groups.json",
+    "readme": "general/readme.md"
+  },
+  "components": {
+    "connection": {
+      "privatusAnalytics": {
+        "type": "basic",
+        "label": "Privatus Analytics API token",
+        "codeFiles": {
+          "communication": "connections/privatusAnalytics/privatusAnalytics.communication.iml.json",
+          "params": "connections/privatusAnalytics/privatusAnalytics.params.iml.json",
+          "common": "connections/privatusAnalytics/privatusAnalytics.common.json"
+        }
+      }
+    },
+    "module": {
+      "createSite": {
+        "label": "Create a Site",
+        "description": "Adds a website to the workspace and returns its tracking snippet details.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createSite/createSite.communication.iml.json",
+          "staticParams": "modules/createSite/createSite.static-params.iml.json",
+          "mappableParams": "modules/createSite/createSite.mappable-params.iml.json",
+          "interface": "modules/createSite/createSite.interface.iml.json",
+          "samples": "modules/createSite/createSite.samples.iml.json"
+        }
+      },
+      "getSite": {
+        "label": "Get a Site",
+        "description": "Gets one site by its ID, with its settings and tracking details.",
+        "moduleType": "action",
+        "actionCrud": "read",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/getSite/getSite.communication.iml.json",
+          "staticParams": "modules/getSite/getSite.static-params.iml.json",
+          "mappableParams": "modules/getSite/getSite.mappable-params.iml.json",
+          "interface": "modules/getSite/getSite.interface.iml.json",
+          "samples": "modules/getSite/getSite.samples.iml.json"
+        }
+      },
+      "createGoal": {
+        "label": "Create a Goal",
+        "description": "Creates a conversion goal on a site. Goals count matching events across all existing history at once.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createGoal/createGoal.communication.iml.json",
+          "staticParams": "modules/createGoal/createGoal.static-params.iml.json",
+          "mappableParams": "modules/createGoal/createGoal.mappable-params.iml.json",
+          "interface": "modules/createGoal/createGoal.interface.iml.json",
+          "samples": "modules/createGoal/createGoal.samples.iml.json"
+        }
+      },
+      "createChartNote": {
+        "label": "Create a Chart Note",
+        "description": "Adds a note (annotation) to a site's charts, such as a deploy, a campaign launch or an outage.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createChartNote/createChartNote.communication.iml.json",
+          "staticParams": "modules/createChartNote/createChartNote.static-params.iml.json",
+          "mappableParams": "modules/createChartNote/createChartNote.mappable-params.iml.json",
+          "interface": "modules/createChartNote/createChartNote.interface.iml.json",
+          "samples": "modules/createChartNote/createChartNote.samples.iml.json"
+        }
+      },
+      "createWorkspaceChartNote": {
+        "label": "Create a Workspace Chart Note",
+        "description": "Adds a note to the charts of every site in the workspace, such as a release that touched them all.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createWorkspaceChartNote/createWorkspaceChartNote.communication.iml.json",
+          "staticParams": "modules/createWorkspaceChartNote/createWorkspaceChartNote.static-params.iml.json",
+          "mappableParams": "modules/createWorkspaceChartNote/createWorkspaceChartNote.mappable-params.iml.json",
+          "interface": "modules/createWorkspaceChartNote/createWorkspaceChartNote.interface.iml.json",
+          "samples": "modules/createWorkspaceChartNote/createWorkspaceChartNote.samples.iml.json"
+        }
+      },
+      "createCampaignLink": {
+        "label": "Create a Campaign Link",
+        "description": "Saves a tagged campaign link (with UTM parameters) in the campaign URL builder and returns the full URL.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createCampaignLink/createCampaignLink.communication.iml.json",
+          "staticParams": "modules/createCampaignLink/createCampaignLink.static-params.iml.json",
+          "mappableParams": "modules/createCampaignLink/createCampaignLink.mappable-params.iml.json",
+          "interface": "modules/createCampaignLink/createCampaignLink.interface.iml.json",
+          "samples": "modules/createCampaignLink/createCampaignLink.samples.iml.json"
+        }
+      },
+      "addCampaignCost": {
+        "label": "Add a Campaign Cost",
+        "description": "Records what a campaign cost in a month, for cost per acquisition and return on ad spend (Business plan).",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/addCampaignCost/addCampaignCost.communication.iml.json",
+          "staticParams": "modules/addCampaignCost/addCampaignCost.static-params.iml.json",
+          "mappableParams": "modules/addCampaignCost/addCampaignCost.mappable-params.iml.json",
+          "interface": "modules/addCampaignCost/addCampaignCost.interface.iml.json",
+          "samples": "modules/addCampaignCost/addCampaignCost.samples.iml.json"
+        }
+      },
+      "createUptimeCheck": {
+        "label": "Create an Uptime Check",
+        "description": "Starts monitoring a URL, a keyword on a page, a TCP port or a DNS name for a site.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createUptimeCheck/createUptimeCheck.communication.iml.json",
+          "staticParams": "modules/createUptimeCheck/createUptimeCheck.static-params.iml.json",
+          "mappableParams": "modules/createUptimeCheck/createUptimeCheck.mappable-params.iml.json",
+          "interface": "modules/createUptimeCheck/createUptimeCheck.interface.iml.json",
+          "samples": "modules/createUptimeCheck/createUptimeCheck.samples.iml.json"
+        }
+      },
+      "pauseUptimeCheck": {
+        "label": "Pause an Uptime Check",
+        "description": "Pauses an uptime check, for example during planned maintenance.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/pauseUptimeCheck/pauseUptimeCheck.communication.iml.json",
+          "staticParams": "modules/pauseUptimeCheck/pauseUptimeCheck.static-params.iml.json",
+          "mappableParams": "modules/pauseUptimeCheck/pauseUptimeCheck.mappable-params.iml.json",
+          "interface": "modules/pauseUptimeCheck/pauseUptimeCheck.interface.iml.json",
+          "samples": "modules/pauseUptimeCheck/pauseUptimeCheck.samples.iml.json"
+        }
+      },
+      "resumeUptimeCheck": {
+        "label": "Resume an Uptime Check",
+        "description": "Resumes a paused uptime check.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/resumeUptimeCheck/resumeUptimeCheck.communication.iml.json",
+          "staticParams": "modules/resumeUptimeCheck/resumeUptimeCheck.static-params.iml.json",
+          "mappableParams": "modules/resumeUptimeCheck/resumeUptimeCheck.mappable-params.iml.json",
+          "interface": "modules/resumeUptimeCheck/resumeUptimeCheck.interface.iml.json",
+          "samples": "modules/resumeUptimeCheck/resumeUptimeCheck.samples.iml.json"
+        }
+      },
+      "acknowledgeAlert": {
+        "label": "Acknowledge an Alert",
+        "description": "Acknowledges an alert rule's open incident, so the team knows someone is on it.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/acknowledgeAlert/acknowledgeAlert.communication.iml.json",
+          "staticParams": "modules/acknowledgeAlert/acknowledgeAlert.static-params.iml.json",
+          "mappableParams": "modules/acknowledgeAlert/acknowledgeAlert.mappable-params.iml.json",
+          "interface": "modules/acknowledgeAlert/acknowledgeAlert.interface.iml.json",
+          "samples": "modules/acknowledgeAlert/acknowledgeAlert.samples.iml.json"
+        }
+      },
+      "muteAlert": {
+        "label": "Mute an Alert",
+        "description": "Silences the notifications of an alert rule for a number of minutes. It keeps recording incidents.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/muteAlert/muteAlert.communication.iml.json",
+          "staticParams": "modules/muteAlert/muteAlert.static-params.iml.json",
+          "mappableParams": "modules/muteAlert/muteAlert.mappable-params.iml.json",
+          "interface": "modules/muteAlert/muteAlert.interface.iml.json",
+          "samples": "modules/muteAlert/muteAlert.samples.iml.json"
+        }
+      },
+      "postStatusPageUpdate": {
+        "label": "Post a Status Page Update",
+        "description": "Publishes an incident update on a status page and, by default, emails the page's subscribers.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/postStatusPageUpdate/postStatusPageUpdate.communication.iml.json",
+          "staticParams": "modules/postStatusPageUpdate/postStatusPageUpdate.static-params.iml.json",
+          "mappableParams": "modules/postStatusPageUpdate/postStatusPageUpdate.mappable-params.iml.json",
+          "interface": "modules/postStatusPageUpdate/postStatusPageUpdate.interface.iml.json",
+          "samples": "modules/postStatusPageUpdate/postStatusPageUpdate.samples.iml.json"
+        }
+      },
+      "createExport": {
+        "label": "Create an Export",
+        "description": "Queues a data export (CSV, JSON, XLSX, NDJSON or a ZIP of dashboard panels). Use the Watch Export Ready module to act when its file is ready.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createExport/createExport.communication.iml.json",
+          "staticParams": "modules/createExport/createExport.static-params.iml.json",
+          "mappableParams": "modules/createExport/createExport.mappable-params.iml.json",
+          "interface": "modules/createExport/createExport.interface.iml.json",
+          "samples": "modules/createExport/createExport.samples.iml.json"
+        }
+      },
+      "inviteMember": {
+        "label": "Invite Members",
+        "description": "Invites people to the workspace by email. Each gets an invitation link valid for 14 days.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/inviteMember/inviteMember.communication.iml.json",
+          "staticParams": "modules/inviteMember/inviteMember.static-params.iml.json",
+          "mappableParams": "modules/inviteMember/inviteMember.mappable-params.iml.json",
+          "interface": "modules/inviteMember/inviteMember.interface.iml.json",
+          "samples": "modules/inviteMember/inviteMember.samples.iml.json"
+        }
+      },
+      "runSiteAudit": {
+        "label": "Run a Site Audit",
+        "description": "Starts an SEO audit of a site now. Use the Watch Site Audit Completed module to act on the result.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/runSiteAudit/runSiteAudit.communication.iml.json",
+          "staticParams": "modules/runSiteAudit/runSiteAudit.static-params.iml.json",
+          "mappableParams": "modules/runSiteAudit/runSiteAudit.mappable-params.iml.json",
+          "interface": "modules/runSiteAudit/runSiteAudit.interface.iml.json",
+          "samples": "modules/runSiteAudit/runSiteAudit.samples.iml.json"
+        }
+      },
+      "startExperiment": {
+        "label": "Start an Experiment",
+        "description": "Starts an A/B or split URL experiment.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/startExperiment/startExperiment.communication.iml.json",
+          "staticParams": "modules/startExperiment/startExperiment.static-params.iml.json",
+          "mappableParams": "modules/startExperiment/startExperiment.mappable-params.iml.json",
+          "interface": "modules/startExperiment/startExperiment.interface.iml.json",
+          "samples": "modules/startExperiment/startExperiment.samples.iml.json"
+        }
+      },
+      "pauseExperiment": {
+        "label": "Pause an Experiment",
+        "description": "Pauses an A/B or split URL experiment.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/pauseExperiment/pauseExperiment.communication.iml.json",
+          "staticParams": "modules/pauseExperiment/pauseExperiment.static-params.iml.json",
+          "mappableParams": "modules/pauseExperiment/pauseExperiment.mappable-params.iml.json",
+          "interface": "modules/pauseExperiment/pauseExperiment.interface.iml.json",
+          "samples": "modules/pauseExperiment/pauseExperiment.samples.iml.json"
+        }
+      },
+      "endExperiment": {
+        "label": "End an Experiment",
+        "description": "Ends an A/B or split URL experiment.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/endExperiment/endExperiment.communication.iml.json",
+          "staticParams": "modules/endExperiment/endExperiment.static-params.iml.json",
+          "mappableParams": "modules/endExperiment/endExperiment.mappable-params.iml.json",
+          "interface": "modules/endExperiment/endExperiment.interface.iml.json",
+          "samples": "modules/endExperiment/endExperiment.samples.iml.json"
+        }
+      },
+      "getTestimonial": {
+        "label": "Get a Testimonial",
+        "description": "Gets one testimonial with everything about it, such as the person, the media and the tags.",
+        "moduleType": "action",
+        "actionCrud": "read",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/getTestimonial/getTestimonial.communication.iml.json",
+          "staticParams": "modules/getTestimonial/getTestimonial.static-params.iml.json",
+          "mappableParams": "modules/getTestimonial/getTestimonial.mappable-params.iml.json",
+          "interface": "modules/getTestimonial/getTestimonial.interface.iml.json",
+          "samples": "modules/getTestimonial/getTestimonial.samples.iml.json"
+        }
+      },
+      "createTestimonial": {
+        "label": "Create a Testimonial",
+        "description": "Adds a text testimonial, for example from a review, a support chat or a survey reply. It counts toward the plan's monthly testimonials.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createTestimonial/createTestimonial.communication.iml.json",
+          "staticParams": "modules/createTestimonial/createTestimonial.static-params.iml.json",
+          "mappableParams": "modules/createTestimonial/createTestimonial.mappable-params.iml.json",
+          "interface": "modules/createTestimonial/createTestimonial.interface.iml.json",
+          "samples": "modules/createTestimonial/createTestimonial.samples.iml.json"
+        }
+      },
+      "updateTestimonial": {
+        "label": "Update a Testimonial",
+        "description": "Changes a testimonial: its words, rating, tags, custom properties and more. Only the fields filled in are changed.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/updateTestimonial/updateTestimonial.communication.iml.json",
+          "staticParams": "modules/updateTestimonial/updateTestimonial.static-params.iml.json",
+          "mappableParams": "modules/updateTestimonial/updateTestimonial.mappable-params.iml.json",
+          "interface": "modules/updateTestimonial/updateTestimonial.interface.iml.json",
+          "samples": "modules/updateTestimonial/updateTestimonial.samples.iml.json"
+        }
+      },
+      "approveTestimonial": {
+        "label": "Approve a Testimonial",
+        "description": "Approves a testimonial, so it can be shown on walls and widgets.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/approveTestimonial/approveTestimonial.communication.iml.json",
+          "staticParams": "modules/approveTestimonial/approveTestimonial.static-params.iml.json",
+          "mappableParams": "modules/approveTestimonial/approveTestimonial.mappable-params.iml.json",
+          "interface": "modules/approveTestimonial/approveTestimonial.interface.iml.json",
+          "samples": "modules/approveTestimonial/approveTestimonial.samples.iml.json"
+        }
+      },
+      "rejectTestimonial": {
+        "label": "Reject a Testimonial",
+        "description": "Rejects a testimonial.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/rejectTestimonial/rejectTestimonial.communication.iml.json",
+          "staticParams": "modules/rejectTestimonial/rejectTestimonial.static-params.iml.json",
+          "mappableParams": "modules/rejectTestimonial/rejectTestimonial.mappable-params.iml.json",
+          "interface": "modules/rejectTestimonial/rejectTestimonial.interface.iml.json",
+          "samples": "modules/rejectTestimonial/rejectTestimonial.samples.iml.json"
+        }
+      },
+      "pendTestimonial": {
+        "label": "Return a Testimonial to Pending",
+        "description": "Returns a testimonial to pending, so it is not shown until it is approved again.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/pendTestimonial/pendTestimonial.communication.iml.json",
+          "staticParams": "modules/pendTestimonial/pendTestimonial.static-params.iml.json",
+          "mappableParams": "modules/pendTestimonial/pendTestimonial.mappable-params.iml.json",
+          "interface": "modules/pendTestimonial/pendTestimonial.interface.iml.json",
+          "samples": "modules/pendTestimonial/pendTestimonial.samples.iml.json"
+        }
+      },
+      "pinTestimonial": {
+        "label": "Pin or Unpin a Testimonial",
+        "description": "Pins a testimonial so it is shown first, or unpins it.",
+        "moduleType": "action",
+        "actionCrud": "update",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/pinTestimonial/pinTestimonial.communication.iml.json",
+          "staticParams": "modules/pinTestimonial/pinTestimonial.static-params.iml.json",
+          "mappableParams": "modules/pinTestimonial/pinTestimonial.mappable-params.iml.json",
+          "interface": "modules/pinTestimonial/pinTestimonial.interface.iml.json",
+          "samples": "modules/pinTestimonial/pinTestimonial.samples.iml.json"
+        }
+      },
+      "createTestimonialPerson": {
+        "label": "Create a Testimonial Person",
+        "description": "Adds a person (a customer who gives testimonials) to a site.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/createTestimonialPerson/createTestimonialPerson.communication.iml.json",
+          "staticParams": "modules/createTestimonialPerson/createTestimonialPerson.static-params.iml.json",
+          "mappableParams": "modules/createTestimonialPerson/createTestimonialPerson.mappable-params.iml.json",
+          "interface": "modules/createTestimonialPerson/createTestimonialPerson.interface.iml.json",
+          "samples": "modules/createTestimonialPerson/createTestimonialPerson.samples.iml.json"
+        }
+      },
+      "askForTestimonial": {
+        "label": "Ask for a Testimonial",
+        "description": "Adds a person to a testimonial request. In a running request they get the first email at once, in a draft they wait for it to be sent. Request emails need the Business plan and a connected email provider.",
+        "moduleType": "action",
+        "actionCrud": "create",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/askForTestimonial/askForTestimonial.communication.iml.json",
+          "staticParams": "modules/askForTestimonial/askForTestimonial.static-params.iml.json",
+          "mappableParams": "modules/askForTestimonial/askForTestimonial.mappable-params.iml.json",
+          "interface": "modules/askForTestimonial/askForTestimonial.interface.iml.json",
+          "samples": "modules/askForTestimonial/askForTestimonial.samples.iml.json"
+        }
+      },
+      "getLiveVisitors": {
+        "label": "Get Live Visitors",
+        "description": "Gets how many visitors are on a site right now (the last 5 minutes) and what they are doing, from the last 30 minutes.",
+        "moduleType": "action",
+        "actionCrud": "read",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/getLiveVisitors/getLiveVisitors.communication.iml.json",
+          "staticParams": "modules/getLiveVisitors/getLiveVisitors.static-params.iml.json",
+          "mappableParams": "modules/getLiveVisitors/getLiveVisitors.mappable-params.iml.json",
+          "interface": "modules/getLiveVisitors/getLiveVisitors.interface.iml.json",
+          "samples": "modules/getLiveVisitors/getLiveVisitors.samples.iml.json"
+        }
+      },
+      "getSiteStats": {
+        "label": "Get Site Stats",
+        "description": "Gets the visitors, visits, pageviews, bounce rate, visit duration and revenue of a site for a period, optionally compared with the previous one.",
+        "moduleType": "action",
+        "actionCrud": "read",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/getSiteStats/getSiteStats.communication.iml.json",
+          "staticParams": "modules/getSiteStats/getSiteStats.static-params.iml.json",
+          "mappableParams": "modules/getSiteStats/getSiteStats.mappable-params.iml.json",
+          "interface": "modules/getSiteStats/getSiteStats.interface.iml.json",
+          "samples": "modules/getSiteStats/getSiteStats.samples.iml.json"
+        }
+      },
+      "searchSites": {
+        "label": "Search Sites",
+        "description": "Searches the sites of the workspace by domain or name.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchSites/searchSites.communication.iml.json",
+          "staticParams": "modules/searchSites/searchSites.static-params.iml.json",
+          "mappableParams": "modules/searchSites/searchSites.mappable-params.iml.json",
+          "interface": "modules/searchSites/searchSites.interface.iml.json",
+          "samples": "modules/searchSites/searchSites.samples.iml.json"
+        }
+      },
+      "searchGoals": {
+        "label": "Search Goals",
+        "description": "Searches the goals of a site, with completions, conversions, rate and value for a period.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchGoals/searchGoals.communication.iml.json",
+          "staticParams": "modules/searchGoals/searchGoals.static-params.iml.json",
+          "mappableParams": "modules/searchGoals/searchGoals.mappable-params.iml.json",
+          "interface": "modules/searchGoals/searchGoals.interface.iml.json",
+          "samples": "modules/searchGoals/searchGoals.samples.iml.json"
+        }
+      },
+      "searchChartNotes": {
+        "label": "Search Chart Notes",
+        "description": "Searches the chart notes of a site.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchChartNotes/searchChartNotes.communication.iml.json",
+          "staticParams": "modules/searchChartNotes/searchChartNotes.static-params.iml.json",
+          "mappableParams": "modules/searchChartNotes/searchChartNotes.mappable-params.iml.json",
+          "interface": "modules/searchChartNotes/searchChartNotes.interface.iml.json",
+          "samples": "modules/searchChartNotes/searchChartNotes.samples.iml.json"
+        }
+      },
+      "searchAlertRules": {
+        "label": "Search Alert Rules",
+        "description": "Searches the alert rules of the workspace, with their state (ok or triggered).",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchAlertRules/searchAlertRules.communication.iml.json",
+          "staticParams": "modules/searchAlertRules/searchAlertRules.static-params.iml.json",
+          "mappableParams": "modules/searchAlertRules/searchAlertRules.mappable-params.iml.json",
+          "interface": "modules/searchAlertRules/searchAlertRules.interface.iml.json",
+          "samples": "modules/searchAlertRules/searchAlertRules.samples.iml.json"
+        }
+      },
+      "searchAlertIncidents": {
+        "label": "Search Alert Incidents",
+        "description": "Searches the incidents of one alert rule, newest first.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchAlertIncidents/searchAlertIncidents.communication.iml.json",
+          "staticParams": "modules/searchAlertIncidents/searchAlertIncidents.static-params.iml.json",
+          "mappableParams": "modules/searchAlertIncidents/searchAlertIncidents.mappable-params.iml.json",
+          "interface": "modules/searchAlertIncidents/searchAlertIncidents.interface.iml.json",
+          "samples": "modules/searchAlertIncidents/searchAlertIncidents.samples.iml.json"
+        }
+      },
+      "searchUptimeChecks": {
+        "label": "Search Uptime Checks",
+        "description": "Searches the uptime checks of a site, with status and uptime.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchUptimeChecks/searchUptimeChecks.communication.iml.json",
+          "staticParams": "modules/searchUptimeChecks/searchUptimeChecks.static-params.iml.json",
+          "mappableParams": "modules/searchUptimeChecks/searchUptimeChecks.mappable-params.iml.json",
+          "interface": "modules/searchUptimeChecks/searchUptimeChecks.interface.iml.json",
+          "samples": "modules/searchUptimeChecks/searchUptimeChecks.samples.iml.json"
+        }
+      },
+      "searchExperiments": {
+        "label": "Search Experiments",
+        "description": "Searches the experiments of a site, with status, variants and results.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchExperiments/searchExperiments.communication.iml.json",
+          "staticParams": "modules/searchExperiments/searchExperiments.static-params.iml.json",
+          "mappableParams": "modules/searchExperiments/searchExperiments.mappable-params.iml.json",
+          "interface": "modules/searchExperiments/searchExperiments.interface.iml.json",
+          "samples": "modules/searchExperiments/searchExperiments.samples.iml.json"
+        }
+      },
+      "searchSiteAudits": {
+        "label": "Search Site Audits",
+        "description": "Searches the SEO audits of a site, newest first, with score, pages crawled and issues found and fixed.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchSiteAudits/searchSiteAudits.communication.iml.json",
+          "staticParams": "modules/searchSiteAudits/searchSiteAudits.static-params.iml.json",
+          "mappableParams": "modules/searchSiteAudits/searchSiteAudits.mappable-params.iml.json",
+          "interface": "modules/searchSiteAudits/searchSiteAudits.interface.iml.json",
+          "samples": "modules/searchSiteAudits/searchSiteAudits.samples.iml.json"
+        }
+      },
+      "searchExports": {
+        "label": "Search Exports",
+        "description": "Searches the data exports of the workspace.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchExports/searchExports.communication.iml.json",
+          "staticParams": "modules/searchExports/searchExports.static-params.iml.json",
+          "mappableParams": "modules/searchExports/searchExports.mappable-params.iml.json",
+          "interface": "modules/searchExports/searchExports.interface.iml.json",
+          "samples": "modules/searchExports/searchExports.samples.iml.json"
+        }
+      },
+      "searchMembers": {
+        "label": "Search Members",
+        "description": "Searches the members of the workspace by email or name, with their role.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchMembers/searchMembers.communication.iml.json",
+          "staticParams": "modules/searchMembers/searchMembers.static-params.iml.json",
+          "mappableParams": "modules/searchMembers/searchMembers.mappable-params.iml.json",
+          "interface": "modules/searchMembers/searchMembers.interface.iml.json",
+          "samples": "modules/searchMembers/searchMembers.samples.iml.json"
+        }
+      },
+      "searchTestimonials": {
+        "label": "Search Testimonials",
+        "description": "Searches the testimonials of a site by their words, the person, rating, status, tags and more.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchTestimonials/searchTestimonials.communication.iml.json",
+          "staticParams": "modules/searchTestimonials/searchTestimonials.static-params.iml.json",
+          "mappableParams": "modules/searchTestimonials/searchTestimonials.mappable-params.iml.json",
+          "interface": "modules/searchTestimonials/searchTestimonials.interface.iml.json",
+          "samples": "modules/searchTestimonials/searchTestimonials.samples.iml.json"
+        }
+      },
+      "searchTestimonialPeople": {
+        "label": "Search Testimonial People",
+        "description": "Searches the people of a site (customers who give testimonials) by email or name.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchTestimonialPeople/searchTestimonialPeople.communication.iml.json",
+          "staticParams": "modules/searchTestimonialPeople/searchTestimonialPeople.static-params.iml.json",
+          "mappableParams": "modules/searchTestimonialPeople/searchTestimonialPeople.mappable-params.iml.json",
+          "interface": "modules/searchTestimonialPeople/searchTestimonialPeople.interface.iml.json",
+          "samples": "modules/searchTestimonialPeople/searchTestimonialPeople.samples.iml.json"
+        }
+      },
+      "searchTestimonialForms": {
+        "label": "Search Testimonial Forms",
+        "description": "Searches the testimonial forms of a site.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchTestimonialForms/searchTestimonialForms.communication.iml.json",
+          "staticParams": "modules/searchTestimonialForms/searchTestimonialForms.static-params.iml.json",
+          "mappableParams": "modules/searchTestimonialForms/searchTestimonialForms.mappable-params.iml.json",
+          "interface": "modules/searchTestimonialForms/searchTestimonialForms.interface.iml.json",
+          "samples": "modules/searchTestimonialForms/searchTestimonialForms.samples.iml.json"
+        }
+      },
+      "searchTestimonialRequests": {
+        "label": "Search Testimonial Requests",
+        "description": "Searches the testimonial requests of a site.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchTestimonialRequests/searchTestimonialRequests.communication.iml.json",
+          "staticParams": "modules/searchTestimonialRequests/searchTestimonialRequests.static-params.iml.json",
+          "mappableParams": "modules/searchTestimonialRequests/searchTestimonialRequests.mappable-params.iml.json",
+          "interface": "modules/searchTestimonialRequests/searchTestimonialRequests.interface.iml.json",
+          "samples": "modules/searchTestimonialRequests/searchTestimonialRequests.samples.iml.json"
+        }
+      },
+      "searchTopValues": {
+        "label": "Search Top Values",
+        "description": "Ranks the top values of one report (pages, referrers, campaigns, countries, devices, events, goals and more) for a period, one row per bundle.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchTopValues/searchTopValues.communication.iml.json",
+          "staticParams": "modules/searchTopValues/searchTopValues.static-params.iml.json",
+          "mappableParams": "modules/searchTopValues/searchTopValues.mappable-params.iml.json",
+          "interface": "modules/searchTopValues/searchTopValues.interface.iml.json",
+          "samples": "modules/searchTopValues/searchTopValues.samples.iml.json"
+        }
+      },
+      "searchDailyStats": {
+        "label": "Search Stats Over Time",
+        "description": "Gets the visitors, visits and pageviews of a site for each day (or hour, week or month) of a period, one bucket per bundle.",
+        "moduleType": "search",
+        "actionCrud": "search",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/searchDailyStats/searchDailyStats.communication.iml.json",
+          "staticParams": "modules/searchDailyStats/searchDailyStats.static-params.iml.json",
+          "mappableParams": "modules/searchDailyStats/searchDailyStats.mappable-params.iml.json",
+          "interface": "modules/searchDailyStats/searchDailyStats.interface.iml.json",
+          "samples": "modules/searchDailyStats/searchDailyStats.samples.iml.json"
+        }
+      },
+      "makeApiCall": {
+        "label": "Make an API Call",
+        "description": "Performs an arbitrary authorized API call to the Privatus Analytics API. This module cannot send DELETE requests.",
+        "moduleType": "universal",
+        "actionCrud": "universal",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "modules/makeApiCall/makeApiCall.communication.iml.json",
+          "staticParams": "modules/makeApiCall/makeApiCall.static-params.iml.json",
+          "mappableParams": "modules/makeApiCall/makeApiCall.mappable-params.iml.json",
+          "interface": "modules/makeApiCall/makeApiCall.interface.iml.json",
+          "samples": "modules/makeApiCall/makeApiCall.samples.iml.json"
+        }
+      },
+      "watchAlertTriggered": {
+        "label": "Watch Alert Triggered",
+        "description": "Triggers when an alert rule fires: a traffic threshold, a spike or drop, a goal, a new referrer, no data, usage and more. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "alertTriggeredHook",
+        "codeFiles": {
+          "communication": "modules/watchAlertTriggered/watchAlertTriggered.communication.iml.json",
+          "staticParams": "modules/watchAlertTriggered/watchAlertTriggered.static-params.iml.json",
+          "mappableParams": "modules/watchAlertTriggered/watchAlertTriggered.mappable-params.iml.json",
+          "interface": "modules/watchAlertTriggered/watchAlertTriggered.interface.iml.json",
+          "samples": "modules/watchAlertTriggered/watchAlertTriggered.samples.iml.json"
+        }
+      },
+      "watchAlertResolved": {
+        "label": "Watch Alert Resolved",
+        "description": "Triggers when an alert rule recovers. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "alertResolvedHook",
+        "codeFiles": {
+          "communication": "modules/watchAlertResolved/watchAlertResolved.communication.iml.json",
+          "staticParams": "modules/watchAlertResolved/watchAlertResolved.static-params.iml.json",
+          "mappableParams": "modules/watchAlertResolved/watchAlertResolved.mappable-params.iml.json",
+          "interface": "modules/watchAlertResolved/watchAlertResolved.interface.iml.json",
+          "samples": "modules/watchAlertResolved/watchAlertResolved.samples.iml.json"
+        }
+      },
+      "watchGoalAlertTriggered": {
+        "label": "Watch Goal Alert Triggered",
+        "description": "Triggers when a goal alert rule fires (a goal reached, or fell under, its number of completions). Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "goalAlertTriggeredHook",
+        "codeFiles": {
+          "communication": "modules/watchGoalAlertTriggered/watchGoalAlertTriggered.communication.iml.json",
+          "staticParams": "modules/watchGoalAlertTriggered/watchGoalAlertTriggered.static-params.iml.json",
+          "mappableParams": "modules/watchGoalAlertTriggered/watchGoalAlertTriggered.mappable-params.iml.json",
+          "interface": "modules/watchGoalAlertTriggered/watchGoalAlertTriggered.interface.iml.json",
+          "samples": "modules/watchGoalAlertTriggered/watchGoalAlertTriggered.samples.iml.json"
+        }
+      },
+      "watchUsageThreshold": {
+        "label": "Watch Usage Threshold Reached",
+        "description": "Triggers when a usage alert fires because the workspace's monthly events passed a share of the plan's allowance. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "usageThresholdHook",
+        "codeFiles": {
+          "communication": "modules/watchUsageThreshold/watchUsageThreshold.communication.iml.json",
+          "staticParams": "modules/watchUsageThreshold/watchUsageThreshold.static-params.iml.json",
+          "mappableParams": "modules/watchUsageThreshold/watchUsageThreshold.mappable-params.iml.json",
+          "interface": "modules/watchUsageThreshold/watchUsageThreshold.interface.iml.json",
+          "samples": "modules/watchUsageThreshold/watchUsageThreshold.samples.iml.json"
+        }
+      },
+      "watchUptimeDown": {
+        "label": "Watch Uptime Check Down",
+        "description": "Triggers when an uptime check starts failing. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "uptimeDownHook",
+        "codeFiles": {
+          "communication": "modules/watchUptimeDown/watchUptimeDown.communication.iml.json",
+          "staticParams": "modules/watchUptimeDown/watchUptimeDown.static-params.iml.json",
+          "mappableParams": "modules/watchUptimeDown/watchUptimeDown.mappable-params.iml.json",
+          "interface": "modules/watchUptimeDown/watchUptimeDown.interface.iml.json",
+          "samples": "modules/watchUptimeDown/watchUptimeDown.samples.iml.json"
+        }
+      },
+      "watchUptimeUp": {
+        "label": "Watch Uptime Check Recovered",
+        "description": "Triggers when a failing uptime check is back up. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "uptimeUpHook",
+        "codeFiles": {
+          "communication": "modules/watchUptimeUp/watchUptimeUp.communication.iml.json",
+          "staticParams": "modules/watchUptimeUp/watchUptimeUp.static-params.iml.json",
+          "mappableParams": "modules/watchUptimeUp/watchUptimeUp.mappable-params.iml.json",
+          "interface": "modules/watchUptimeUp/watchUptimeUp.interface.iml.json",
+          "samples": "modules/watchUptimeUp/watchUptimeUp.samples.iml.json"
+        }
+      },
+      "watchSiteCreated": {
+        "label": "Watch New Site",
+        "description": "Triggers when a site is added to the workspace. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "siteCreatedHook",
+        "codeFiles": {
+          "communication": "modules/watchSiteCreated/watchSiteCreated.communication.iml.json",
+          "staticParams": "modules/watchSiteCreated/watchSiteCreated.static-params.iml.json",
+          "mappableParams": "modules/watchSiteCreated/watchSiteCreated.mappable-params.iml.json",
+          "interface": "modules/watchSiteCreated/watchSiteCreated.interface.iml.json",
+          "samples": "modules/watchSiteCreated/watchSiteCreated.samples.iml.json"
+        }
+      },
+      "watchSiteDeleted": {
+        "label": "Watch Site Deleted",
+        "description": "Triggers when a site is deleted from the workspace. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "siteDeletedHook",
+        "codeFiles": {
+          "communication": "modules/watchSiteDeleted/watchSiteDeleted.communication.iml.json",
+          "staticParams": "modules/watchSiteDeleted/watchSiteDeleted.static-params.iml.json",
+          "mappableParams": "modules/watchSiteDeleted/watchSiteDeleted.mappable-params.iml.json",
+          "interface": "modules/watchSiteDeleted/watchSiteDeleted.interface.iml.json",
+          "samples": "modules/watchSiteDeleted/watchSiteDeleted.samples.iml.json"
+        }
+      },
+      "watchMemberAdded": {
+        "label": "Watch New Member",
+        "description": "Triggers when someone joins the workspace (an accepted invitation, single sign-on or SCIM). Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "memberAddedHook",
+        "codeFiles": {
+          "communication": "modules/watchMemberAdded/watchMemberAdded.communication.iml.json",
+          "staticParams": "modules/watchMemberAdded/watchMemberAdded.static-params.iml.json",
+          "mappableParams": "modules/watchMemberAdded/watchMemberAdded.mappable-params.iml.json",
+          "interface": "modules/watchMemberAdded/watchMemberAdded.interface.iml.json",
+          "samples": "modules/watchMemberAdded/watchMemberAdded.samples.iml.json"
+        }
+      },
+      "watchExportReady": {
+        "label": "Watch Export Ready",
+        "description": "Triggers when an export has finished and its file is ready to download. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "exportReadyHook",
+        "codeFiles": {
+          "communication": "modules/watchExportReady/watchExportReady.communication.iml.json",
+          "staticParams": "modules/watchExportReady/watchExportReady.static-params.iml.json",
+          "mappableParams": "modules/watchExportReady/watchExportReady.mappable-params.iml.json",
+          "interface": "modules/watchExportReady/watchExportReady.interface.iml.json",
+          "samples": "modules/watchExportReady/watchExportReady.samples.iml.json"
+        }
+      },
+      "watchImportCompleted": {
+        "label": "Watch Analytics Import Completed",
+        "description": "Triggers when an import of analytics history (from Google Analytics or a file) finishes. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "importCompletedHook",
+        "codeFiles": {
+          "communication": "modules/watchImportCompleted/watchImportCompleted.communication.iml.json",
+          "staticParams": "modules/watchImportCompleted/watchImportCompleted.static-params.iml.json",
+          "mappableParams": "modules/watchImportCompleted/watchImportCompleted.mappable-params.iml.json",
+          "interface": "modules/watchImportCompleted/watchImportCompleted.interface.iml.json",
+          "samples": "modules/watchImportCompleted/watchImportCompleted.samples.iml.json"
+        }
+      },
+      "watchImportFailed": {
+        "label": "Watch Analytics Import Failed",
+        "description": "Triggers when an import of analytics history fails. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "importFailedHook",
+        "codeFiles": {
+          "communication": "modules/watchImportFailed/watchImportFailed.communication.iml.json",
+          "staticParams": "modules/watchImportFailed/watchImportFailed.static-params.iml.json",
+          "mappableParams": "modules/watchImportFailed/watchImportFailed.mappable-params.iml.json",
+          "interface": "modules/watchImportFailed/watchImportFailed.interface.iml.json",
+          "samples": "modules/watchImportFailed/watchImportFailed.samples.iml.json"
+        }
+      },
+      "watchSiteAuditCompleted": {
+        "label": "Watch Site Audit Completed",
+        "description": "Triggers when an SEO site audit finishes, with its score and the issues found and fixed. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "siteAuditCompletedHook",
+        "codeFiles": {
+          "communication": "modules/watchSiteAuditCompleted/watchSiteAuditCompleted.communication.iml.json",
+          "staticParams": "modules/watchSiteAuditCompleted/watchSiteAuditCompleted.static-params.iml.json",
+          "mappableParams": "modules/watchSiteAuditCompleted/watchSiteAuditCompleted.mappable-params.iml.json",
+          "interface": "modules/watchSiteAuditCompleted/watchSiteAuditCompleted.interface.iml.json",
+          "samples": "modules/watchSiteAuditCompleted/watchSiteAuditCompleted.samples.iml.json"
+        }
+      },
+      "watchExperimentEnded": {
+        "label": "Watch Experiment Ended",
+        "description": "Triggers when an A/B or split URL experiment ends, with or without a winner, with the results of every variant. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "experimentEndedHook",
+        "codeFiles": {
+          "communication": "modules/watchExperimentEnded/watchExperimentEnded.communication.iml.json",
+          "staticParams": "modules/watchExperimentEnded/watchExperimentEnded.static-params.iml.json",
+          "mappableParams": "modules/watchExperimentEnded/watchExperimentEnded.mappable-params.iml.json",
+          "interface": "modules/watchExperimentEnded/watchExperimentEnded.interface.iml.json",
+          "samples": "modules/watchExperimentEnded/watchExperimentEnded.samples.iml.json"
+        }
+      },
+      "watchTestimonialReceived": {
+        "label": "Watch New Testimonial",
+        "description": "Triggers when a testimonial arrives through a form, a request, the API, the browser extension or by hand. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialReceivedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialReceived/watchTestimonialReceived.communication.iml.json",
+          "staticParams": "modules/watchTestimonialReceived/watchTestimonialReceived.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialReceived/watchTestimonialReceived.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialReceived/watchTestimonialReceived.interface.iml.json",
+          "samples": "modules/watchTestimonialReceived/watchTestimonialReceived.samples.iml.json"
+        }
+      },
+      "watchTestimonialApproved": {
+        "label": "Watch Testimonial Approved",
+        "description": "Triggers when a testimonial is approved, so it can be shown on walls and widgets. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialApprovedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialApproved/watchTestimonialApproved.communication.iml.json",
+          "staticParams": "modules/watchTestimonialApproved/watchTestimonialApproved.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialApproved/watchTestimonialApproved.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialApproved/watchTestimonialApproved.interface.iml.json",
+          "samples": "modules/watchTestimonialApproved/watchTestimonialApproved.samples.iml.json"
+        }
+      },
+      "watchTestimonialRejected": {
+        "label": "Watch Testimonial Rejected",
+        "description": "Triggers when a testimonial is rejected. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialRejectedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialRejected/watchTestimonialRejected.communication.iml.json",
+          "staticParams": "modules/watchTestimonialRejected/watchTestimonialRejected.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialRejected/watchTestimonialRejected.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialRejected/watchTestimonialRejected.interface.iml.json",
+          "samples": "modules/watchTestimonialRejected/watchTestimonialRejected.samples.iml.json"
+        }
+      },
+      "watchTestimonialRestored": {
+        "label": "Watch Testimonial Restored",
+        "description": "Triggers when a testimonial is restored from the trash. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialRestoredHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialRestored/watchTestimonialRestored.communication.iml.json",
+          "staticParams": "modules/watchTestimonialRestored/watchTestimonialRestored.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialRestored/watchTestimonialRestored.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialRestored/watchTestimonialRestored.interface.iml.json",
+          "samples": "modules/watchTestimonialRestored/watchTestimonialRestored.samples.iml.json"
+        }
+      },
+      "watchTestimonialTrashed": {
+        "label": "Watch Testimonial Moved to Trash",
+        "description": "Triggers when a testimonial is moved to the trash. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialTrashedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialTrashed/watchTestimonialTrashed.communication.iml.json",
+          "staticParams": "modules/watchTestimonialTrashed/watchTestimonialTrashed.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialTrashed/watchTestimonialTrashed.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialTrashed/watchTestimonialTrashed.interface.iml.json",
+          "samples": "modules/watchTestimonialTrashed/watchTestimonialTrashed.samples.iml.json"
+        }
+      },
+      "watchTestimonialDeleted": {
+        "label": "Watch Testimonial Deleted",
+        "description": "Triggers when a testimonial is deleted permanently, by a person or when the trash is emptied. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialDeletedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialDeleted/watchTestimonialDeleted.communication.iml.json",
+          "staticParams": "modules/watchTestimonialDeleted/watchTestimonialDeleted.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialDeleted/watchTestimonialDeleted.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialDeleted/watchTestimonialDeleted.interface.iml.json",
+          "samples": "modules/watchTestimonialDeleted/watchTestimonialDeleted.samples.iml.json"
+        }
+      },
+      "watchTestimonialFormSubmitted": {
+        "label": "Watch Testimonial Form Submitted",
+        "description": "Triggers when someone completes a testimonial form, whether it became a testimonial or private feedback. Never includes their email address. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialFormSubmittedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialFormSubmitted/watchTestimonialFormSubmitted.communication.iml.json",
+          "staticParams": "modules/watchTestimonialFormSubmitted/watchTestimonialFormSubmitted.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialFormSubmitted/watchTestimonialFormSubmitted.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialFormSubmitted/watchTestimonialFormSubmitted.interface.iml.json",
+          "samples": "modules/watchTestimonialFormSubmitted/watchTestimonialFormSubmitted.samples.iml.json"
+        }
+      },
+      "watchTestimonialRequestSent": {
+        "label": "Watch Testimonial Request Sent",
+        "description": "Triggers when the first emails of a testimonial request go out. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialRequestSentHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialRequestSent/watchTestimonialRequestSent.communication.iml.json",
+          "staticParams": "modules/watchTestimonialRequestSent/watchTestimonialRequestSent.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialRequestSent/watchTestimonialRequestSent.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialRequestSent/watchTestimonialRequestSent.interface.iml.json",
+          "samples": "modules/watchTestimonialRequestSent/watchTestimonialRequestSent.samples.iml.json"
+        }
+      },
+      "watchTestimonialRequestCompleted": {
+        "label": "Watch Testimonial Request Finished",
+        "description": "Triggers when a testimonial request finishes: every person replied, opted out or got every email. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialRequestCompletedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialRequestCompleted/watchTestimonialRequestCompleted.communication.iml.json",
+          "staticParams": "modules/watchTestimonialRequestCompleted/watchTestimonialRequestCompleted.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialRequestCompleted/watchTestimonialRequestCompleted.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialRequestCompleted/watchTestimonialRequestCompleted.interface.iml.json",
+          "samples": "modules/watchTestimonialRequestCompleted/watchTestimonialRequestCompleted.samples.iml.json"
+        }
+      },
+      "watchTestimonialImportFinished": {
+        "label": "Watch Testimonial Import Finished",
+        "description": "Triggers when an import of testimonials or reviews finishes reading, or fails. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialImportFinishedHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialImportFinished/watchTestimonialImportFinished.communication.iml.json",
+          "staticParams": "modules/watchTestimonialImportFinished/watchTestimonialImportFinished.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialImportFinished/watchTestimonialImportFinished.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialImportFinished/watchTestimonialImportFinished.interface.iml.json",
+          "samples": "modules/watchTestimonialImportFinished/watchTestimonialImportFinished.samples.iml.json"
+        }
+      },
+      "watchTestimonialSyncNewFound": {
+        "label": "Watch New Reviews Found by Sync",
+        "description": "Triggers when an automatic sync of a review platform stores new reviews. Make creates the webhook in Privatus Analytics for you and removes it when the scenario no longer uses it.",
+        "moduleType": "instant_trigger",
+        "connection": "privatusAnalytics",
+        "webhook": "testimonialSyncNewFoundHook",
+        "codeFiles": {
+          "communication": "modules/watchTestimonialSyncNewFound/watchTestimonialSyncNewFound.communication.iml.json",
+          "staticParams": "modules/watchTestimonialSyncNewFound/watchTestimonialSyncNewFound.static-params.iml.json",
+          "mappableParams": "modules/watchTestimonialSyncNewFound/watchTestimonialSyncNewFound.mappable-params.iml.json",
+          "interface": "modules/watchTestimonialSyncNewFound/watchTestimonialSyncNewFound.interface.iml.json",
+          "samples": "modules/watchTestimonialSyncNewFound/watchTestimonialSyncNewFound.samples.iml.json"
+        }
+      }
+    },
+    "rpc": {
+      "listSites": {
+        "label": "List Sites",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listSites/listSites.communication.iml.json",
+          "params": "rpcs/listSites/listSites.params.iml.json"
+        }
+      },
+      "listGoals": {
+        "label": "List Goals",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listGoals/listGoals.communication.iml.json",
+          "params": "rpcs/listGoals/listGoals.params.iml.json"
+        }
+      },
+      "listSegments": {
+        "label": "List Segments",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listSegments/listSegments.communication.iml.json",
+          "params": "rpcs/listSegments/listSegments.params.iml.json"
+        }
+      },
+      "listAlertRules": {
+        "label": "List Alert Rules",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listAlertRules/listAlertRules.communication.iml.json",
+          "params": "rpcs/listAlertRules/listAlertRules.params.iml.json"
+        }
+      },
+      "listUptimeChecks": {
+        "label": "List Uptime Checks",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listUptimeChecks/listUptimeChecks.communication.iml.json",
+          "params": "rpcs/listUptimeChecks/listUptimeChecks.params.iml.json"
+        }
+      },
+      "listStatusPages": {
+        "label": "List Status Pages",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listStatusPages/listStatusPages.communication.iml.json",
+          "params": "rpcs/listStatusPages/listStatusPages.params.iml.json"
+        }
+      },
+      "listExperiments": {
+        "label": "List Experiments",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listExperiments/listExperiments.communication.iml.json",
+          "params": "rpcs/listExperiments/listExperiments.params.iml.json"
+        }
+      },
+      "listTestimonialForms": {
+        "label": "List Testimonial Forms",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listTestimonialForms/listTestimonialForms.communication.iml.json",
+          "params": "rpcs/listTestimonialForms/listTestimonialForms.params.iml.json"
+        }
+      },
+      "listTestimonialRequests": {
+        "label": "List Testimonial Requests",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listTestimonialRequests/listTestimonialRequests.communication.iml.json",
+          "params": "rpcs/listTestimonialRequests/listTestimonialRequests.params.iml.json"
+        }
+      },
+      "listTestimonials": {
+        "label": "List Testimonials",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listTestimonials/listTestimonials.communication.iml.json",
+          "params": "rpcs/listTestimonials/listTestimonials.params.iml.json"
+        }
+      },
+      "listTestimonialTags": {
+        "label": "List Testimonial Tags",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listTestimonialTags/listTestimonialTags.communication.iml.json",
+          "params": "rpcs/listTestimonialTags/listTestimonialTags.params.iml.json"
+        }
+      },
+      "listTestimonialCollections": {
+        "label": "List Testimonial Collections",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "rpcs/listTestimonialCollections/listTestimonialCollections.communication.iml.json",
+          "params": "rpcs/listTestimonialCollections/listTestimonialCollections.params.iml.json"
+        }
+      }
+    },
+    "webhook": {
+      "alertTriggeredHook": {
+        "type": "web",
+        "label": "Alert Triggered",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/alertTriggeredHook/alertTriggeredHook.communication.iml.json",
+          "params": "webhooks/alertTriggeredHook/alertTriggeredHook.params.iml.json",
+          "attach": "webhooks/alertTriggeredHook/alertTriggeredHook.attach.iml.json",
+          "detach": "webhooks/alertTriggeredHook/alertTriggeredHook.detach.iml.json"
+        }
+      },
+      "alertResolvedHook": {
+        "type": "web",
+        "label": "Alert Resolved",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/alertResolvedHook/alertResolvedHook.communication.iml.json",
+          "params": "webhooks/alertResolvedHook/alertResolvedHook.params.iml.json",
+          "attach": "webhooks/alertResolvedHook/alertResolvedHook.attach.iml.json",
+          "detach": "webhooks/alertResolvedHook/alertResolvedHook.detach.iml.json"
+        }
+      },
+      "goalAlertTriggeredHook": {
+        "type": "web",
+        "label": "Goal Alert Triggered",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/goalAlertTriggeredHook/goalAlertTriggeredHook.communication.iml.json",
+          "params": "webhooks/goalAlertTriggeredHook/goalAlertTriggeredHook.params.iml.json",
+          "attach": "webhooks/goalAlertTriggeredHook/goalAlertTriggeredHook.attach.iml.json",
+          "detach": "webhooks/goalAlertTriggeredHook/goalAlertTriggeredHook.detach.iml.json"
+        }
+      },
+      "usageThresholdHook": {
+        "type": "web",
+        "label": "Usage Threshold Reached",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/usageThresholdHook/usageThresholdHook.communication.iml.json",
+          "params": "webhooks/usageThresholdHook/usageThresholdHook.params.iml.json",
+          "attach": "webhooks/usageThresholdHook/usageThresholdHook.attach.iml.json",
+          "detach": "webhooks/usageThresholdHook/usageThresholdHook.detach.iml.json"
+        }
+      },
+      "uptimeDownHook": {
+        "type": "web",
+        "label": "Uptime Check Down",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/uptimeDownHook/uptimeDownHook.communication.iml.json",
+          "params": "webhooks/uptimeDownHook/uptimeDownHook.params.iml.json",
+          "attach": "webhooks/uptimeDownHook/uptimeDownHook.attach.iml.json",
+          "detach": "webhooks/uptimeDownHook/uptimeDownHook.detach.iml.json"
+        }
+      },
+      "uptimeUpHook": {
+        "type": "web",
+        "label": "Uptime Check Recovered",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/uptimeUpHook/uptimeUpHook.communication.iml.json",
+          "params": "webhooks/uptimeUpHook/uptimeUpHook.params.iml.json",
+          "attach": "webhooks/uptimeUpHook/uptimeUpHook.attach.iml.json",
+          "detach": "webhooks/uptimeUpHook/uptimeUpHook.detach.iml.json"
+        }
+      },
+      "siteCreatedHook": {
+        "type": "web",
+        "label": "New Site",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/siteCreatedHook/siteCreatedHook.communication.iml.json",
+          "params": "webhooks/siteCreatedHook/siteCreatedHook.params.iml.json",
+          "attach": "webhooks/siteCreatedHook/siteCreatedHook.attach.iml.json",
+          "detach": "webhooks/siteCreatedHook/siteCreatedHook.detach.iml.json"
+        }
+      },
+      "siteDeletedHook": {
+        "type": "web",
+        "label": "Site Deleted",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/siteDeletedHook/siteDeletedHook.communication.iml.json",
+          "params": "webhooks/siteDeletedHook/siteDeletedHook.params.iml.json",
+          "attach": "webhooks/siteDeletedHook/siteDeletedHook.attach.iml.json",
+          "detach": "webhooks/siteDeletedHook/siteDeletedHook.detach.iml.json"
+        }
+      },
+      "memberAddedHook": {
+        "type": "web",
+        "label": "New Member",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/memberAddedHook/memberAddedHook.communication.iml.json",
+          "params": "webhooks/memberAddedHook/memberAddedHook.params.iml.json",
+          "attach": "webhooks/memberAddedHook/memberAddedHook.attach.iml.json",
+          "detach": "webhooks/memberAddedHook/memberAddedHook.detach.iml.json"
+        }
+      },
+      "exportReadyHook": {
+        "type": "web",
+        "label": "Export Ready",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/exportReadyHook/exportReadyHook.communication.iml.json",
+          "params": "webhooks/exportReadyHook/exportReadyHook.params.iml.json",
+          "attach": "webhooks/exportReadyHook/exportReadyHook.attach.iml.json",
+          "detach": "webhooks/exportReadyHook/exportReadyHook.detach.iml.json"
+        }
+      },
+      "importCompletedHook": {
+        "type": "web",
+        "label": "Analytics Import Completed",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/importCompletedHook/importCompletedHook.communication.iml.json",
+          "params": "webhooks/importCompletedHook/importCompletedHook.params.iml.json",
+          "attach": "webhooks/importCompletedHook/importCompletedHook.attach.iml.json",
+          "detach": "webhooks/importCompletedHook/importCompletedHook.detach.iml.json"
+        }
+      },
+      "importFailedHook": {
+        "type": "web",
+        "label": "Analytics Import Failed",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/importFailedHook/importFailedHook.communication.iml.json",
+          "params": "webhooks/importFailedHook/importFailedHook.params.iml.json",
+          "attach": "webhooks/importFailedHook/importFailedHook.attach.iml.json",
+          "detach": "webhooks/importFailedHook/importFailedHook.detach.iml.json"
+        }
+      },
+      "siteAuditCompletedHook": {
+        "type": "web",
+        "label": "Site Audit Completed",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/siteAuditCompletedHook/siteAuditCompletedHook.communication.iml.json",
+          "params": "webhooks/siteAuditCompletedHook/siteAuditCompletedHook.params.iml.json",
+          "attach": "webhooks/siteAuditCompletedHook/siteAuditCompletedHook.attach.iml.json",
+          "detach": "webhooks/siteAuditCompletedHook/siteAuditCompletedHook.detach.iml.json"
+        }
+      },
+      "experimentEndedHook": {
+        "type": "web",
+        "label": "Experiment Ended",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/experimentEndedHook/experimentEndedHook.communication.iml.json",
+          "params": "webhooks/experimentEndedHook/experimentEndedHook.params.iml.json",
+          "attach": "webhooks/experimentEndedHook/experimentEndedHook.attach.iml.json",
+          "detach": "webhooks/experimentEndedHook/experimentEndedHook.detach.iml.json"
+        }
+      },
+      "testimonialReceivedHook": {
+        "type": "web",
+        "label": "New Testimonial",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialReceivedHook/testimonialReceivedHook.communication.iml.json",
+          "params": "webhooks/testimonialReceivedHook/testimonialReceivedHook.params.iml.json",
+          "attach": "webhooks/testimonialReceivedHook/testimonialReceivedHook.attach.iml.json",
+          "detach": "webhooks/testimonialReceivedHook/testimonialReceivedHook.detach.iml.json"
+        }
+      },
+      "testimonialApprovedHook": {
+        "type": "web",
+        "label": "Testimonial Approved",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialApprovedHook/testimonialApprovedHook.communication.iml.json",
+          "params": "webhooks/testimonialApprovedHook/testimonialApprovedHook.params.iml.json",
+          "attach": "webhooks/testimonialApprovedHook/testimonialApprovedHook.attach.iml.json",
+          "detach": "webhooks/testimonialApprovedHook/testimonialApprovedHook.detach.iml.json"
+        }
+      },
+      "testimonialRejectedHook": {
+        "type": "web",
+        "label": "Testimonial Rejected",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialRejectedHook/testimonialRejectedHook.communication.iml.json",
+          "params": "webhooks/testimonialRejectedHook/testimonialRejectedHook.params.iml.json",
+          "attach": "webhooks/testimonialRejectedHook/testimonialRejectedHook.attach.iml.json",
+          "detach": "webhooks/testimonialRejectedHook/testimonialRejectedHook.detach.iml.json"
+        }
+      },
+      "testimonialRestoredHook": {
+        "type": "web",
+        "label": "Testimonial Restored",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialRestoredHook/testimonialRestoredHook.communication.iml.json",
+          "params": "webhooks/testimonialRestoredHook/testimonialRestoredHook.params.iml.json",
+          "attach": "webhooks/testimonialRestoredHook/testimonialRestoredHook.attach.iml.json",
+          "detach": "webhooks/testimonialRestoredHook/testimonialRestoredHook.detach.iml.json"
+        }
+      },
+      "testimonialTrashedHook": {
+        "type": "web",
+        "label": "Testimonial Moved to Trash",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialTrashedHook/testimonialTrashedHook.communication.iml.json",
+          "params": "webhooks/testimonialTrashedHook/testimonialTrashedHook.params.iml.json",
+          "attach": "webhooks/testimonialTrashedHook/testimonialTrashedHook.attach.iml.json",
+          "detach": "webhooks/testimonialTrashedHook/testimonialTrashedHook.detach.iml.json"
+        }
+      },
+      "testimonialDeletedHook": {
+        "type": "web",
+        "label": "Testimonial Deleted",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialDeletedHook/testimonialDeletedHook.communication.iml.json",
+          "params": "webhooks/testimonialDeletedHook/testimonialDeletedHook.params.iml.json",
+          "attach": "webhooks/testimonialDeletedHook/testimonialDeletedHook.attach.iml.json",
+          "detach": "webhooks/testimonialDeletedHook/testimonialDeletedHook.detach.iml.json"
+        }
+      },
+      "testimonialFormSubmittedHook": {
+        "type": "web",
+        "label": "Testimonial Form Submitted",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialFormSubmittedHook/testimonialFormSubmittedHook.communication.iml.json",
+          "params": "webhooks/testimonialFormSubmittedHook/testimonialFormSubmittedHook.params.iml.json",
+          "attach": "webhooks/testimonialFormSubmittedHook/testimonialFormSubmittedHook.attach.iml.json",
+          "detach": "webhooks/testimonialFormSubmittedHook/testimonialFormSubmittedHook.detach.iml.json"
+        }
+      },
+      "testimonialRequestSentHook": {
+        "type": "web",
+        "label": "Testimonial Request Sent",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialRequestSentHook/testimonialRequestSentHook.communication.iml.json",
+          "params": "webhooks/testimonialRequestSentHook/testimonialRequestSentHook.params.iml.json",
+          "attach": "webhooks/testimonialRequestSentHook/testimonialRequestSentHook.attach.iml.json",
+          "detach": "webhooks/testimonialRequestSentHook/testimonialRequestSentHook.detach.iml.json"
+        }
+      },
+      "testimonialRequestCompletedHook": {
+        "type": "web",
+        "label": "Testimonial Request Finished",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialRequestCompletedHook/testimonialRequestCompletedHook.communication.iml.json",
+          "params": "webhooks/testimonialRequestCompletedHook/testimonialRequestCompletedHook.params.iml.json",
+          "attach": "webhooks/testimonialRequestCompletedHook/testimonialRequestCompletedHook.attach.iml.json",
+          "detach": "webhooks/testimonialRequestCompletedHook/testimonialRequestCompletedHook.detach.iml.json"
+        }
+      },
+      "testimonialImportFinishedHook": {
+        "type": "web",
+        "label": "Testimonial Import Finished",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialImportFinishedHook/testimonialImportFinishedHook.communication.iml.json",
+          "params": "webhooks/testimonialImportFinishedHook/testimonialImportFinishedHook.params.iml.json",
+          "attach": "webhooks/testimonialImportFinishedHook/testimonialImportFinishedHook.attach.iml.json",
+          "detach": "webhooks/testimonialImportFinishedHook/testimonialImportFinishedHook.detach.iml.json"
+        }
+      },
+      "testimonialSyncNewFoundHook": {
+        "type": "web",
+        "label": "New Reviews Found by Sync",
+        "connection": "privatusAnalytics",
+        "codeFiles": {
+          "communication": "webhooks/testimonialSyncNewFoundHook/testimonialSyncNewFoundHook.communication.iml.json",
+          "params": "webhooks/testimonialSyncNewFoundHook/testimonialSyncNewFoundHook.params.iml.json",
+          "attach": "webhooks/testimonialSyncNewFoundHook/testimonialSyncNewFoundHook.attach.iml.json",
+          "detach": "webhooks/testimonialSyncNewFoundHook/testimonialSyncNewFoundHook.detach.iml.json"
+        }
+      }
+    },
+    "function": {}
+  },
+  "origins": [
+    {
+      "label": "Testing",
+      "baseUrl": "https://eu1.make.com/api",
+      "appId": "privatus-analytics-test",
+      "appVersion": 1,
+      "apikeyFile": "../.secrets/apikey",
+      "changesCount": 0,
+      "components": {}
+    }
+  ]
+}

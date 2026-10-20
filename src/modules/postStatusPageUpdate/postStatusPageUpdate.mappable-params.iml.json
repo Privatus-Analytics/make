@@ -1,0 +1,61 @@
+[
+  {
+    "name": "status_page_id",
+    "type": "select",
+    "options": "rpc://listStatusPages",
+    "label": "Status Page",
+    "help": "The status page (sp_...).",
+    "required": true
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "help": "Headline of the update, max 200 characters",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "help": "Update text, plain text, max 10,000 characters",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "help": "investigating, identified, monitoring or resolved",
+    "type": "select",
+    "options": [
+      {
+        "label": "investigating",
+        "value": "investigating"
+      },
+      {
+        "label": "identified",
+        "value": "identified"
+      },
+      {
+        "label": "monitoring",
+        "value": "monitoring"
+      },
+      {
+        "label": "resolved",
+        "value": "resolved"
+      }
+    ],
+    "default": "investigating"
+  },
+  {
+    "name": "posted_at",
+    "label": "Posted At",
+    "help": "When it happened. Defaults to now. Posts are sorted by this time.",
+    "type": "date"
+  },
+  {
+    "name": "notify",
+    "label": "Notify",
+    "help": "Email confirmed subscribers of a published page. Default true",
+    "type": "boolean",
+    "default": true
+  }
+]

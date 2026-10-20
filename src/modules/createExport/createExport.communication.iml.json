@@ -1,0 +1,21 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/exports.json",
+  "method": "POST",
+  "body": {
+    "site_id": "{{ifempty(parameters.site_id, undefined)}}",
+    "kind": "{{ifempty(parameters.kind, undefined)}}",
+    "file_format": "{{ifempty(parameters.file_format, undefined)}}",
+    "from": "{{if(parameters.from, formatDate(parameters.from, 'YYYY-MM-DD'), undefined)}}",
+    "to": "{{if(parameters.to, formatDate(parameters.to, 'YYYY-MM-DD'), undefined)}}",
+    "timezone": "{{ifempty(parameters.timezone, undefined)}}",
+    "grouping": "{{ifempty(parameters.grouping, undefined)}}",
+    "dimensions": "{{if(length(parameters.dimensions) > 0, parameters.dimensions, undefined)}}",
+    "metrics": "{{if(length(parameters.metrics) > 0, parameters.metrics, undefined)}}",
+    "fields": "{{if(length(parameters.fields) > 0, parameters.fields, undefined)}}",
+    "filters": "{{if(parameters.filters, parseJSON(parameters.filters), undefined)}}",
+    "segment_id": "{{ifempty(parameters.segment_id, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

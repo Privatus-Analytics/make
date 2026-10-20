@@ -1,0 +1,30 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials.json",
+  "method": "GET",
+  "qs": {
+    "q": "{{ifempty(parameters.q, undefined)}}",
+    "sort": "{{ifempty(parameters.sort, undefined)}}",
+    "status[]": "{{if(length(parameters.status) > 0, parameters.status, undefined)}}",
+    "kind[]": "{{if(length(parameters.kind) > 0, parameters.kind, undefined)}}",
+    "rating[]": "{{if(length(parameters.rating) > 0, parameters.rating, undefined)}}",
+    "form_id[]": "{{if(length(parameters.form_id) > 0, parameters.form_id, undefined)}}",
+    "tag_id[]": "{{if(length(parameters.tag_id) > 0, parameters.tag_id, undefined)}}",
+    "collection_id[]": "{{if(length(parameters.collection_id) > 0, parameters.collection_id, undefined)}}",
+    "language[]": "{{if(length(parameters.language) > 0, parameters.language, undefined)}}",
+    "received_from": "{{if(parameters.received_from, formatDate(parameters.received_from, 'YYYY-MM-DD'), undefined)}}",
+    "received_to": "{{if(parameters.received_to, formatDate(parameters.received_to, 'YYYY-MM-DD'), undefined)}}",
+    "pinned": "{{ifempty(parameters.pinned, undefined)}}",
+    "per_page": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

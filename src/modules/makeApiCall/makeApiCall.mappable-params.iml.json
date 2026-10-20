@@ -1,0 +1,82 @@
+[
+  {
+    "name": "url",
+    "label": "URL",
+    "type": "text",
+    "required": true,
+    "help": "A path relative to https://privatusanalytics.com, like /sites/pa_7Q2K9XH3AB/stats/aggregate.json. It must start with a slash. Every endpoint is listed at https://privatusanalytics.com/docs/api.",
+    "validate": {
+      "pattern": "^/(?!/)"
+    }
+  },
+  {
+    "name": "method",
+    "label": "Method",
+    "type": "select",
+    "required": true,
+    "default": "GET",
+    "options": [
+      {
+        "label": "GET",
+        "value": "GET"
+      },
+      {
+        "label": "POST",
+        "value": "POST"
+      },
+      {
+        "label": "PATCH",
+        "value": "PATCH"
+      },
+      {
+        "label": "PUT",
+        "value": "PUT"
+      }
+    ],
+    "help": "The HTTP method. Deleting data is not available in this module."
+  },
+  {
+    "name": "headers",
+    "label": "Headers",
+    "type": "array",
+    "help": "Extra request headers. The Authorization header is added for you.",
+    "spec": [
+      {
+        "name": "key",
+        "label": "Key",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "qs",
+    "label": "Query String",
+    "type": "array",
+    "help": "Query string parameters, like period = 30d. For a list, write the key with brackets, like status[], once for each value.",
+    "spec": [
+      {
+        "name": "key",
+        "label": "Key",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "type": "any",
+    "help": "The request body as JSON, for POST, PATCH and PUT."
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "url": "/alerts/{{parameters.id}}/acknowledge.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

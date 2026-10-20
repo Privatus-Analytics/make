@@ -1,0 +1,7 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/{{parameters.id}}.json",
+  "method": "GET",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "date",
+    "label": "Date",
+    "type": "date"
+  },
+  {
+    "name": "interval",
+    "label": "Interval",
+    "type": "text"
+  },
+  {
+    "name": "visitors",
+    "label": "Visitors",
+    "type": "number"
+  },
+  {
+    "name": "visits",
+    "label": "Visits",
+    "type": "number"
+  },
+  {
+    "name": "pageviews",
+    "label": "Pageviews",
+    "type": "number"
+  },
+  {
+    "name": "views_per_visit",
+    "label": "Views Per Visit",
+    "type": "number"
+  },
+  {
+    "name": "bounce_rate",
+    "label": "Bounce Rate",
+    "type": "number"
+  },
+  {
+    "name": "visit_duration",
+    "label": "Visit Duration",
+    "type": "number"
+  },
+  {
+    "name": "revenue",
+    "label": "Revenue",
+    "type": "number"
+  }
+]

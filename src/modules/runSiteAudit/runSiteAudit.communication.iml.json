@@ -1,0 +1,7 @@
+{
+  "url": "/sites/{{parameters.site_id}}/audit.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

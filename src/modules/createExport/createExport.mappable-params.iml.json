@@ -1,0 +1,317 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site to export.",
+    "required": true
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "help": "What to export. aggregated (default) is visit metrics per time bucket and dimension. pageviews, events and raw are one row per hit (pageviews only, custom events only, every hit) and need the Pro plan or above. imported is imported daily stats. dashboard is a ZIP of the overview panels",
+    "type": "select",
+    "options": [
+      {
+        "label": "aggregated",
+        "value": "aggregated"
+      },
+      {
+        "label": "pageviews",
+        "value": "pageviews"
+      },
+      {
+        "label": "events",
+        "value": "events"
+      },
+      {
+        "label": "imported",
+        "value": "imported"
+      },
+      {
+        "label": "raw",
+        "value": "raw"
+      },
+      {
+        "label": "dashboard",
+        "value": "dashboard"
+      }
+    ],
+    "default": "aggregated"
+  },
+  {
+    "name": "file_format",
+    "label": "File Format",
+    "help": "File type, default csv. Allowed per kind: csv, json or xlsx for aggregated, pageviews, events and imported. csv or ndjson for raw. zip for dashboard",
+    "type": "select",
+    "options": [
+      {
+        "label": "csv",
+        "value": "csv"
+      },
+      {
+        "label": "json",
+        "value": "json"
+      },
+      {
+        "label": "xlsx",
+        "value": "xlsx"
+      },
+      {
+        "label": "ndjson",
+        "value": "ndjson"
+      },
+      {
+        "label": "zip",
+        "value": "zip"
+      }
+    ],
+    "default": "csv"
+  },
+  {
+    "name": "from",
+    "label": "From",
+    "help": "The first day to include.",
+    "type": "date",
+    "required": true
+  },
+  {
+    "name": "to",
+    "label": "To",
+    "help": "The last day to include (inclusive). At most 400 days after the first (93 days for raw).",
+    "type": "date",
+    "required": true
+  },
+  {
+    "name": "timezone",
+    "label": "Timezone",
+    "help": "IANA timezone name used for dates and time buckets, like America/New_York. Default is the site timezone",
+    "type": "text"
+  },
+  {
+    "name": "grouping",
+    "label": "Grouping",
+    "help": "Time bucket for aggregated exports (also used by dashboard): hour, day (default), week, month, quarter or year",
+    "type": "select",
+    "options": [
+      {
+        "label": "hour",
+        "value": "hour"
+      },
+      {
+        "label": "day",
+        "value": "day"
+      },
+      {
+        "label": "week",
+        "value": "week"
+      },
+      {
+        "label": "month",
+        "value": "month"
+      },
+      {
+        "label": "quarter",
+        "value": "quarter"
+      },
+      {
+        "label": "year",
+        "value": "year"
+      }
+    ],
+    "default": "day"
+  },
+  {
+    "name": "dimensions",
+    "label": "Dimensions",
+    "help": "Up to 6 names to group by. For aggregated: channel, referrer, referrer_url, utm_source, utm_medium, utm_campaign, utm_content, utm_term, ref, hostname, country, language, device, browser, browser_version, os, os_version, screen, entry_page, exit_page or interaction. For imported: total, page, source, country, device, browser or os. Ignored for other kinds",
+    "type": "array",
+    "spec": {
+      "type": "text"
+    }
+  },
+  {
+    "name": "metrics",
+    "label": "Metrics",
+    "help": "Metric columns for aggregated exports. Empty means all of them",
+    "type": "select",
+    "multiple": true,
+    "options": [
+      {
+        "label": "visitors",
+        "value": "visitors"
+      },
+      {
+        "label": "visits",
+        "value": "visits"
+      },
+      {
+        "label": "pageviews",
+        "value": "pageviews"
+      },
+      {
+        "label": "bounce_rate",
+        "value": "bounce_rate"
+      },
+      {
+        "label": "visit_duration",
+        "value": "visit_duration"
+      },
+      {
+        "label": "views_per_visit",
+        "value": "views_per_visit"
+      },
+      {
+        "label": "revenue",
+        "value": "revenue"
+      }
+    ]
+  },
+  {
+    "name": "fields",
+    "label": "Fields",
+    "help": "Columns for pageviews, events and raw exports. Empty means all except visit_id, vital_value and selector. props only includes event properties marked safe to export. revenue_minor is in minor currency units. Ignored for other kinds",
+    "type": "select",
+    "multiple": true,
+    "options": [
+      {
+        "label": "occurred_at",
+        "value": "occurred_at"
+      },
+      {
+        "label": "kind",
+        "value": "kind"
+      },
+      {
+        "label": "name",
+        "value": "name"
+      },
+      {
+        "label": "visit_id",
+        "value": "visit_id"
+      },
+      {
+        "label": "hostname",
+        "value": "hostname"
+      },
+      {
+        "label": "path",
+        "value": "path"
+      },
+      {
+        "label": "referrer_host",
+        "value": "referrer_host"
+      },
+      {
+        "label": "referrer_path",
+        "value": "referrer_path"
+      },
+      {
+        "label": "channel",
+        "value": "channel"
+      },
+      {
+        "label": "utm_source",
+        "value": "utm_source"
+      },
+      {
+        "label": "utm_medium",
+        "value": "utm_medium"
+      },
+      {
+        "label": "utm_campaign",
+        "value": "utm_campaign"
+      },
+      {
+        "label": "utm_content",
+        "value": "utm_content"
+      },
+      {
+        "label": "utm_term",
+        "value": "utm_term"
+      },
+      {
+        "label": "ref",
+        "value": "ref"
+      },
+      {
+        "label": "paid_click",
+        "value": "paid_click"
+      },
+      {
+        "label": "country",
+        "value": "country"
+      },
+      {
+        "label": "language",
+        "value": "language"
+      },
+      {
+        "label": "device",
+        "value": "device"
+      },
+      {
+        "label": "browser",
+        "value": "browser"
+      },
+      {
+        "label": "browser_major",
+        "value": "browser_major"
+      },
+      {
+        "label": "os",
+        "value": "os"
+      },
+      {
+        "label": "os_major",
+        "value": "os_major"
+      },
+      {
+        "label": "screen_bucket",
+        "value": "screen_bucket"
+      },
+      {
+        "label": "engaged_ms",
+        "value": "engaged_ms"
+      },
+      {
+        "label": "scroll_depth",
+        "value": "scroll_depth"
+      },
+      {
+        "label": "revenue_minor",
+        "value": "revenue_minor"
+      },
+      {
+        "label": "currency",
+        "value": "currency"
+      },
+      {
+        "label": "vital_value",
+        "value": "vital_value"
+      },
+      {
+        "label": "selector",
+        "value": "selector"
+      },
+      {
+        "label": "props",
+        "value": "props"
+      }
+    ]
+  },
+  {
+    "name": "filters",
+    "label": "Filters",
+    "help": "A JSON list of filters, each [dimension, operator, value], like [[\"country\",\"is\",\"US\"]].",
+    "type": "json"
+  },
+  {
+    "name": "segment_id",
+    "type": "select",
+    "options": "rpc://listSegments",
+    "label": "Segment",
+    "help": "A saved segment. Its filters are added to the filters above."
+  }
+]

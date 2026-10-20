@@ -1,0 +1,182 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "type": "text"
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "type": "text"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "type": "text"
+  },
+  {
+    "name": "rating",
+    "label": "Rating",
+    "type": "number"
+  },
+  {
+    "name": "highlight",
+    "label": "Highlight",
+    "type": "text"
+  },
+  {
+    "name": "language",
+    "label": "Language",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "type": "text"
+  },
+  {
+    "name": "pinned",
+    "label": "Pinned",
+    "type": "boolean"
+  },
+  {
+    "name": "received_at",
+    "label": "Received At",
+    "type": "date"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "source",
+    "label": "Source",
+    "type": "text"
+  },
+  {
+    "name": "source_platform",
+    "label": "Source Platform",
+    "type": "text"
+  },
+  {
+    "name": "source_name",
+    "label": "Source Name",
+    "type": "text"
+  },
+  {
+    "name": "source_url",
+    "label": "Source URL",
+    "type": "text"
+  },
+  {
+    "name": "external_id",
+    "label": "External",
+    "type": "text"
+  },
+  {
+    "name": "verified",
+    "label": "Verified",
+    "type": "boolean"
+  },
+  {
+    "name": "verified_reason",
+    "label": "Verified Reason",
+    "type": "text"
+  },
+  {
+    "name": "properties",
+    "label": "Properties",
+    "type": "collection"
+  },
+  {
+    "name": "waiting_for_allowance",
+    "label": "Waiting For Allowance",
+    "type": "boolean"
+  },
+  {
+    "name": "edited",
+    "label": "Edited",
+    "type": "boolean"
+  },
+  {
+    "name": "possible_duplicate",
+    "label": "Possible Duplicate",
+    "type": "boolean"
+  },
+  {
+    "name": "person",
+    "label": "Person",
+    "type": "collection"
+  },
+  {
+    "name": "media",
+    "label": "Media",
+    "type": "array"
+  },
+  {
+    "name": "consent",
+    "label": "Consent",
+    "type": "collection"
+  },
+  {
+    "name": "tags",
+    "label": "Tags",
+    "type": "array"
+  },
+  {
+    "name": "collections",
+    "label": "Collections",
+    "type": "array"
+  },
+  {
+    "name": "used_in",
+    "label": "Used In",
+    "type": "array"
+  },
+  {
+    "name": "used_count",
+    "label": "Used Count",
+    "type": "number"
+  },
+  {
+    "name": "permalink",
+    "label": "Permalink",
+    "type": "boolean"
+  },
+  {
+    "name": "permalink_url",
+    "label": "Permalink URL",
+    "type": "text"
+  },
+  {
+    "name": "form_id",
+    "label": "Form",
+    "type": "text"
+  },
+  {
+    "name": "request_id",
+    "label": "Request",
+    "type": "text"
+  },
+  {
+    "name": "import_source_id",
+    "label": "Import Source",
+    "type": "text"
+  },
+  {
+    "name": "deleted_at",
+    "label": "Deleted At",
+    "type": "date"
+  }
+]

@@ -1,0 +1,183 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "period",
+    "label": "Period",
+    "help": "Date range preset, in the site's timezone: today, yesterday, 24h (last 24 hours), 7d, 14d, 28d, 30d, 90d (the last N days), mtd (month to date), last_month, qtd (quarter to date), last_quarter, ytd (year to date), 12mo, last_year, all (all time), or custom (then the range is from to to)",
+    "type": "select",
+    "options": [
+      {
+        "label": "today",
+        "value": "today"
+      },
+      {
+        "label": "yesterday",
+        "value": "yesterday"
+      },
+      {
+        "label": "24h",
+        "value": "24h"
+      },
+      {
+        "label": "7d",
+        "value": "7d"
+      },
+      {
+        "label": "14d",
+        "value": "14d"
+      },
+      {
+        "label": "28d",
+        "value": "28d"
+      },
+      {
+        "label": "30d",
+        "value": "30d"
+      },
+      {
+        "label": "90d",
+        "value": "90d"
+      },
+      {
+        "label": "mtd",
+        "value": "mtd"
+      },
+      {
+        "label": "last_month",
+        "value": "last_month"
+      },
+      {
+        "label": "qtd",
+        "value": "qtd"
+      },
+      {
+        "label": "last_quarter",
+        "value": "last_quarter"
+      },
+      {
+        "label": "ytd",
+        "value": "ytd"
+      },
+      {
+        "label": "12mo",
+        "value": "12mo"
+      },
+      {
+        "label": "last_year",
+        "value": "last_year"
+      },
+      {
+        "label": "all",
+        "value": "all"
+      },
+      {
+        "label": "custom",
+        "value": "custom"
+      }
+    ],
+    "required": true,
+    "default": "30d"
+  },
+  {
+    "name": "from",
+    "label": "From",
+    "help": "First day of the range as YYYY-MM-DD, in the site's timezone. Only used when period is custom. Without it the range starts 29 days before to",
+    "type": "date"
+  },
+  {
+    "name": "to",
+    "label": "To",
+    "help": "Last day of the range as YYYY-MM-DD, inclusive. Only used when period is custom. Without it the range ends today",
+    "type": "date"
+  },
+  {
+    "name": "compare",
+    "label": "Compare",
+    "help": "Also compute a comparison range: previous_period (the same length right before), previous_year (the same dates a year earlier), custom (needs both compare_from and compare_to) or none. Adds the comparison values and the percent change to the result",
+    "type": "select",
+    "options": [
+      {
+        "label": "none",
+        "value": "none"
+      },
+      {
+        "label": "previous_period",
+        "value": "previous_period"
+      },
+      {
+        "label": "previous_year",
+        "value": "previous_year"
+      }
+    ],
+    "default": "none"
+  },
+  {
+    "name": "filters",
+    "label": "Filters",
+    "help": "Filters that must all match: a list of [dimension, operator, value] conditions, e.g. [[\"country\",\"is\",\"US\"],[\"page\",\"starts_with\",\"/blog\"]]. Dimensions: channel, referrer, referrer_url, utm_source, utm_medium, utm_campaign, utm_content, utm_term, ref, hostname, country, language, device, browser, browser_version, os, os_version, screen, entry_page, exit_page, interaction, bot_score, page, event, goal, prop:<key>. Use the exact singular names (country, not countries). Values are as stored: country is a two-letter code such as US, channel is a name such as organic_search, a page is a path such as /pricing. Operators taking one value: is, is_not, contains, not_contains, starts_with, wildcard and not_wildcard (the value uses * as a wildcard, e.g. /blog/*), regex and not_regex (a Postgres regular expression of up to 200 characters), gt and lt (a number). any_of and none_of take a list: [\"country\",\"any_of\",[\"US\",\"DE\"]]. between takes two numbers: [\"prop:price\",\"between\",[10,50]]. For OR, wrap conditions in an object: {\"any\":[[\"channel\",\"is\",\"email\"],[\"utm_medium\",\"is\",\"email\"]]}. Up to 20 conditions.",
+    "type": "json"
+  },
+  {
+    "name": "segment_id",
+    "label": "Segment",
+    "help": "Apply a saved segment by its id (seg_…, from segments_list). Its filters are added to filters",
+    "type": "select",
+    "options": "rpc://listSegments"
+  },
+  {
+    "name": "interval",
+    "label": "Interval",
+    "help": "Bucket size: minute, hour, day, week, month, quarter or year. auto picks one that suits the range",
+    "type": "select",
+    "options": [
+      {
+        "label": "auto",
+        "value": "auto"
+      },
+      {
+        "label": "minute",
+        "value": "minute"
+      },
+      {
+        "label": "hour",
+        "value": "hour"
+      },
+      {
+        "label": "day",
+        "value": "day"
+      },
+      {
+        "label": "week",
+        "value": "week"
+      },
+      {
+        "label": "month",
+        "value": "month"
+      },
+      {
+        "label": "quarter",
+        "value": "quarter"
+      },
+      {
+        "label": "year",
+        "value": "year"
+      }
+    ],
+    "default": "day"
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10,
+    "help": "The maximum number of results Make returns during one execution cycle."
+  }
+]

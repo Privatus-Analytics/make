@@ -1,0 +1,92 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "type": "text"
+  },
+  {
+    "name": "match_type",
+    "label": "Match Type",
+    "type": "text"
+  },
+  {
+    "name": "pattern",
+    "label": "Pattern",
+    "type": "text"
+  },
+  {
+    "name": "hostname",
+    "label": "Hostname",
+    "type": "text"
+  },
+  {
+    "name": "event_name",
+    "label": "Event Name",
+    "type": "text"
+  },
+  {
+    "name": "conditions",
+    "label": "Conditions",
+    "type": "array"
+  },
+  {
+    "name": "scroll_threshold",
+    "label": "Scroll Threshold",
+    "type": "number"
+  },
+  {
+    "name": "time_threshold_seconds",
+    "label": "Time Threshold Seconds",
+    "type": "number"
+  },
+  {
+    "name": "value_mode",
+    "label": "Value Mode",
+    "type": "text"
+  },
+  {
+    "name": "fixed_value_minor",
+    "label": "Fixed Value Minor",
+    "type": "number"
+  },
+  {
+    "name": "count_mode",
+    "label": "Count Mode",
+    "type": "text"
+  },
+  {
+    "name": "archived",
+    "label": "Archived",
+    "type": "boolean"
+  },
+  {
+    "name": "archived_at",
+    "label": "Archived At",
+    "type": "date"
+  },
+  {
+    "name": "stats",
+    "label": "Stats",
+    "type": "collection"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "updated_at",
+    "label": "Updated At",
+    "type": "date"
+  }
+]

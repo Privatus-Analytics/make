@@ -1,0 +1,92 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "type": "text"
+  },
+  {
+    "name": "trigger",
+    "label": "Trigger",
+    "type": "text"
+  },
+  {
+    "name": "score",
+    "label": "Score",
+    "type": "number"
+  },
+  {
+    "name": "score_band",
+    "label": "Score Band",
+    "type": "text"
+  },
+  {
+    "name": "page_limit",
+    "label": "Page Limit",
+    "type": "number"
+  },
+  {
+    "name": "pages_crawled",
+    "label": "Pages Crawled",
+    "type": "number"
+  },
+  {
+    "name": "urls_discovered",
+    "label": "Urls Discovered",
+    "type": "number"
+  },
+  {
+    "name": "errors",
+    "label": "Errors",
+    "type": "number"
+  },
+  {
+    "name": "warnings",
+    "label": "Warnings",
+    "type": "number"
+  },
+  {
+    "name": "notices",
+    "label": "Notices",
+    "type": "number"
+  },
+  {
+    "name": "new_issues",
+    "label": "New Issues",
+    "type": "number"
+  },
+  {
+    "name": "fixed_issues",
+    "label": "Fixed Issues",
+    "type": "number"
+  },
+  {
+    "name": "failure",
+    "label": "Failure",
+    "type": "text"
+  },
+  {
+    "name": "started_at",
+    "label": "Started At",
+    "type": "date"
+  },
+  {
+    "name": "finished_at",
+    "label": "Finished At",
+    "type": "date"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  }
+]

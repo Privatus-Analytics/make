@@ -1,0 +1,18 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site that has the check. Only used to fill the Uptime Check list.",
+    "required": true
+  },
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listUptimeChecks",
+    "label": "Uptime Check",
+    "help": "The uptime check (upc_...). Choose the site first.",
+    "required": true
+  }
+]

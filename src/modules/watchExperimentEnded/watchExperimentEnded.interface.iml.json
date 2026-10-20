@@ -1,0 +1,123 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "site_id",
+        "label": "Site",
+        "type": "text"
+      },
+      {
+        "name": "experiment_id",
+        "label": "Experiment",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "label": "Name",
+        "type": "text"
+      },
+      {
+        "name": "path",
+        "label": "Path",
+        "type": "text"
+      },
+      {
+        "name": "end_reason",
+        "label": "End Reason",
+        "type": "text"
+      },
+      {
+        "name": "winner",
+        "label": "Winner",
+        "type": "collection",
+        "spec": [
+          {
+            "name": "id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "name": "variants",
+        "label": "Variants",
+        "type": "array",
+        "spec": [
+          {
+            "name": "id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text"
+          },
+          {
+            "name": "control",
+            "label": "Control",
+            "type": "boolean"
+          },
+          {
+            "name": "visits",
+            "label": "Visits",
+            "type": "number"
+          },
+          {
+            "name": "conversions",
+            "label": "Conversions",
+            "type": "number"
+          },
+          {
+            "name": "conversion_rate",
+            "label": "Conversion Rate",
+            "type": "number"
+          },
+          {
+            "name": "uplift",
+            "label": "Uplift",
+            "type": "text"
+          },
+          {
+            "name": "p_value",
+            "label": "P Value",
+            "type": "text"
+          },
+          {
+            "name": "chance",
+            "label": "Chance",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+]

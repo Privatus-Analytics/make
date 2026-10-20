@@ -1,0 +1,13 @@
+{
+  "name": "@privatus/make",
+  "version": "1.0.0",
+  "description": "Privatus Analytics custom app for Make: generator, offline validator and tests. No dependencies.",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "validate": "node scripts/validate.js",
+    "test": "node scripts/generate.js && node scripts/validate.js && node --test test/*.test.js"
+  }
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "type": "text"
+  },
+  {
+    "name": "path",
+    "label": "Path",
+    "type": "text"
+  },
+  {
+    "name": "placement_id",
+    "label": "Placement",
+    "type": "text"
+  },
+  {
+    "name": "paths",
+    "label": "Paths",
+    "type": "array"
+  },
+  {
+    "name": "goal_id",
+    "label": "Goal",
+    "type": "text"
+  },
+  {
+    "name": "goal_name",
+    "label": "Goal Name",
+    "type": "text"
+  },
+  {
+    "name": "secondary_goal_ids",
+    "label": "Secondary Goals",
+    "type": "array"
+  },
+  {
+    "name": "variants",
+    "label": "Variants",
+    "type": "array"
+  },
+  {
+    "name": "allocation",
+    "label": "Allocation",
+    "type": "text"
+  },
+  {
+    "name": "traffic_share",
+    "label": "Traffic Share",
+    "type": "number"
+  },
+  {
+    "name": "min_days",
+    "label": "Min Days",
+    "type": "number"
+  },
+  {
+    "name": "max_days",
+    "label": "Max Days",
+    "type": "number"
+  },
+  {
+    "name": "min_sample",
+    "label": "Min Sample",
+    "type": "number"
+  },
+  {
+    "name": "confidence",
+    "label": "Confidence",
+    "type": "number"
+  },
+  {
+    "name": "send_to_winner",
+    "label": "Send To Winner",
+    "type": "boolean"
+  },
+  {
+    "name": "devices",
+    "label": "Devices",
+    "type": "array"
+  },
+  {
+    "name": "countries",
+    "label": "Countries",
+    "type": "array"
+  },
+  {
+    "name": "channels",
+    "label": "Channels",
+    "type": "array"
+  },
+  {
+    "name": "exclusive_group",
+    "label": "Exclusive Group",
+    "type": "text"
+  },
+  {
+    "name": "starts_at",
+    "label": "Starts At",
+    "type": "date"
+  },
+  {
+    "name": "started_at",
+    "label": "Started At",
+    "type": "date"
+  },
+  {
+    "name": "ended_at",
+    "label": "Ended At",
+    "type": "date"
+  },
+  {
+    "name": "end_reason",
+    "label": "End Reason",
+    "type": "text"
+  },
+  {
+    "name": "winner_id",
+    "label": "Winner",
+    "type": "text"
+  },
+  {
+    "name": "locked",
+    "label": "Locked",
+    "type": "boolean"
+  },
+  {
+    "name": "stats",
+    "label": "Stats",
+    "type": "collection"
+  },
+  {
+    "name": "results",
+    "label": "Results",
+    "type": "collection"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "updated_at",
+    "label": "Updated At",
+    "type": "date"
+  }
+]

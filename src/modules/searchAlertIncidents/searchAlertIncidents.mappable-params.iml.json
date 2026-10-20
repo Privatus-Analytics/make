@@ -1,0 +1,25 @@
+[
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listAlertRules",
+    "label": "Alert Rule",
+    "help": "The alert rule (alr_...).",
+    "required": true
+  },
+  {
+    "name": "open",
+    "label": "Open",
+    "help": "true returns only incidents that have not resolved yet (default false returns all)",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10,
+    "help": "The maximum number of results Make returns during one execution cycle."
+  }
+]

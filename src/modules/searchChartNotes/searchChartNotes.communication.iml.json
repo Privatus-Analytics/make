@@ -1,0 +1,20 @@
+{
+  "url": "/sites/{{parameters.site_id}}/notes.json",
+  "method": "GET",
+  "qs": {
+    "source": "{{ifempty(parameters.source, undefined)}}",
+    "query": "{{ifempty(parameters.query, undefined)}}",
+    "per_page": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

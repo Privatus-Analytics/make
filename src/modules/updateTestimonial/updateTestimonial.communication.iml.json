@@ -1,0 +1,22 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/{{parameters.id}}.json",
+  "method": "PATCH",
+  "body": {
+    "body": "{{ifempty(parameters.body, undefined)}}",
+    "title": "{{ifempty(parameters.title, undefined)}}",
+    "rating": "{{parameters.rating}}",
+    "highlight": "{{ifempty(parameters.highlight, undefined)}}",
+    "language": "{{ifempty(parameters.language, undefined)}}",
+    "received_at": "{{ifempty(parameters.received_at, undefined)}}",
+    "source_name": "{{ifempty(parameters.source_name, undefined)}}",
+    "source_url": "{{ifempty(parameters.source_url, undefined)}}",
+    "properties": "{{if(parameters.properties, parseJSON(parameters.properties), undefined)}}",
+    "edit_note": "{{ifempty(parameters.edit_note, undefined)}}",
+    "add_tags": "{{if(length(parameters.add_tags) > 0, parameters.add_tags, undefined)}}",
+    "remove_tags": "{{if(length(parameters.remove_tags) > 0, parameters.remove_tags, undefined)}}",
+    "permalink": "{{parameters.permalink}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

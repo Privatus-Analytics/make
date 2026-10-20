@@ -1,0 +1,99 @@
+[
+  {
+    "name": "date",
+    "label": "Date",
+    "help": "The day the note is shown on. Defaults to today.",
+    "type": "date"
+  },
+  {
+    "name": "end_date",
+    "label": "End Date",
+    "help": "For a note that covers several days, the last day.",
+    "type": "date"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "help": "Short title shown on the chart. Defaults to a generated text for deploy notes.",
+    "type": "text"
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "help": "Longer details as plain text.",
+    "type": "text"
+  },
+  {
+    "name": "url",
+    "label": "URL",
+    "help": "A link such as a pull request or changelog page.",
+    "type": "text"
+  },
+  {
+    "name": "color",
+    "label": "Color",
+    "help": "Pin color, one of neutral, brand, blue, amber, red or violet. Defaults to neutral (blue for deploy notes).",
+    "type": "select",
+    "options": [
+      {
+        "label": "neutral",
+        "value": "neutral"
+      },
+      {
+        "label": "brand",
+        "value": "brand"
+      },
+      {
+        "label": "blue",
+        "value": "blue"
+      },
+      {
+        "label": "amber",
+        "value": "amber"
+      },
+      {
+        "label": "red",
+        "value": "red"
+      },
+      {
+        "label": "violet",
+        "value": "violet"
+      }
+    ]
+  },
+  {
+    "name": "source",
+    "label": "Source",
+    "help": "manual (default) for notes written by a person, or deploy for release notifications. system, import and incident are reserved for notes the app writes itself.",
+    "type": "select",
+    "options": [
+      {
+        "label": "manual",
+        "value": "manual"
+      },
+      {
+        "label": "deploy",
+        "value": "deploy"
+      },
+      {
+        "label": "system",
+        "value": "system"
+      },
+      {
+        "label": "import",
+        "value": "import"
+      },
+      {
+        "label": "incident",
+        "value": "incident"
+      }
+    ],
+    "default": "manual"
+  },
+  {
+    "name": "version",
+    "label": "Version",
+    "help": "Only used when source is deploy and title is empty. A release version or commit, used to build the default title.",
+    "type": "text"
+  }
+]

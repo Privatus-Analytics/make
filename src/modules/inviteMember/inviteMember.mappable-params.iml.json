@@ -1,0 +1,60 @@
+[
+  {
+    "name": "emails",
+    "label": "Emails",
+    "help": "The email addresses to invite.",
+    "type": "array",
+    "spec": {
+      "type": "text"
+    },
+    "required": true
+  },
+  {
+    "name": "role",
+    "label": "Role",
+    "help": "Role for the invited people, one of admin, editor, analyst, viewer, billing or custom. Default viewer. Use custom together with custom_role_id. Owner cannot be invited.",
+    "type": "select",
+    "options": [
+      {
+        "label": "admin",
+        "value": "admin"
+      },
+      {
+        "label": "editor",
+        "value": "editor"
+      },
+      {
+        "label": "analyst",
+        "value": "analyst"
+      },
+      {
+        "label": "viewer",
+        "value": "viewer"
+      },
+      {
+        "label": "billing",
+        "value": "billing"
+      },
+      {
+        "label": "custom",
+        "value": "custom"
+      }
+    ],
+    "default": "viewer"
+  },
+  {
+    "name": "all_sites",
+    "label": "All Sites",
+    "help": "true (default) gives access to every site including future ones. Set false to limit access to site_ids.",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "site_ids",
+    "label": "Sites",
+    "help": "The sites they may open. Only used when All Sites is false.",
+    "type": "select",
+    "options": "rpc://listSites",
+    "multiple": true
+  }
+]

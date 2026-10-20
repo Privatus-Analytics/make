@@ -1,0 +1,10 @@
+[
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site (pa_...).",
+    "required": true
+  }
+]

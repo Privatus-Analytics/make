@@ -1,0 +1,81 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "site_id",
+        "label": "Site",
+        "type": "text"
+      },
+      {
+        "name": "form_id",
+        "label": "Form",
+        "type": "text"
+      },
+      {
+        "name": "testimonial_id",
+        "label": "Testimonial",
+        "type": "text"
+      },
+      {
+        "name": "kind",
+        "label": "Kind",
+        "type": "text"
+      },
+      {
+        "name": "rating",
+        "label": "Rating",
+        "type": "number"
+      },
+      {
+        "name": "properties",
+        "label": "Properties",
+        "type": "collection",
+        "spec": [
+          {
+            "name": "plan",
+            "label": "Plan",
+            "type": "text"
+          },
+          {
+            "name": "team_size",
+            "label": "Team Size",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "name": "held_for_allowance",
+        "label": "Held For Allowance",
+        "type": "boolean"
+      },
+      {
+        "name": "routed_to_private_feedback",
+        "label": "Routed To Private Feedback",
+        "type": "boolean"
+      }
+    ]
+  }
+]

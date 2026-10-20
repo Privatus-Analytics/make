@@ -1,0 +1,487 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "site_id",
+        "label": "Site",
+        "type": "text"
+      },
+      {
+        "name": "testimonial",
+        "label": "Testimonial",
+        "type": "collection",
+        "spec": [
+          {
+            "name": "id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "name": "site_id",
+            "label": "Site",
+            "type": "text"
+          },
+          {
+            "name": "kind",
+            "label": "Kind",
+            "type": "text"
+          },
+          {
+            "name": "body",
+            "label": "Body",
+            "type": "text"
+          },
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+          },
+          {
+            "name": "rating",
+            "label": "Rating",
+            "type": "number"
+          },
+          {
+            "name": "highlight",
+            "label": "Highlight",
+            "type": "text"
+          },
+          {
+            "name": "language",
+            "label": "Language",
+            "type": "text"
+          },
+          {
+            "name": "status",
+            "label": "Status",
+            "type": "text"
+          },
+          {
+            "name": "pinned",
+            "label": "Pinned",
+            "type": "boolean"
+          },
+          {
+            "name": "received_at",
+            "label": "Received At",
+            "type": "date"
+          },
+          {
+            "name": "created_at",
+            "label": "Created At",
+            "type": "date"
+          },
+          {
+            "name": "source",
+            "label": "Source",
+            "type": "text"
+          },
+          {
+            "name": "source_platform",
+            "label": "Source Platform",
+            "type": "text"
+          },
+          {
+            "name": "source_name",
+            "label": "Source Name",
+            "type": "text"
+          },
+          {
+            "name": "source_url",
+            "label": "Source URL",
+            "type": "text"
+          },
+          {
+            "name": "external_id",
+            "label": "External",
+            "type": "text"
+          },
+          {
+            "name": "verified",
+            "label": "Verified",
+            "type": "boolean"
+          },
+          {
+            "name": "verified_reason",
+            "label": "Verified Reason",
+            "type": "text"
+          },
+          {
+            "name": "properties",
+            "label": "Properties",
+            "type": "collection",
+            "spec": [
+              {
+                "name": "plan",
+                "label": "Plan",
+                "type": "text"
+              },
+              {
+                "name": "team_size",
+                "label": "Team Size",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "name": "waiting_for_allowance",
+            "label": "Waiting For Allowance",
+            "type": "boolean"
+          },
+          {
+            "name": "edited",
+            "label": "Edited",
+            "type": "boolean"
+          },
+          {
+            "name": "possible_duplicate",
+            "label": "Possible Duplicate",
+            "type": "boolean"
+          },
+          {
+            "name": "person",
+            "label": "Person",
+            "type": "collection",
+            "spec": [
+              {
+                "name": "id",
+                "label": "ID",
+                "type": "text"
+              },
+              {
+                "name": "name",
+                "label": "Name",
+                "type": "text"
+              },
+              {
+                "name": "title",
+                "label": "Title",
+                "type": "text"
+              },
+              {
+                "name": "company",
+                "label": "Company",
+                "type": "text"
+              },
+              {
+                "name": "company_url",
+                "label": "Company URL",
+                "type": "text"
+              },
+              {
+                "name": "social_url",
+                "label": "Social URL",
+                "type": "text"
+              },
+              {
+                "name": "has_email",
+                "label": "Has Email",
+                "type": "boolean"
+              },
+              {
+                "name": "photo",
+                "label": "Photo",
+                "type": "collection",
+                "spec": [
+                  {
+                    "name": "id",
+                    "label": "ID",
+                    "type": "text"
+                  },
+                  {
+                    "name": "kind",
+                    "label": "Kind",
+                    "type": "text"
+                  },
+                  {
+                    "name": "role",
+                    "label": "Role",
+                    "type": "text"
+                  },
+                  {
+                    "name": "state",
+                    "label": "State",
+                    "type": "text"
+                  },
+                  {
+                    "name": "filename",
+                    "label": "Filename",
+                    "type": "text"
+                  },
+                  {
+                    "name": "content_type",
+                    "label": "Content Type",
+                    "type": "text"
+                  },
+                  {
+                    "name": "byte_size",
+                    "label": "Byte Size",
+                    "type": "number"
+                  },
+                  {
+                    "name": "duration_seconds",
+                    "label": "Duration Seconds",
+                    "type": "text"
+                  },
+                  {
+                    "name": "width",
+                    "label": "Width",
+                    "type": "number"
+                  },
+                  {
+                    "name": "height",
+                    "label": "Height",
+                    "type": "number"
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position",
+                    "type": "number"
+                  },
+                  {
+                    "name": "error",
+                    "label": "Error",
+                    "type": "text"
+                  },
+                  {
+                    "name": "error_message",
+                    "label": "Error Message",
+                    "type": "text"
+                  },
+                  {
+                    "name": "url",
+                    "label": "URL",
+                    "type": "text"
+                  },
+                  {
+                    "name": "poster_url",
+                    "label": "Poster URL",
+                    "type": "text"
+                  },
+                  {
+                    "name": "thumbnail_url",
+                    "label": "Thumbnail URL",
+                    "type": "text"
+                  },
+                  {
+                    "name": "shareable",
+                    "label": "Shareable",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "upload",
+                    "label": "Upload",
+                    "type": "text"
+                  }
+                ]
+              },
+              {
+                "name": "testimonials_count",
+                "label": "Testimonials Count",
+                "type": "number"
+              },
+              {
+                "name": "last_received_at",
+                "label": "Last Received At",
+                "type": "date"
+              }
+            ]
+          },
+          {
+            "name": "media",
+            "label": "Media",
+            "type": "array",
+            "spec": {
+              "type": "text"
+            }
+          },
+          {
+            "name": "consent",
+            "label": "Consent",
+            "type": "collection",
+            "spec": [
+              {
+                "name": "basis",
+                "label": "Basis",
+                "type": "text"
+              },
+              {
+                "name": "consent_text",
+                "label": "Consent Text",
+                "type": "text"
+              },
+              {
+                "name": "show_name",
+                "label": "Show Name",
+                "type": "boolean"
+              },
+              {
+                "name": "show_photo",
+                "label": "Show Photo",
+                "type": "boolean"
+              },
+              {
+                "name": "show_video",
+                "label": "Show Video",
+                "type": "boolean"
+              },
+              {
+                "name": "marketing",
+                "label": "Marketing",
+                "type": "boolean"
+              },
+              {
+                "name": "granted",
+                "label": "Granted",
+                "type": "array",
+                "spec": {
+                  "type": "text"
+                }
+              },
+              {
+                "name": "given_via",
+                "label": "Given Via",
+                "type": "text"
+              },
+              {
+                "name": "form_version",
+                "label": "Form Version",
+                "type": "number"
+              },
+              {
+                "name": "reward_offered",
+                "label": "Reward Offered",
+                "type": "boolean"
+              },
+              {
+                "name": "source",
+                "label": "Source",
+                "type": "text"
+              },
+              {
+                "name": "source_name",
+                "label": "Source Name",
+                "type": "text"
+              },
+              {
+                "name": "recorded_by",
+                "label": "Recorded By",
+                "type": "text"
+              },
+              {
+                "name": "recorded_at",
+                "label": "Recorded At",
+                "type": "date"
+              }
+            ]
+          },
+          {
+            "name": "tags",
+            "label": "Tags",
+            "type": "array",
+            "spec": [
+              {
+                "name": "id",
+                "label": "ID",
+                "type": "text"
+              },
+              {
+                "name": "name",
+                "label": "Name",
+                "type": "text"
+              },
+              {
+                "name": "color",
+                "label": "Color",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "name": "collections",
+            "label": "Collections",
+            "type": "array",
+            "spec": [
+              {
+                "name": "id",
+                "label": "ID",
+                "type": "text"
+              },
+              {
+                "name": "name",
+                "label": "Name",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "name": "used_in",
+            "label": "Used In",
+            "type": "array",
+            "spec": {
+              "type": "text"
+            }
+          },
+          {
+            "name": "used_count",
+            "label": "Used Count",
+            "type": "number"
+          },
+          {
+            "name": "permalink",
+            "label": "Permalink",
+            "type": "boolean"
+          },
+          {
+            "name": "permalink_url",
+            "label": "Permalink URL",
+            "type": "text"
+          },
+          {
+            "name": "form_id",
+            "label": "Form",
+            "type": "text"
+          },
+          {
+            "name": "request_id",
+            "label": "Request",
+            "type": "text"
+          },
+          {
+            "name": "import_source_id",
+            "label": "Import Source",
+            "type": "text"
+          },
+          {
+            "name": "deleted_at",
+            "label": "Deleted At",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "url": "/sites/{{parameters.site_id}}/goals.json",
+  "method": "GET",
+  "qs": {
+    "per_page": 100,
+    "status": "active"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "limit": 300,
+    "output": {
+      "label": "{{item.name}}",
+      "value": "{{item.id}}"
+    }
+  }
+}

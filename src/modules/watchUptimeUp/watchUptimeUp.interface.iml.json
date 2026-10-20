@@ -1,0 +1,208 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "check",
+        "label": "Check",
+        "type": "collection",
+        "spec": [
+          {
+            "name": "id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "name": "workspace_id",
+            "label": "Workspace",
+            "type": "text"
+          },
+          {
+            "name": "site_id",
+            "label": "Site",
+            "type": "text"
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text"
+          },
+          {
+            "name": "kind",
+            "label": "Kind",
+            "type": "text"
+          },
+          {
+            "name": "url",
+            "label": "URL",
+            "type": "text"
+          },
+          {
+            "name": "host",
+            "label": "Host",
+            "type": "text"
+          },
+          {
+            "name": "port",
+            "label": "Port",
+            "type": "text"
+          },
+          {
+            "name": "keyword",
+            "label": "Keyword",
+            "type": "text"
+          },
+          {
+            "name": "expected_status",
+            "label": "Expected Status",
+            "type": "number"
+          },
+          {
+            "name": "http_method",
+            "label": "HTTP Method",
+            "type": "text"
+          },
+          {
+            "name": "interval_seconds",
+            "label": "Interval Seconds",
+            "type": "number"
+          },
+          {
+            "name": "timeout_seconds",
+            "label": "Timeout Seconds",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "label": "Status",
+            "type": "text"
+          },
+          {
+            "name": "enabled",
+            "label": "Enabled",
+            "type": "boolean"
+          },
+          {
+            "name": "public",
+            "label": "Public",
+            "type": "boolean"
+          },
+          {
+            "name": "last_checked_at",
+            "label": "Last Checked At",
+            "type": "date"
+          },
+          {
+            "name": "next_check_at",
+            "label": "Next Check At",
+            "type": "date"
+          },
+          {
+            "name": "last_response_ms",
+            "label": "Last Response Ms",
+            "type": "number"
+          },
+          {
+            "name": "ssl_expires_at",
+            "label": "SSL Expires At",
+            "type": "date"
+          },
+          {
+            "name": "ssl_issuer",
+            "label": "SSL Issuer",
+            "type": "text"
+          },
+          {
+            "name": "domain_expires_at",
+            "label": "Domain Expires At",
+            "type": "date"
+          },
+          {
+            "name": "created_at",
+            "label": "Created At",
+            "type": "date"
+          },
+          {
+            "name": "uptime",
+            "label": "Uptime",
+            "type": "collection",
+            "spec": [
+              {
+                "name": "24h",
+                "label": "24h",
+                "type": "number"
+              },
+              {
+                "name": "7d",
+                "label": "7d",
+                "type": "number"
+              },
+              {
+                "name": "30d",
+                "label": "30d",
+                "type": "number"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "incident",
+        "label": "Incident",
+        "type": "collection",
+        "spec": [
+          {
+            "name": "started_at",
+            "label": "Started At",
+            "type": "date"
+          },
+          {
+            "name": "resolved_at",
+            "label": "Resolved At",
+            "type": "date"
+          },
+          {
+            "name": "duration_seconds",
+            "label": "Duration Seconds",
+            "type": "number"
+          },
+          {
+            "name": "cause",
+            "label": "Cause",
+            "type": "text"
+          },
+          {
+            "name": "failed_locations",
+            "label": "Failed Locations",
+            "type": "array",
+            "spec": {
+              "type": "text"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials.json",
+  "method": "POST",
+  "body": {
+    "kind": "text",
+    "body": "{{ifempty(parameters.body, undefined)}}",
+    "title": "{{ifempty(parameters.title, undefined)}}",
+    "rating": "{{parameters.rating}}",
+    "highlight": "{{ifempty(parameters.highlight, undefined)}}",
+    "person_name": "{{ifempty(parameters.person_name, undefined)}}",
+    "person_title": "{{ifempty(parameters.person_title, undefined)}}",
+    "person_company": "{{ifempty(parameters.person_company, undefined)}}",
+    "person_company_url": "{{ifempty(parameters.person_company_url, undefined)}}",
+    "person_email": "{{ifempty(parameters.person_email, undefined)}}",
+    "person_social_url": "{{ifempty(parameters.person_social_url, undefined)}}",
+    "received_at": "{{ifempty(parameters.received_at, undefined)}}",
+    "source_name": "{{ifempty(parameters.source_name, undefined)}}",
+    "source_url": "{{ifempty(parameters.source_url, undefined)}}",
+    "language": "{{ifempty(parameters.language, undefined)}}",
+    "status": "{{ifempty(parameters.status, undefined)}}",
+    "tags": "{{if(length(parameters.tags) > 0, parameters.tags, undefined)}}",
+    "collection_ids": "{{if(length(parameters.collection_ids) > 0, parameters.collection_ids, undefined)}}",
+    "properties": "{{if(parameters.properties, parseJSON(parameters.properties), undefined)}}",
+    "pinned": "{{parameters.pinned}}",
+    "external_id": "{{ifempty(parameters.external_id, undefined)}}",
+    "allow_duplicate": "{{parameters.allow_duplicate}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

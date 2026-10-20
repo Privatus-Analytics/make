@@ -1,0 +1,47 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "request_id",
+    "type": "select",
+    "options": "rpc://listTestimonialRequests",
+    "label": "Request",
+    "help": "The testimonial request (req_...).",
+    "required": true
+  },
+  {
+    "name": "email",
+    "type": "email",
+    "label": "Email",
+    "help": "The address the request email goes to.",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "text",
+    "label": "Name",
+    "help": "Used in the email greeting and to fill in the form."
+  },
+  {
+    "name": "company",
+    "type": "text",
+    "label": "Company"
+  },
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Job Title"
+  },
+  {
+    "name": "properties",
+    "type": "json",
+    "label": "Properties",
+    "help": "Custom property values for the testimonial by key as a JSON object, as set up in the site's testimonial settings."
+  }
+]

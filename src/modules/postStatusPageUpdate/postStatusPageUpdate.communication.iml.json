@@ -1,0 +1,14 @@
+{
+  "url": "/status_pages/{{parameters.status_page_id}}/posts.json",
+  "method": "POST",
+  "body": {
+    "title": "{{ifempty(parameters.title, undefined)}}",
+    "body": "{{ifempty(parameters.body, undefined)}}",
+    "status": "{{ifempty(parameters.status, undefined)}}",
+    "posted_at": "{{ifempty(parameters.posted_at, undefined)}}",
+    "notify": "{{parameters.notify}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

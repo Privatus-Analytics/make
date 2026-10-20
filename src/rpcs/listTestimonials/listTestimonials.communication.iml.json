@@ -1,0 +1,22 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials.json",
+  "method": "GET",
+  "qs": {
+    "per_page": 100,
+    "sort": "added_desc"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "limit": 300,
+    "output": {
+      "label": "{{ifempty(item.person.name, 'Unknown') + ': ' + substring(ifempty(item.body, item.title), 0, 60)}}",
+      "value": "{{item.id}}"
+    }
+  }
+}

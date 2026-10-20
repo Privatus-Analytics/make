@@ -1,0 +1,10 @@
+[
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listAlertRules",
+    "label": "Alert Rule",
+    "help": "The alert rule (alr_...).",
+    "required": true
+  }
+]

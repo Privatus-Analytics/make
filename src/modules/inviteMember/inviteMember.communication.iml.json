@@ -1,0 +1,16 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/invitations.json",
+  "method": "POST",
+  "body": {
+    "emails": "{{if(length(parameters.emails) > 0, parameters.emails, undefined)}}",
+    "role": "{{ifempty(parameters.role, undefined)}}",
+    "all_sites": "{{parameters.all_sites}}",
+    "site_ids": "{{if(length(parameters.site_ids) > 0, parameters.site_ids, undefined)}}"
+  },
+  "response": {
+    "output": {
+      "invitations": "{{body.data}}",
+      "count": "{{length(body.data)}}"
+    }
+  }
+}

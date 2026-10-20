@@ -1,0 +1,25 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listTestimonials",
+    "label": "Testimonial",
+    "help": "The testimonial (tm_...). The list shows the newest ones. You can also map a testimonial ID from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "pinned",
+    "type": "boolean",
+    "label": "Pinned",
+    "help": "Yes pins the testimonial, no unpins it.",
+    "default": true
+  }
+]

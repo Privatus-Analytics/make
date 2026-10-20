@@ -1,0 +1,28 @@
+{
+  "url": "/sites/{{parameters.site_id}}/stats/timeseries.json",
+  "method": "GET",
+  "qs": {
+    "period": "{{ifempty(parameters.period, undefined)}}",
+    "from": "{{if(parameters.from, formatDate(parameters.from, 'YYYY-MM-DD'), undefined)}}",
+    "to": "{{if(parameters.to, formatDate(parameters.to, 'YYYY-MM-DD'), undefined)}}",
+    "compare": "{{ifempty(parameters.compare, undefined)}}",
+    "filters": "{{ifempty(parameters.filters, undefined)}}",
+    "segment_id": "{{ifempty(parameters.segment_id, undefined)}}",
+    "interval": "{{ifempty(parameters.interval, undefined)}}"
+  },
+  "response": {
+    "iterate": "{{body.data.series}}",
+    "limit": "{{parameters.limit}}",
+    "output": {
+      "date": "{{item.date}}",
+      "visitors": "{{item.visitors}}",
+      "visits": "{{item.visits}}",
+      "pageviews": "{{item.pageviews}}",
+      "views_per_visit": "{{item.views_per_visit}}",
+      "bounce_rate": "{{item.bounce_rate}}",
+      "visit_duration": "{{item.visit_duration}}",
+      "revenue": "{{item.revenue}}",
+      "interval": "{{body.data.interval}}"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "help": "Only experiments with this status: draft, scheduled, running, paused, ended or all",
+    "type": "select",
+    "options": [
+      {
+        "label": "draft",
+        "value": "draft"
+      },
+      {
+        "label": "scheduled",
+        "value": "scheduled"
+      },
+      {
+        "label": "running",
+        "value": "running"
+      },
+      {
+        "label": "paused",
+        "value": "paused"
+      },
+      {
+        "label": "ended",
+        "value": "ended"
+      },
+      {
+        "label": "all",
+        "value": "all"
+      }
+    ],
+    "default": "all"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "help": "Only page tests (page) or ad experiments (ad). Leave out for both",
+    "type": "select",
+    "options": [
+      {
+        "label": "page",
+        "value": "page"
+      },
+      {
+        "label": "ad",
+        "value": "ad"
+      }
+    ]
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10,
+    "help": "The maximum number of results Make returns during one execution cycle."
+  }
+]

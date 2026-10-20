@@ -1,0 +1,109 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "help": "Display name, max 100 characters. Defaults to the target hostname",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "help": "What to check. http requires a response with the expected status from url. keyword also requires keyword in the body. tcp connects to host and port. dns requires host to resolve",
+    "type": "select",
+    "options": [
+      {
+        "label": "http",
+        "value": "http"
+      },
+      {
+        "label": "keyword",
+        "value": "keyword"
+      },
+      {
+        "label": "tcp",
+        "value": "tcp"
+      },
+      {
+        "label": "dns",
+        "value": "dns"
+      }
+    ],
+    "default": "http"
+  },
+  {
+    "name": "url",
+    "label": "URL",
+    "help": "Full URL including https://, for http and keyword checks. Defaults to the site's home page for site checks. Private addresses are refused",
+    "type": "text"
+  },
+  {
+    "name": "host",
+    "label": "Host",
+    "help": "Hostname without scheme, like example.com, for tcp and dns checks. Private addresses are refused",
+    "type": "text"
+  },
+  {
+    "name": "port",
+    "label": "Port",
+    "help": "TCP port from 1 to 65535, required for tcp checks",
+    "type": "integer"
+  },
+  {
+    "name": "keyword",
+    "label": "Keyword",
+    "help": "Text the response body must contain, case sensitive, max 200 characters. Required for keyword checks",
+    "type": "text"
+  },
+  {
+    "name": "expected_status",
+    "label": "Expected Status",
+    "help": "HTTP status code that counts as up, from 100 to 599. Default 200. For http and keyword checks",
+    "type": "integer",
+    "default": 200
+  },
+  {
+    "name": "http_method",
+    "label": "HTTP Method",
+    "help": "HTTP method used to probe: GET (default) or HEAD. For http and keyword checks",
+    "type": "select",
+    "options": [
+      {
+        "label": "GET",
+        "value": "GET"
+      },
+      {
+        "label": "HEAD",
+        "value": "HEAD"
+      }
+    ],
+    "default": "GET"
+  },
+  {
+    "name": "interval_seconds",
+    "label": "Interval Seconds",
+    "help": "Seconds between probes, from 30 to 86400, and at least your plan minimum (Free 300, Pro 60, Business 30). Default 300 or the plan minimum if higher",
+    "type": "integer"
+  },
+  {
+    "name": "timeout_seconds",
+    "label": "Timeout Seconds",
+    "help": "Seconds before a probe counts as failed, from 1 to 30. Default 20",
+    "type": "integer",
+    "default": 20
+  },
+  {
+    "name": "public",
+    "label": "Public",
+    "help": "Allow this check to be shown on public status pages. Default false",
+    "type": "boolean",
+    "default": false
+  }
+]

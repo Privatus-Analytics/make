@@ -1,0 +1,13 @@
+{
+  "url": "/sites/{{parameters.site_id}}/campaigns/costs.json",
+  "method": "POST",
+  "body": {
+    "campaign": "{{ifempty(parameters.campaign, undefined)}}",
+    "month": "{{if(parameters.month, formatDate(parameters.month, 'YYYY-MM'), undefined)}}",
+    "amount": "{{parameters.amount}}",
+    "currency": "{{ifempty(parameters.currency, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "condition": "{{body.event === 'usage.threshold'}}",
+  "output": {
+    "id": "{{body.id}}",
+    "event": "{{body.event}}",
+    "occurred_at": "{{body.created_at}}",
+    "workspace_id": "{{body.workspace_id}}",
+    "data": "{{body.data}}"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/members.json",
+  "method": "GET",
+  "qs": {
+    "query": "{{ifempty(parameters.query, undefined)}}",
+    "role": "{{ifempty(parameters.role, undefined)}}",
+    "per_page": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

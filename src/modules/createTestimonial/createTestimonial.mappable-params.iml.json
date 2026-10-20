@@ -1,0 +1,156 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "help": "The words, up to 10,000 characters.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "person_name",
+    "label": "Person Name",
+    "help": "Who gave it.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "person_email",
+    "label": "Person Email",
+    "help": "Their email. Never public. An address already on the site links to that person",
+    "type": "text"
+  },
+  {
+    "name": "person_title",
+    "label": "Person Title",
+    "help": "Their job title",
+    "type": "text"
+  },
+  {
+    "name": "person_company",
+    "label": "Person Company",
+    "help": "Their company",
+    "type": "text"
+  },
+  {
+    "name": "person_company_url",
+    "label": "Person Company URL",
+    "help": "The company's website",
+    "type": "text"
+  },
+  {
+    "name": "person_social_url",
+    "label": "Person Social URL",
+    "help": "A link to their profile",
+    "type": "text"
+  },
+  {
+    "name": "rating",
+    "label": "Rating",
+    "help": "1 to 5 stars. Leave empty for no rating.",
+    "type": "integer"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "help": "Optional, up to 200 characters",
+    "type": "text"
+  },
+  {
+    "name": "highlight",
+    "label": "Highlight",
+    "help": "The best sentence. Must be an exact part of body",
+    "type": "text"
+  },
+  {
+    "name": "received_at",
+    "label": "Received At",
+    "help": "When they gave it. Defaults to now. A day alone (2026-10-10) is that day by the site's clock",
+    "type": "date"
+  },
+  {
+    "name": "source_name",
+    "label": "Source Name",
+    "help": "Where it came from, e.g. Email, Chat or a review site",
+    "type": "text"
+  },
+  {
+    "name": "source_url",
+    "label": "Source URL",
+    "help": "A public link to it",
+    "type": "text"
+  },
+  {
+    "name": "language",
+    "label": "Language",
+    "help": "Language code. Defaults to the site's language",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "help": "pending (the default) or approved",
+    "type": "select",
+    "options": [
+      {
+        "label": "pending",
+        "value": "pending"
+      },
+      {
+        "label": "approved",
+        "value": "approved"
+      }
+    ],
+    "default": "pending"
+  },
+  {
+    "name": "tags",
+    "label": "Tags",
+    "help": "Tag names or IDs. A name that does not exist yet is created.",
+    "type": "array",
+    "spec": {
+      "type": "text"
+    }
+  },
+  {
+    "name": "collection_ids",
+    "label": "Collections",
+    "help": "Manual collections to add it to.",
+    "type": "select",
+    "options": "rpc://listTestimonialCollections",
+    "multiple": true
+  },
+  {
+    "name": "properties",
+    "label": "Properties",
+    "help": "Custom property values by key as a JSON object, like {\"plan\":\"pro\"}, as set up in the site's testimonial settings.",
+    "type": "json"
+  },
+  {
+    "name": "pinned",
+    "label": "Pinned",
+    "help": "Shown first wherever it is displayed",
+    "type": "boolean",
+    "default": false
+  },
+  {
+    "name": "external_id",
+    "label": "External ID",
+    "help": "Your own ID for it, such as the review or ticket ID. Sending the same one again returns the testimonial already stored instead of a copy.",
+    "type": "text"
+  },
+  {
+    "name": "allow_duplicate",
+    "label": "Allow Duplicate",
+    "help": "true saves it even though this person already said these words",
+    "type": "boolean",
+    "default": false
+  }
+]

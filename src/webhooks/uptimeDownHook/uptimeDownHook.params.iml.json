@@ -1,0 +1,9 @@
+[
+  {
+    "name": "siteId",
+    "type": "select",
+    "label": "Site",
+    "options": "rpc://listSites",
+    "help": "Only run for this site. Leave empty to run for every site in the workspace."
+  }
+]

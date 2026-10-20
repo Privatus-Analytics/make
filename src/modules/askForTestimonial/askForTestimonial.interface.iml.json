@@ -1,0 +1,17 @@
+[
+  {
+    "name": "added",
+    "label": "Added",
+    "type": "number"
+  },
+  {
+    "name": "skipped",
+    "label": "Skipped",
+    "type": "collection"
+  },
+  {
+    "name": "skipped_total",
+    "label": "Skipped Total",
+    "type": "number"
+  }
+]

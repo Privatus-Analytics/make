@@ -1,0 +1,27 @@
+{
+  "url": "https://privatusanalytics.com/workspaces.json",
+  "method": "GET",
+  "headers": {
+    "Authorization": "Bearer {{parameters.apiToken}}",
+    "Accept": "application/json"
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization"
+    ]
+  },
+  "response": {
+    "valid": "{{statusCode === 200 && length(body.data) > 0}}",
+    "data": {
+      "workspaceId": "{{body.data[1].id}}"
+    },
+    "metadata": {
+      "type": "text",
+      "value": "{{body.data[1].name}}"
+    },
+    "error": {
+      "message": "[{{statusCode}}] {{ifempty(body.error.message, \"This API token cannot see a workspace.\")}}",
+      "type": "InvalidAccessTokenError"
+    }
+  }
+}

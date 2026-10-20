@@ -1,0 +1,7 @@
+{
+  "url": "/uptime/checks/{{parameters.id}}/pause.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

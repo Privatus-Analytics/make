@@ -1,0 +1,18 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site that has the experiment.",
+    "required": true
+  },
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listExperiments",
+    "label": "Experiment",
+    "help": "The experiment (exp_...).",
+    "required": true
+  }
+]

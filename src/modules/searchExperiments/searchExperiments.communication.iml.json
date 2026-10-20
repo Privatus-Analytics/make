@@ -1,0 +1,20 @@
+{
+  "url": "/sites/{{parameters.site_id}}/experiments.json",
+  "method": "GET",
+  "qs": {
+    "status": "{{ifempty(parameters.status, undefined)}}",
+    "kind": "{{ifempty(parameters.kind, undefined)}}",
+    "per_page": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

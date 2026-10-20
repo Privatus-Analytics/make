@@ -1,0 +1,10 @@
+{
+  "url": "/alerts/{{parameters.id}}/mute.json",
+  "method": "POST",
+  "body": {
+    "minutes": "{{parameters.minutes}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

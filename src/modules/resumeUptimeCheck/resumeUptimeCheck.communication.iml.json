@@ -1,0 +1,7 @@
+{
+  "url": "/uptime/checks/{{parameters.id}}/resume.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

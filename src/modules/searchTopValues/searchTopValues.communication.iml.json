@@ -1,0 +1,44 @@
+{
+  "url": "/sites/{{parameters.site_id}}/breakdown/{{if(parameters.custom_property, 'prop:' + parameters.custom_property, parameters.dimension)}}.json",
+  "method": "GET",
+  "qs": {
+    "period": "{{ifempty(parameters.period, undefined)}}",
+    "from": "{{if(parameters.from, formatDate(parameters.from, 'YYYY-MM-DD'), undefined)}}",
+    "to": "{{if(parameters.to, formatDate(parameters.to, 'YYYY-MM-DD'), undefined)}}",
+    "compare": "{{ifempty(parameters.compare, undefined)}}",
+    "filters": "{{ifempty(parameters.filters, undefined)}}",
+    "segment_id": "{{ifempty(parameters.segment_id, undefined)}}",
+    "sort": "{{ifempty(parameters.sort, undefined)}}",
+    "search": "{{ifempty(parameters.search, undefined)}}",
+    "limit": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.data.has_more}}"
+  },
+  "response": {
+    "iterate": "{{body.data.rows}}",
+    "limit": "{{parameters.limit}}",
+    "output": {
+      "dimension": "{{body.data.dimension}}",
+      "period_from": "{{body.data.period.from}}",
+      "period_to": "{{body.data.period.to}}",
+      "value": "{{item.value}}",
+      "share": "{{item.share}}",
+      "visitors": "{{item.visitors}}",
+      "visits": "{{item.visits}}",
+      "pageviews": "{{item.pageviews}}",
+      "views_per_visit": "{{item.views_per_visit}}",
+      "bounce_rate": "{{item.bounce_rate}}",
+      "visit_duration": "{{item.visit_duration}}",
+      "revenue": "{{item.revenue}}",
+      "time_on_page": "{{item.time_on_page}}",
+      "scroll_depth": "{{item.scroll_depth}}",
+      "completions": "{{item.completions}}",
+      "conversions": "{{item.conversions}}",
+      "conversion_rate": "{{item.conversion_rate}}"
+    }
+  }
+}

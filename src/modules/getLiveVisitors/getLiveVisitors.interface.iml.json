@@ -1,0 +1,97 @@
+[
+  {
+    "name": "live_visitors",
+    "label": "Live Visitors",
+    "type": "number"
+  },
+  {
+    "name": "window_minutes",
+    "label": "Window (Minutes)",
+    "type": "number"
+  },
+  {
+    "name": "sparkline",
+    "label": "Sparkline",
+    "type": "array",
+    "spec": [
+      {
+        "name": "minute",
+        "label": "Minute",
+        "type": "date"
+      },
+      {
+        "name": "visits",
+        "label": "Visits",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "name": "top_pages",
+    "label": "Top Pages",
+    "type": "array",
+    "spec": [
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      },
+      {
+        "name": "visits",
+        "label": "Visits",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "name": "top_referrers",
+    "label": "Top Referrers",
+    "type": "array",
+    "spec": [
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      },
+      {
+        "name": "visits",
+        "label": "Visits",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "name": "top_countries",
+    "label": "Top Countries",
+    "type": "array",
+    "spec": [
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      },
+      {
+        "name": "visits",
+        "label": "Visits",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "name": "top_events",
+    "label": "Top Events",
+    "type": "array",
+    "spec": [
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text"
+      },
+      {
+        "name": "completions",
+        "label": "Completions",
+        "type": "number"
+      }
+    ]
+  }
+]

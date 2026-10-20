@@ -1,0 +1,147 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "type": "text"
+  },
+  {
+    "name": "form_id",
+    "label": "Form",
+    "type": "text"
+  },
+  {
+    "name": "sender_name",
+    "label": "Sender Name",
+    "type": "text"
+  },
+  {
+    "name": "reply_to",
+    "label": "Reply To",
+    "type": "text"
+  },
+  {
+    "name": "subject",
+    "label": "Subject",
+    "type": "text"
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "type": "text"
+  },
+  {
+    "name": "button_label",
+    "label": "Button Label",
+    "type": "text"
+  },
+  {
+    "name": "show_logo",
+    "label": "Show Logo",
+    "type": "boolean"
+  },
+  {
+    "name": "skip_existing",
+    "label": "Skip Existing",
+    "type": "boolean"
+  },
+  {
+    "name": "follow_ups",
+    "label": "Follow Ups",
+    "type": "array"
+  },
+  {
+    "name": "send_at",
+    "label": "Send At",
+    "type": "date"
+  },
+  {
+    "name": "next_send_at",
+    "label": "Next Send At",
+    "type": "date"
+  },
+  {
+    "name": "sent_at",
+    "label": "Sent At",
+    "type": "date"
+  },
+  {
+    "name": "stopped_at",
+    "label": "Stopped At",
+    "type": "date"
+  },
+  {
+    "name": "finished_at",
+    "label": "Finished At",
+    "type": "date"
+  },
+  {
+    "name": "recipients_count",
+    "label": "Recipients Count",
+    "type": "number"
+  },
+  {
+    "name": "sent_count",
+    "label": "Sent Count",
+    "type": "number"
+  },
+  {
+    "name": "opened_count",
+    "label": "Opened Count",
+    "type": "number"
+  },
+  {
+    "name": "clicked_count",
+    "label": "Clicked Count",
+    "type": "number"
+  },
+  {
+    "name": "submitted_count",
+    "label": "Submitted Count",
+    "type": "number"
+  },
+  {
+    "name": "bounced_count",
+    "label": "Bounced Count",
+    "type": "number"
+  },
+  {
+    "name": "unsubscribed_count",
+    "label": "Unsubscribed Count",
+    "type": "number"
+  },
+  {
+    "name": "purchase_connection_id",
+    "label": "Purchase Connection",
+    "type": "text"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "updated_at",
+    "label": "Updated At",
+    "type": "date"
+  }
+]

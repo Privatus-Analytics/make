@@ -1,0 +1,10 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/{{parameters.id}}/pin.json",
+  "method": "POST",
+  "body": {
+    "pinned": "{{parameters.pinned}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "Only rules of this site. Leave empty for every site."
+  },
+  {
+    "name": "state",
+    "label": "State",
+    "help": "Only alerts in this state: ok or triggered (an incident is open)",
+    "type": "select",
+    "options": [
+      {
+        "label": "ok",
+        "value": "ok"
+      },
+      {
+        "label": "triggered",
+        "value": "triggered"
+      }
+    ]
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "help": "Only this kind: threshold, anomaly, goal, new_referrer, no_data, usage, uptime, ssl, vitals, subscriptions or testimonials",
+    "type": "select",
+    "options": [
+      {
+        "label": "threshold",
+        "value": "threshold"
+      },
+      {
+        "label": "anomaly",
+        "value": "anomaly"
+      },
+      {
+        "label": "goal",
+        "value": "goal"
+      },
+      {
+        "label": "new_referrer",
+        "value": "new_referrer"
+      },
+      {
+        "label": "no_data",
+        "value": "no_data"
+      },
+      {
+        "label": "usage",
+        "value": "usage"
+      },
+      {
+        "label": "uptime",
+        "value": "uptime"
+      },
+      {
+        "label": "ssl",
+        "value": "ssl"
+      },
+      {
+        "label": "vitals",
+        "value": "vitals"
+      },
+      {
+        "label": "subscriptions",
+        "value": "subscriptions"
+      },
+      {
+        "label": "testimonials",
+        "value": "testimonials"
+      }
+    ]
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10,
+    "help": "The maximum number of results Make returns during one execution cycle."
+  }
+]

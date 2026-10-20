@@ -1,0 +1,122 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "type": "text"
+  },
+  {
+    "name": "url",
+    "label": "URL",
+    "type": "text"
+  },
+  {
+    "name": "host",
+    "label": "Host",
+    "type": "text"
+  },
+  {
+    "name": "port",
+    "label": "Port",
+    "type": "number"
+  },
+  {
+    "name": "keyword",
+    "label": "Keyword",
+    "type": "text"
+  },
+  {
+    "name": "expected_status",
+    "label": "Expected Status",
+    "type": "number"
+  },
+  {
+    "name": "http_method",
+    "label": "HTTP Method",
+    "type": "text"
+  },
+  {
+    "name": "interval_seconds",
+    "label": "Interval Seconds",
+    "type": "number"
+  },
+  {
+    "name": "timeout_seconds",
+    "label": "Timeout Seconds",
+    "type": "number"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "type": "text"
+  },
+  {
+    "name": "enabled",
+    "label": "Enabled",
+    "type": "boolean"
+  },
+  {
+    "name": "public",
+    "label": "Public",
+    "type": "boolean"
+  },
+  {
+    "name": "last_checked_at",
+    "label": "Last Checked At",
+    "type": "date"
+  },
+  {
+    "name": "next_check_at",
+    "label": "Next Check At",
+    "type": "date"
+  },
+  {
+    "name": "last_response_ms",
+    "label": "Last Response Ms",
+    "type": "number"
+  },
+  {
+    "name": "ssl_expires_at",
+    "label": "SSL Expires At",
+    "type": "date"
+  },
+  {
+    "name": "ssl_issuer",
+    "label": "SSL Issuer",
+    "type": "text"
+  },
+  {
+    "name": "domain_expires_at",
+    "label": "Domain Expires At",
+    "type": "date"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "uptime",
+    "label": "Uptime",
+    "type": "collection"
+  }
+]

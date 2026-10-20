@@ -1,0 +1,63 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "q",
+    "label": "Q",
+    "help": "Searches the name and the subject",
+    "type": "text"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "help": "One of draft, scheduled, sending, waiting, stopped, finished",
+    "type": "select",
+    "options": [
+      {
+        "label": "draft",
+        "value": "draft"
+      },
+      {
+        "label": "scheduled",
+        "value": "scheduled"
+      },
+      {
+        "label": "sending",
+        "value": "sending"
+      },
+      {
+        "label": "waiting",
+        "value": "waiting"
+      },
+      {
+        "label": "stopped",
+        "value": "stopped"
+      },
+      {
+        "label": "finished",
+        "value": "finished"
+      }
+    ]
+  },
+  {
+    "name": "form_id",
+    "type": "select",
+    "options": "rpc://listTestimonialForms",
+    "label": "Form",
+    "help": "Only requests of this form."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10,
+    "help": "The maximum number of results Make returns during one execution cycle."
+  }
+]

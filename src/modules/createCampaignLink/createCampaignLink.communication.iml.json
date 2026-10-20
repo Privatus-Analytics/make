@@ -1,0 +1,18 @@
+{
+  "url": "/sites/{{parameters.site_id}}/campaigns/links.json",
+  "method": "POST",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "destination": "{{ifempty(parameters.destination, undefined)}}",
+    "utm_source": "{{ifempty(parameters.utm_source, undefined)}}",
+    "utm_medium": "{{ifempty(parameters.utm_medium, undefined)}}",
+    "utm_campaign": "{{ifempty(parameters.utm_campaign, undefined)}}",
+    "utm_content": "{{ifempty(parameters.utm_content, undefined)}}",
+    "utm_term": "{{ifempty(parameters.utm_term, undefined)}}",
+    "tags": "{{if(length(parameters.tags) > 0, parameters.tags, undefined)}}",
+    "notes": "{{ifempty(parameters.notes, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

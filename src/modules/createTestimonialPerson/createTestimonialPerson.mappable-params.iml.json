@@ -1,0 +1,47 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "help": "The person's name, up to 120 characters",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "help": "Their job title",
+    "type": "text"
+  },
+  {
+    "name": "company",
+    "label": "Company",
+    "help": "Where they work",
+    "type": "text"
+  },
+  {
+    "name": "company_url",
+    "label": "Company URL",
+    "help": "The company's website (http or https). It groups people into companies",
+    "type": "text"
+  },
+  {
+    "name": "social_url",
+    "label": "Social URL",
+    "help": "A link to their profile (http or https)",
+    "type": "text"
+  },
+  {
+    "name": "email",
+    "label": "Email",
+    "help": "Their email address. Never shown publicly. One person per address on a site",
+    "type": "text"
+  }
+]

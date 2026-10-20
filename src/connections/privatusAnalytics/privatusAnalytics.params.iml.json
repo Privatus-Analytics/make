@@ -1,0 +1,10 @@
+[
+  {
+    "name": "apiToken",
+    "type": "password",
+    "label": "API token",
+    "required": true,
+    "editable": true,
+    "help": "An API token that starts with pat_. Create one in Privatus Analytics under Account, API tokens. A token belongs to one workspace. Give it every site and the permissions the modules you use need (webhook modules need workspace settings)."
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "date",
+    "label": "Date",
+    "type": "date"
+  },
+  {
+    "name": "end_date",
+    "label": "End Date",
+    "type": "text"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "type": "text"
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "type": "text"
+  },
+  {
+    "name": "url",
+    "label": "URL",
+    "type": "text"
+  },
+  {
+    "name": "color",
+    "label": "Color",
+    "type": "text"
+  },
+  {
+    "name": "source",
+    "label": "Source",
+    "type": "text"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  }
+]

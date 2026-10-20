@@ -1,0 +1,151 @@
+[
+  {
+    "label": "Triggers",
+    "modules": [
+      "watchAlertTriggered",
+      "watchAlertResolved",
+      "watchGoalAlertTriggered",
+      "watchUsageThreshold",
+      "watchUptimeDown",
+      "watchUptimeUp",
+      "watchSiteCreated",
+      "watchSiteDeleted",
+      "watchMemberAdded",
+      "watchExportReady",
+      "watchImportCompleted",
+      "watchImportFailed",
+      "watchSiteAuditCompleted",
+      "watchExperimentEnded",
+      "watchTestimonialReceived",
+      "watchTestimonialApproved",
+      "watchTestimonialRejected",
+      "watchTestimonialRestored",
+      "watchTestimonialTrashed",
+      "watchTestimonialDeleted",
+      "watchTestimonialFormSubmitted",
+      "watchTestimonialRequestSent",
+      "watchTestimonialRequestCompleted",
+      "watchTestimonialImportFinished",
+      "watchTestimonialSyncNewFound"
+    ]
+  },
+  {
+    "label": "Sites",
+    "modules": [
+      "createSite",
+      "getSite",
+      "searchSites",
+      "watchSiteCreated",
+      "watchSiteDeleted"
+    ]
+  },
+  {
+    "label": "Analytics",
+    "modules": [
+      "getLiveVisitors",
+      "getSiteStats",
+      "searchTopValues",
+      "searchDailyStats"
+    ]
+  },
+  {
+    "label": "Goals and Notes",
+    "modules": [
+      "createGoal",
+      "createChartNote",
+      "createWorkspaceChartNote",
+      "searchGoals",
+      "searchChartNotes",
+      "watchGoalAlertTriggered"
+    ]
+  },
+  {
+    "label": "Campaigns",
+    "modules": [
+      "createCampaignLink",
+      "addCampaignCost"
+    ]
+  },
+  {
+    "label": "Alerts",
+    "modules": [
+      "acknowledgeAlert",
+      "muteAlert",
+      "searchAlertRules",
+      "searchAlertIncidents",
+      "watchAlertTriggered",
+      "watchAlertResolved",
+      "watchGoalAlertTriggered"
+    ]
+  },
+  {
+    "label": "Uptime and Status",
+    "modules": [
+      "createUptimeCheck",
+      "pauseUptimeCheck",
+      "resumeUptimeCheck",
+      "postStatusPageUpdate",
+      "searchUptimeChecks",
+      "watchUptimeDown",
+      "watchUptimeUp"
+    ]
+  },
+  {
+    "label": "Experiments",
+    "modules": [
+      "startExperiment",
+      "pauseExperiment",
+      "endExperiment",
+      "searchExperiments",
+      "watchExperimentEnded"
+    ]
+  },
+  {
+    "label": "Audits, Exports and Members",
+    "modules": [
+      "createExport",
+      "inviteMember",
+      "runSiteAudit",
+      "searchSiteAudits",
+      "searchExports",
+      "searchMembers",
+      "watchMemberAdded",
+      "watchExportReady",
+      "watchSiteAuditCompleted"
+    ]
+  },
+  {
+    "label": "Testimonials",
+    "modules": [
+      "getTestimonial",
+      "createTestimonial",
+      "updateTestimonial",
+      "approveTestimonial",
+      "rejectTestimonial",
+      "pendTestimonial",
+      "pinTestimonial",
+      "createTestimonialPerson",
+      "askForTestimonial",
+      "searchTestimonials",
+      "searchTestimonialPeople",
+      "searchTestimonialForms",
+      "searchTestimonialRequests",
+      "watchTestimonialReceived",
+      "watchTestimonialApproved",
+      "watchTestimonialRejected",
+      "watchTestimonialRestored",
+      "watchTestimonialTrashed",
+      "watchTestimonialDeleted",
+      "watchTestimonialFormSubmitted",
+      "watchTestimonialRequestSent",
+      "watchTestimonialRequestCompleted",
+      "watchTestimonialImportFinished"
+    ]
+  },
+  {
+    "label": "Advanced",
+    "modules": [
+      "makeApiCall"
+    ]
+  }
+]

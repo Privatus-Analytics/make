@@ -1,0 +1,87 @@
+[
+  {
+    "name": "dimension",
+    "label": "Report",
+    "type": "text"
+  },
+  {
+    "name": "period_from",
+    "label": "Period From",
+    "type": "date"
+  },
+  {
+    "name": "period_to",
+    "label": "Period To",
+    "type": "date"
+  },
+  {
+    "name": "value",
+    "label": "Value",
+    "type": "text"
+  },
+  {
+    "name": "share",
+    "label": "Share (%)",
+    "type": "number"
+  },
+  {
+    "name": "visitors",
+    "label": "Visitors",
+    "type": "number"
+  },
+  {
+    "name": "visits",
+    "label": "Visits",
+    "type": "number"
+  },
+  {
+    "name": "pageviews",
+    "label": "Pageviews",
+    "type": "number"
+  },
+  {
+    "name": "views_per_visit",
+    "label": "Views per Visit",
+    "type": "number"
+  },
+  {
+    "name": "bounce_rate",
+    "label": "Bounce Rate (%)",
+    "type": "number"
+  },
+  {
+    "name": "visit_duration",
+    "label": "Visit Duration (Milliseconds)",
+    "type": "number"
+  },
+  {
+    "name": "revenue",
+    "label": "Revenue (Minor Units)",
+    "type": "number"
+  },
+  {
+    "name": "time_on_page",
+    "label": "Time on Page (Milliseconds)",
+    "type": "number"
+  },
+  {
+    "name": "scroll_depth",
+    "label": "Scroll Depth (%)",
+    "type": "number"
+  },
+  {
+    "name": "completions",
+    "label": "Completions",
+    "type": "number"
+  },
+  {
+    "name": "conversions",
+    "label": "Conversions",
+    "type": "number"
+  },
+  {
+    "name": "conversion_rate",
+    "label": "Conversion Rate (%)",
+    "type": "number"
+  }
+]

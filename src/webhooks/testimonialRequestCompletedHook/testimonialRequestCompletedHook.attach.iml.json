@@ -1,0 +1,17 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/webhooks.json",
+  "method": "POST",
+  "body": {
+    "url": "{{webhook.url}}",
+    "events": [
+      "testimonial_request.completed"
+    ],
+    "enabled": true
+  },
+  "response": {
+    "data": {
+      "webhookId": "{{body.data.id}}",
+      "workspaceId": "{{connection.workspaceId}}"
+    }
+  }
+}

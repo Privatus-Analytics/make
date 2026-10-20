@@ -1,0 +1,21 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/sites.json",
+  "method": "GET",
+  "qs": {
+    "per_page": 100
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "limit": 300,
+    "output": {
+      "label": "{{if(item.name && item.name !== item.domain, item.name + ' (' + item.domain + ')', item.domain)}}",
+      "value": "{{item.id}}"
+    }
+  }
+}

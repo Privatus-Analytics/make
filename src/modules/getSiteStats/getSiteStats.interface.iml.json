@@ -1,0 +1,84 @@
+[
+  {
+    "name": "from",
+    "label": "From",
+    "type": "date"
+  },
+  {
+    "name": "to",
+    "label": "To",
+    "type": "date"
+  },
+  {
+    "name": "visitors",
+    "label": "Visitors",
+    "type": "number"
+  },
+  {
+    "name": "visits",
+    "label": "Visits",
+    "type": "number"
+  },
+  {
+    "name": "pageviews",
+    "label": "Pageviews",
+    "type": "number"
+  },
+  {
+    "name": "views_per_visit",
+    "label": "Views per Visit",
+    "type": "number"
+  },
+  {
+    "name": "bounce_rate",
+    "label": "Bounce Rate (%)",
+    "type": "number"
+  },
+  {
+    "name": "visit_duration",
+    "label": "Visit Duration (Milliseconds)",
+    "type": "number"
+  },
+  {
+    "name": "visit_duration_seconds",
+    "label": "Visit Duration (Seconds)",
+    "type": "number"
+  },
+  {
+    "name": "revenue",
+    "label": "Revenue (Minor Units)",
+    "type": "number"
+  },
+  {
+    "name": "revenue_amount",
+    "label": "Revenue (Site Currency)",
+    "type": "number"
+  },
+  {
+    "name": "comparison_period",
+    "label": "Comparison Period",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "from",
+        "label": "From",
+        "type": "date"
+      },
+      {
+        "name": "to",
+        "label": "To",
+        "type": "date"
+      }
+    ]
+  },
+  {
+    "name": "comparison",
+    "label": "Comparison",
+    "type": "collection"
+  },
+  {
+    "name": "change",
+    "label": "Change (%)",
+    "type": "collection"
+  }
+]

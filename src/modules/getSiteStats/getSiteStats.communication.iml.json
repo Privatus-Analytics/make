@@ -1,0 +1,30 @@
+{
+  "url": "/sites/{{parameters.site_id}}/stats/aggregate.json",
+  "method": "GET",
+  "qs": {
+    "period": "{{ifempty(parameters.period, undefined)}}",
+    "from": "{{if(parameters.from, formatDate(parameters.from, 'YYYY-MM-DD'), undefined)}}",
+    "to": "{{if(parameters.to, formatDate(parameters.to, 'YYYY-MM-DD'), undefined)}}",
+    "compare": "{{ifempty(parameters.compare, undefined)}}",
+    "filters": "{{ifempty(parameters.filters, undefined)}}",
+    "segment_id": "{{ifempty(parameters.segment_id, undefined)}}"
+  },
+  "response": {
+    "output": {
+      "from": "{{body.data.period.from}}",
+      "to": "{{body.data.period.to}}",
+      "visitors": "{{body.data.metrics.visitors}}",
+      "visits": "{{body.data.metrics.visits}}",
+      "pageviews": "{{body.data.metrics.pageviews}}",
+      "views_per_visit": "{{body.data.metrics.views_per_visit}}",
+      "bounce_rate": "{{body.data.metrics.bounce_rate}}",
+      "visit_duration": "{{body.data.metrics.visit_duration}}",
+      "visit_duration_seconds": "{{round(body.data.metrics.visit_duration / 1000)}}",
+      "revenue": "{{body.data.metrics.revenue}}",
+      "revenue_amount": "{{body.data.metrics.revenue / 100}}",
+      "comparison_period": "{{body.data.comparison_period}}",
+      "comparison": "{{body.data.comparison}}",
+      "change": "{{body.data.change}}"
+    }
+  }
+}

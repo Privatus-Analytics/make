@@ -1,0 +1,13 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/sites.json",
+  "method": "POST",
+  "body": {
+    "domain": "{{ifempty(parameters.domain, undefined)}}",
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "timezone": "{{ifempty(parameters.timezone, undefined)}}",
+    "currency": "{{ifempty(parameters.currency, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

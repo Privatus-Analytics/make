@@ -1,0 +1,7 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/{{parameters.id}}/pend.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

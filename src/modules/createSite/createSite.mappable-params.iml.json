@@ -1,0 +1,27 @@
+[
+  {
+    "name": "domain",
+    "label": "Domain",
+    "help": "The domain to track, like example.com. Enter only the domain, without https:// or a path.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "help": "Display name. Defaults to the normalized domain.",
+    "type": "text"
+  },
+  {
+    "name": "timezone",
+    "label": "Timezone",
+    "help": "IANA timezone name such as Europe/Berlin or America/New_York. Defaults to the workspace timezone.",
+    "type": "text"
+  },
+  {
+    "name": "currency",
+    "label": "Currency",
+    "help": "3-letter ISO 4217 code such as USD or EUR used for revenue. Defaults to the workspace currency.",
+    "type": "text"
+  }
+]

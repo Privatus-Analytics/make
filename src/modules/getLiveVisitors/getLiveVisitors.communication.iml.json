@@ -1,0 +1,7 @@
+{
+  "url": "/sites/{{parameters.site_id}}/live.json",
+  "method": "GET",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

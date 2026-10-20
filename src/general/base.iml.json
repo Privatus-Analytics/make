@@ -1,0 +1,61 @@
+{
+  "baseUrl": "https://privatusanalytics.com",
+  "headers": {
+    "Authorization": "Bearer {{connection.apiToken}}",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization"
+    ]
+  },
+  "response": {
+    "error": {
+      "400": {
+        "type": "DataError",
+        "message": "[{{statusCode}}] {{body.error.message}} {{body.error.details}}"
+      },
+      "401": {
+        "type": "InvalidAccessTokenError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "402": {
+        "type": "RuntimeError",
+        "message": "[{{statusCode}}] {{body.error.message}} This needs a higher Privatus Analytics plan."
+      },
+      "403": {
+        "type": "RuntimeError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "404": {
+        "type": "DataError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "409": {
+        "type": "DataError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "422": {
+        "type": "DataError",
+        "message": "[{{statusCode}}] {{body.error.message}} {{body.error.details}}"
+      },
+      "429": {
+        "type": "RateLimitError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "500": {
+        "type": "ConnectionError",
+        "message": "[{{statusCode}}] {{body.error.message}}"
+      },
+      "502": {
+        "type": "ConnectionError",
+        "message": "[{{statusCode}}] The Privatus Analytics API is not reachable right now."
+      },
+      "503": {
+        "type": "ConnectionError",
+        "message": "[{{statusCode}}] The Privatus Analytics API is not reachable right now."
+      }
+    }
+  }
+}

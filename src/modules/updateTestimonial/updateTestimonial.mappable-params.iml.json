@@ -1,0 +1,100 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "id",
+    "type": "select",
+    "options": "rpc://listTestimonials",
+    "label": "Testimonial",
+    "help": "The testimonial (tm_...). The list shows the newest ones. You can also map a testimonial ID from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "body",
+    "label": "Body",
+    "help": "The words. A change is kept in the history",
+    "type": "text"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "help": "Up to 200 characters. A change is kept in the history",
+    "type": "text"
+  },
+  {
+    "name": "rating",
+    "label": "Rating",
+    "help": "1 to 5, or null to clear it. A change is kept in the history",
+    "type": "integer"
+  },
+  {
+    "name": "highlight",
+    "label": "Highlight",
+    "help": "An exact part of the words. Empty clears it",
+    "type": "text"
+  },
+  {
+    "name": "language",
+    "label": "Language",
+    "help": "Language code",
+    "type": "text"
+  },
+  {
+    "name": "received_at",
+    "label": "Received At",
+    "help": "When they gave it. A day alone (2026-10-10) is that day by the site's clock",
+    "type": "date"
+  },
+  {
+    "name": "source_name",
+    "label": "Source Name",
+    "help": "The platform or place it came from",
+    "type": "text"
+  },
+  {
+    "name": "source_url",
+    "label": "Source URL",
+    "help": "A public link to it",
+    "type": "text"
+  },
+  {
+    "name": "properties",
+    "label": "Properties",
+    "help": "Custom property values by key as a JSON object, like {\"plan\":\"pro\"}.",
+    "type": "json"
+  },
+  {
+    "name": "edit_note",
+    "label": "Edit Note",
+    "help": "A line kept with the history entry, up to 280 characters",
+    "type": "text"
+  },
+  {
+    "name": "add_tags",
+    "label": "Add Tags",
+    "help": "Tag names or IDs. A name that does not exist yet is created.",
+    "type": "select",
+    "options": "rpc://listTestimonialTags",
+    "multiple": true
+  },
+  {
+    "name": "remove_tags",
+    "label": "Remove Tags",
+    "help": "Tag names or ids to remove",
+    "type": "select",
+    "options": "rpc://listTestimonialTags",
+    "multiple": true
+  },
+  {
+    "name": "permalink",
+    "label": "Permalink",
+    "help": "Switches its public page (/t/<tm_id>) on or off. The page responds only while the testimonial is approved, not in the trash and allowed by its consent record",
+    "type": "boolean"
+  }
+]

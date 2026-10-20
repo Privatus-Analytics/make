@@ -1,0 +1,317 @@
+[
+  {
+    "name": "id",
+    "label": "ID",
+    "type": "text"
+  },
+  {
+    "name": "site_id",
+    "label": "Site",
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text"
+  },
+  {
+    "name": "slug",
+    "label": "Slug",
+    "type": "text"
+  },
+  {
+    "name": "url",
+    "label": "URL",
+    "type": "text"
+  },
+  {
+    "name": "site_verified",
+    "label": "Site Verified",
+    "type": "boolean"
+  },
+  {
+    "name": "language",
+    "label": "Language",
+    "type": "text"
+  },
+  {
+    "name": "kinds",
+    "label": "Kinds",
+    "type": "array"
+  },
+  {
+    "name": "version",
+    "label": "Version",
+    "type": "number"
+  },
+  {
+    "name": "starter",
+    "label": "Starter",
+    "type": "boolean"
+  },
+  {
+    "name": "welcome_enabled",
+    "label": "Welcome Enabled",
+    "type": "boolean"
+  },
+  {
+    "name": "rating_enabled",
+    "label": "Rating Enabled",
+    "type": "boolean"
+  },
+  {
+    "name": "rating_required",
+    "label": "Rating Required",
+    "type": "boolean"
+  },
+  {
+    "name": "low_rating_routing",
+    "label": "Low Rating Routing",
+    "type": "boolean"
+  },
+  {
+    "name": "thanks_redirect",
+    "label": "Thanks Redirect",
+    "type": "boolean"
+  },
+  {
+    "name": "share_prompt",
+    "label": "Share Prompt",
+    "type": "boolean"
+  },
+  {
+    "name": "show_logo",
+    "label": "Show Logo",
+    "type": "boolean"
+  },
+  {
+    "name": "show_progress",
+    "label": "Show Progress",
+    "type": "boolean"
+  },
+  {
+    "name": "turnstile",
+    "label": "Turnstile",
+    "type": "boolean"
+  },
+  {
+    "name": "show_badge",
+    "label": "Show Badge",
+    "type": "boolean"
+  },
+  {
+    "name": "welcome_title",
+    "label": "Welcome Title",
+    "type": "text"
+  },
+  {
+    "name": "welcome_message",
+    "label": "Welcome Message",
+    "type": "text"
+  },
+  {
+    "name": "welcome_button",
+    "label": "Welcome Button",
+    "type": "text"
+  },
+  {
+    "name": "rating_title",
+    "label": "Rating Title",
+    "type": "text"
+  },
+  {
+    "name": "feedback_title",
+    "label": "Feedback Title",
+    "type": "text"
+  },
+  {
+    "name": "feedback_message",
+    "label": "Feedback Message",
+    "type": "text"
+  },
+  {
+    "name": "feedback_thanks",
+    "label": "Feedback Thanks",
+    "type": "text"
+  },
+  {
+    "name": "about_title",
+    "label": "About Title",
+    "type": "text"
+  },
+  {
+    "name": "about_message",
+    "label": "About Message",
+    "type": "text"
+  },
+  {
+    "name": "consent_title",
+    "label": "Consent Title",
+    "type": "text"
+  },
+  {
+    "name": "consent_text",
+    "label": "Consent Text",
+    "type": "text"
+  },
+  {
+    "name": "consent_single_label",
+    "label": "Consent Single Label",
+    "type": "text"
+  },
+  {
+    "name": "thanks_title",
+    "label": "Thanks Title",
+    "type": "text"
+  },
+  {
+    "name": "thanks_message",
+    "label": "Thanks Message",
+    "type": "text"
+  },
+  {
+    "name": "thanks_button_label",
+    "label": "Thanks Button Label",
+    "type": "text"
+  },
+  {
+    "name": "thanks_button_url",
+    "label": "Thanks Button URL",
+    "type": "text"
+  },
+  {
+    "name": "accent_color",
+    "label": "Accent Color",
+    "type": "text"
+  },
+  {
+    "name": "background_color",
+    "label": "Background Color",
+    "type": "text"
+  },
+  {
+    "name": "custom_css",
+    "label": "Custom Css",
+    "type": "text"
+  },
+  {
+    "name": "rating_style",
+    "label": "Rating Style",
+    "type": "text"
+  },
+  {
+    "name": "theme",
+    "label": "Theme",
+    "type": "text"
+  },
+  {
+    "name": "field_name",
+    "label": "Field Name",
+    "type": "text"
+  },
+  {
+    "name": "consent_mode",
+    "label": "Consent Mode",
+    "type": "text"
+  },
+  {
+    "name": "field_email",
+    "label": "Field Email",
+    "type": "text"
+  },
+  {
+    "name": "field_photo",
+    "label": "Field Photo",
+    "type": "text"
+  },
+  {
+    "name": "field_title",
+    "label": "Field Title",
+    "type": "text"
+  },
+  {
+    "name": "field_company",
+    "label": "Field Company",
+    "type": "text"
+  },
+  {
+    "name": "field_company_url",
+    "label": "Field Company URL",
+    "type": "text"
+  },
+  {
+    "name": "field_social_url",
+    "label": "Field Social URL",
+    "type": "text"
+  },
+  {
+    "name": "consent_show_name",
+    "label": "Consent Show Name",
+    "type": "text"
+  },
+  {
+    "name": "consent_show_photo",
+    "label": "Consent Show Photo",
+    "type": "text"
+  },
+  {
+    "name": "consent_show_video",
+    "label": "Consent Show Video",
+    "type": "text"
+  },
+  {
+    "name": "consent_marketing",
+    "label": "Consent Marketing",
+    "type": "text"
+  },
+  {
+    "name": "questions",
+    "label": "Questions",
+    "type": "array"
+  },
+  {
+    "name": "consent_labels",
+    "label": "Consent Labels",
+    "type": "collection"
+  },
+  {
+    "name": "url_parameters",
+    "label": "URL Parameters",
+    "type": "array"
+  },
+  {
+    "name": "reward",
+    "label": "Reward",
+    "type": "collection"
+  },
+  {
+    "name": "submissions_count",
+    "label": "Submissions Count",
+    "type": "number"
+  },
+  {
+    "name": "last_submission_at",
+    "label": "Last Submission At",
+    "type": "date"
+  },
+  {
+    "name": "trashed",
+    "label": "Trashed",
+    "type": "boolean"
+  },
+  {
+    "name": "deleted_at",
+    "label": "Deleted At",
+    "type": "date"
+  },
+  {
+    "name": "created_at",
+    "label": "Created At",
+    "type": "date"
+  },
+  {
+    "name": "updated_at",
+    "label": "Updated At",
+    "type": "date"
+  }
+]

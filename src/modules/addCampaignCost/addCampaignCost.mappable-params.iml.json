@@ -1,0 +1,37 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "campaign",
+    "label": "Campaign",
+    "help": "The utm_campaign value the cost belongs to, exactly as it arrives on the site.",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "month",
+    "label": "Month",
+    "help": "The month the money was spent. Any day in it works, like 2026-10-01.",
+    "type": "date",
+    "required": true
+  },
+  {
+    "name": "amount",
+    "label": "Amount",
+    "help": "Spend for the month in major currency units as a number, e.g. 1250.50 for 1,250.50. Not minor units. Must not be negative",
+    "type": "number",
+    "required": true
+  },
+  {
+    "name": "currency",
+    "label": "Currency",
+    "help": "3-letter ISO 4217 code in capitals, e.g. USD. Defaults to the site currency",
+    "type": "text"
+  }
+]

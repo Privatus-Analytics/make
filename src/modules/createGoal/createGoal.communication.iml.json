@@ -1,0 +1,21 @@
+{
+  "url": "/sites/{{parameters.site_id}}/goals.json",
+  "method": "POST",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "kind": "{{ifempty(parameters.kind, undefined)}}",
+    "match_type": "{{ifempty(parameters.match_type, undefined)}}",
+    "pattern": "{{ifempty(parameters.pattern, undefined)}}",
+    "hostname": "{{ifempty(parameters.hostname, undefined)}}",
+    "event_name": "{{ifempty(parameters.event_name, undefined)}}",
+    "conditions": "{{if(parameters.conditions, parseJSON(parameters.conditions), undefined)}}",
+    "scroll_threshold": "{{parameters.scroll_threshold}}",
+    "time_threshold_seconds": "{{parameters.time_threshold_seconds}}",
+    "value_mode": "{{ifempty(parameters.value_mode, undefined)}}",
+    "fixed_value": "{{parameters.fixed_value}}",
+    "count_mode": "{{ifempty(parameters.count_mode, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "name": "id",
+    "label": "Delivery ID",
+    "type": "text"
+  },
+  {
+    "name": "event",
+    "label": "Event",
+    "type": "text"
+  },
+  {
+    "name": "occurred_at",
+    "label": "Occurred At",
+    "type": "date"
+  },
+  {
+    "name": "workspace_id",
+    "label": "Workspace ID",
+    "type": "text"
+  },
+  {
+    "name": "data",
+    "label": "Data",
+    "type": "collection",
+    "spec": [
+      {
+        "name": "site_id",
+        "label": "Site",
+        "type": "text"
+      },
+      {
+        "name": "request_id",
+        "label": "Request",
+        "type": "text"
+      },
+      {
+        "name": "sent",
+        "label": "Sent",
+        "type": "number"
+      },
+      {
+        "name": "opened",
+        "label": "Opened",
+        "type": "number"
+      },
+      {
+        "name": "started",
+        "label": "Started",
+        "type": "number"
+      },
+      {
+        "name": "submitted",
+        "label": "Submitted",
+        "type": "number"
+      }
+    ]
+  }
+]

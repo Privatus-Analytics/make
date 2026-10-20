@@ -1,0 +1,17 @@
+{
+  "url": "/sites/{{parameters.site_id}}/notes.json",
+  "method": "POST",
+  "body": {
+    "date": "{{if(parameters.date, formatDate(parameters.date, 'YYYY-MM-DD'), undefined)}}",
+    "end_date": "{{if(parameters.end_date, formatDate(parameters.end_date, 'YYYY-MM-DD'), undefined)}}",
+    "title": "{{ifempty(parameters.title, undefined)}}",
+    "body": "{{ifempty(parameters.body, undefined)}}",
+    "url": "{{ifempty(parameters.url, undefined)}}",
+    "color": "{{ifempty(parameters.color, undefined)}}",
+    "source": "{{ifempty(parameters.source, undefined)}}",
+    "version": "{{ifempty(parameters.version, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

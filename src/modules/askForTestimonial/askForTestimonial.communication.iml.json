@@ -1,0 +1,18 @@
+{
+  "url": "/sites/{{parameters.site_id}}/testimonials/requests/{{parameters.request_id}}/recipients.json",
+  "method": "POST",
+  "body": {
+    "recipients": [
+      {
+        "email": "{{parameters.email}}",
+        "name": "{{ifempty(parameters.name, undefined)}}",
+        "company": "{{ifempty(parameters.company, undefined)}}",
+        "title": "{{ifempty(parameters.title, undefined)}}",
+        "properties": "{{if(parameters.properties, parseJSON(parameters.properties), undefined)}}"
+      }
+    ]
+  },
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

@@ -1,0 +1,151 @@
+[
+  {
+    "name": "site_id",
+    "type": "select",
+    "options": "rpc://listSites",
+    "label": "Site",
+    "help": "The site, from the sites this API token can open. You can also map a site ID (pa_...) from an earlier module.",
+    "required": true
+  },
+  {
+    "name": "name",
+    "label": "Name",
+    "help": "Goal name, up to 120 characters, for example Signed up",
+    "type": "text",
+    "required": true
+  },
+  {
+    "name": "kind",
+    "label": "Kind",
+    "help": "page (visit a page), event (custom event), engagement (scroll or time on page), outbound (outbound link click) or download (file download)",
+    "type": "select",
+    "options": [
+      {
+        "label": "page",
+        "value": "page"
+      },
+      {
+        "label": "event",
+        "value": "event"
+      },
+      {
+        "label": "engagement",
+        "value": "engagement"
+      },
+      {
+        "label": "outbound",
+        "value": "outbound"
+      },
+      {
+        "label": "download",
+        "value": "download"
+      }
+    ],
+    "required": true
+  },
+  {
+    "name": "match_type",
+    "label": "Match Type",
+    "help": "How pattern matches the path (page, engagement), link domain (outbound) or file (download): exact, prefix, glob (*) or regex",
+    "type": "select",
+    "options": [
+      {
+        "label": "exact",
+        "value": "exact"
+      },
+      {
+        "label": "prefix",
+        "value": "prefix"
+      },
+      {
+        "label": "glob",
+        "value": "glob"
+      },
+      {
+        "label": "regex",
+        "value": "regex"
+      }
+    ],
+    "default": "exact"
+  },
+  {
+    "name": "pattern",
+    "label": "Pattern",
+    "help": "Required for page, engagement, outbound and download goals. A path for page and engagement (/pricing, /blog/*), a link domain for outbound (stripe.com) or a file name for download (*.pdf). Read according to match_type",
+    "type": "text"
+  },
+  {
+    "name": "hostname",
+    "label": "Hostname",
+    "help": "Page goals only. Count the page only on this hostname, for example docs.example.com. Leave empty for any hostname",
+    "type": "text"
+  },
+  {
+    "name": "event_name",
+    "label": "Event Name",
+    "help": "Required for event goals. The custom event name, for example Signup",
+    "type": "text"
+  },
+  {
+    "name": "conditions",
+    "label": "Conditions",
+    "help": "Event goals only. A JSON list of property tests that must all match, like [{\"key\":\"plan\",\"operator\":\"is\",\"value\":\"pro\"}]. Operators: is, is_not, contains, gt, lt.",
+    "type": "json"
+  },
+  {
+    "name": "scroll_threshold",
+    "label": "Scroll Threshold",
+    "help": "Engagement goals only. Percent of the page scrolled, 1 to 100. The goal is met when this OR time_threshold_seconds is reached",
+    "type": "integer"
+  },
+  {
+    "name": "time_threshold_seconds",
+    "label": "Time Threshold Seconds",
+    "help": "Engagement goals only. Seconds of engaged time on the page. The goal is met when this OR scroll_threshold is reached",
+    "type": "integer"
+  },
+  {
+    "name": "value_mode",
+    "label": "Value Mode",
+    "help": "none, fixed (fixed_value per conversion) or revenue (the event revenue)",
+    "type": "select",
+    "options": [
+      {
+        "label": "none",
+        "value": "none"
+      },
+      {
+        "label": "fixed",
+        "value": "fixed"
+      },
+      {
+        "label": "revenue",
+        "value": "revenue"
+      }
+    ],
+    "default": "none"
+  },
+  {
+    "name": "fixed_value",
+    "label": "Fixed Value",
+    "help": "The value of one completion in the site currency, like 49.5. Used when Value Mode is fixed.",
+    "type": "number"
+  },
+  {
+    "name": "count_mode",
+    "label": "Count Mode",
+    "help": "Value counts once_per_visit or every completion",
+    "type": "select",
+    "options": [
+      {
+        "label": "once_per_visit",
+        "value": "once_per_visit"
+      },
+      {
+        "label": "every",
+        "value": "every"
+      }
+    ],
+    "default": "once_per_visit"
+  }
+]

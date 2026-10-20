@@ -1,0 +1,7 @@
+{
+  "url": "/sites/{{parameters.site_id}}/experiments/{{parameters.id}}/pause.json",
+  "method": "POST",
+  "response": {
+    "output": "{{body.data}}"
+  }
+}

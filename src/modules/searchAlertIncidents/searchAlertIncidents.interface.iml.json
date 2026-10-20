@@ -1,0 +1,37 @@
+[
+  {
+    "name": "triggered_at",
+    "label": "Triggered At",
+    "type": "date"
+  },
+  {
+    "name": "resolved_at",
+    "label": "Resolved At",
+    "type": "date"
+  },
+  {
+    "name": "value",
+    "label": "Value",
+    "type": "number"
+  },
+  {
+    "name": "message",
+    "label": "Message",
+    "type": "text"
+  },
+  {
+    "name": "digest_due_at",
+    "label": "Digest Due At",
+    "type": "date"
+  },
+  {
+    "name": "acknowledged_at",
+    "label": "Acknowledged At",
+    "type": "date"
+  },
+  {
+    "name": "acknowledged_by",
+    "label": "Acknowledged By",
+    "type": "text"
+  }
+]

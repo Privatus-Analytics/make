@@ -1,0 +1,21 @@
+{
+  "url": "/workspaces/{{connection.workspaceId}}/alerts.json",
+  "method": "GET",
+  "qs": {
+    "site_id": "{{ifempty(parameters.site_id, undefined)}}",
+    "state": "{{ifempty(parameters.state, undefined)}}",
+    "kind": "{{ifempty(parameters.kind, undefined)}}",
+    "per_page": "{{min(parameters.limit, 100)}}"
+  },
+  "pagination": {
+    "qs": {
+      "page": "{{pagination.page}}"
+    },
+    "condition": "{{body.meta.total_pages >= pagination.page}}"
+  },
+  "response": {
+    "iterate": "{{body.data}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

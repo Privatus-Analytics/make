@@ -1,0 +1,10 @@
+{
+  "condition": "{{body.event === 'testimonial_form.submitted' && (!parameters.siteId || body.data.site_id === parameters.siteId || body.data.check.site_id === parameters.siteId)}}",
+  "output": {
+    "id": "{{body.id}}",
+    "event": "{{body.event}}",
+    "occurred_at": "{{body.created_at}}",
+    "workspace_id": "{{body.workspace_id}}",
+    "data": "{{body.data}}"
+  }
+}
