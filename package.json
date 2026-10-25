@@ -1,5 +1,5 @@
 {
-  "name": "@privatus/make",
+  "name": "@privatus-analytics/make",
   "version": "1.0.0",
   "description": "Privatus Analytics custom app for Make: generator, offline validator and tests. No dependencies.",
   "private": true,
