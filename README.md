@@ -24,8 +24,8 @@ API (`/openapi.json`) and the signed webhooks (`/docs/api/webhooks`), so no serv
 It mirrors the finished Zapier app in `../zapier`.
 
 Nothing here is published. `src/` is the app in the folder layout of Make's Apps SDK VS Code
-extension, and `dist/deploy-with-make-cli.sh` is a second route that pushes the same files with the
-Make CLI.
+extension, and `scripts/deploy.js` pushes it to Make through Make's Custom Apps API. The private app
+is `privatus-analytics-midypx` in the us2 zone (Make added the suffix when the app was created).
 
 ## What it contains (72 modules)
 
@@ -80,8 +80,8 @@ src/                         open this folder in VS Code (the Make Apps SDK exte
   modules/<name>/            communication, static-params, mappable-params, interface, samples
   rpcs/<name>/               communication, params
   webhooks/<name>/           communication, params, attach, detach
-dist/deploy-with-make-cli.sh push the same files with the Make CLI
-scripts/                     the generator, the validator, the spec copy and the event list
+dist/deploy-with-make-cli.sh push the same files with the Make CLI (older route)
+scripts/                     the generator, the validator, the deploy script, the spec copy and the event list
 test/                        tests that run the generated IML
 app-readme.md                the readme shown inside Make (copied to src/general/readme.md)
 icon-512.png                 the app logo, 512 by 512
@@ -135,20 +135,23 @@ Not verifiable without a Make account:
 
 ## Sync to Make
 
-Either route works. Use a throwaway test app first (the origin in `makecomapp.json` is
-`privatus-analytics-test`), and publish only when the scenarios pass.
+`scripts/deploy.js` deploys everything in `src/` through Make's Custom Apps API: the base, the docs,
+the icon, the connection, the webhooks, the RPCs, the modules (each linked to the connection, and each
+instant trigger to its webhook), the functions and the groups. It reads the API token from
+`.secrets/apikey` (scopes `sdk-apps:read` and `sdk-apps:write`, never printed) and the zone and app from
+`origins[0]` in `src/makecomapp.json` (set in `scripts/generate.js`).
 
-1. **VS Code extension.** Install the Make Apps SDK extension, add a Make API key with the `sdk-apps:*`
-   scopes (see `SUBMISSION.md`), create the app, open `src/`, then right-click `makecomapp.json` and
-   choose Deploy to Make.
-2. **Make CLI.** Create the app in Make, then `APP=<app name> VERSION=1 bash dist/deploy-with-make-cli.sh`.
-3. **By hand** in the Make web editor: for each component, open its tab and paste the file:
-   Communication from `*.communication.iml.json`, Parameters or Mappable parameters from the params
-   files, Interface, Samples, and for a webhook its Attach and Detach. The base, groups and readme go in
-   the app's Base, Groups and Docs. This is slow with 140 components and the other two are better.
+```sh
+npm test                          # generate, validate, test
+node scripts/deploy.js            # create what is missing, update the rest
+node scripts/deploy.js --check    # read the app back from Make and compare it with src/
+```
 
-After the first deploy, open an instant trigger and check that it is linked to its webhook, and that
-every module uses the connection.
+It is safe to run again. Make names connections and webhooks itself, so they are matched by label.
+Never rename a connection or webhook label after the first deploy, or the script makes a second one.
+
+The VS Code extension (open `src/`, right-click `makecomapp.json`, Deploy to Make) and
+`dist/deploy-with-make-cli.sh` are other routes to the same files.
 
 ## Updating the app after the API changes
 

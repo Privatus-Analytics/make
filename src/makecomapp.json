@@ -1406,9 +1406,9 @@
   },
   "origins": [
     {
-      "label": "Testing",
-      "baseUrl": "https://eu1.make.com/api",
-      "appId": "privatus-analytics-test",
+      "label": "Production",
+      "baseUrl": "https://us2.make.com/api",
+      "appId": "privatus-analytics-midypx",
       "appVersion": 1,
       "apikeyFile": "../.secrets/apikey",
       "changesCount": 0,

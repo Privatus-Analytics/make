@@ -23,6 +23,12 @@ const APP = 'privatus-analytics';
 const CONNECTION = 'privatusAnalytics';
 const BASE_URL = 'https://privatusanalytics.com';
 
+// The Make app this repo deploys to (scripts/deploy.js). The account is in
+// the us2 zone, and Make added the suffix to the name when the app was created.
+const ORIGINS = [
+  { label: 'Production', baseUrl: 'https://us2.make.com/api', appId: 'privatus-analytics-midypx', appVersion: 1, apikeyFile: '../.secrets/apikey', changesCount: 0, components: {} },
+];
+
 const specArg = process.argv.indexOf('--spec');
 const spec = lib.loadSpec(specArg > 0 ? path.resolve(process.argv[specArg + 1]) : lib.SPEC_FILE);
 
@@ -448,9 +454,7 @@ const main = () => {
       webhook: Object.fromEntries(webhooks.map((w) => [w.name, { type: 'web', label: w.label, connection: CONNECTION, codeFiles: { communication: `webhooks/${w.name}/${w.name}.communication.iml.json`, params: `webhooks/${w.name}/${w.name}.params.iml.json`, attach: `webhooks/${w.name}/${w.name}.attach.iml.json`, detach: `webhooks/${w.name}/${w.name}.detach.iml.json` } }])),
       function: {},
     },
-    origins: [
-      { label: 'Testing', baseUrl: 'https://eu1.make.com/api', appId: `${APP}-test`, appVersion: 1, apikeyFile: '../.secrets/apikey', changesCount: 0, components: {} },
-    ],
+    origins: ORIGINS,
   };
   write('src/makecomapp.json', comp);
 

@@ -1,6 +1,10 @@
 # Privatus Analytics
 
-Privatus Analytics is cookieless, privacy-first web analytics. This app connects it to Make so you can read your numbers, manage goals, alerts, uptime checks, experiments and testimonials, and start a scenario the moment something happens.
+Checking your website numbers by hand and copying them into other tools takes time every day.
+
+This app connects Privatus Analytics to Make. A scenario can start the moment an alert fires, a site goes down or a testimonial comes in. Your scenarios can also read your stats and create goals, campaign links, uptime checks and more.
+
+So reports and alerts go where your team already works, with no copy and paste. The numbers are honest too: Privatus Analytics counts visits without cookies and leaves bots out.
 
 ## Connect
 
