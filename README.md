@@ -1,5 +1,23 @@
 # Privatus Analytics for Make
 
+**Put your website stats and alerts to work in Make. Not published yet.**
+
+You want your website numbers to reach the tools your team uses, like a post in
+your team chat each morning or a ticket when your site goes down. Doing it by
+hand takes time every day.
+
+This app connects Privatus Analytics to Make scenarios. Start a scenario when an
+alert fires, a site goes down or a testimonial comes in. Read stats, create
+goals and campaign links, and more. It is built but not yet in Make's app list.
+
+So reports and alerts go where your team already works, with no copy and paste.
+The numbers are honest too. Privatus Analytics counts visits without cookies, so
+there is no cookie pop-up for your analytics, and it leaves bots out.
+
+**Free plan, no card:** 10,000 events a month (an event is a page view or an action you track) on up to 3 sites. [Start free at privatusanalytics.com](https://privatusanalytics.com).
+
+## About this repo
+
 A custom app for [Make](https://www.make.com) (formerly Integromat) that connects
 [Privatus Analytics](https://privatusanalytics.com) to Make scenarios. It is built only on the public
 API (`/openapi.json`) and the signed webhooks (`/docs/api/webhooks`), so no server change is needed.
@@ -47,7 +65,7 @@ hand, exports). Make removes a webhook itself through the detach step when a sce
   delivery envelope (`id`, `event`, `occurred_at`, `workspace_id`) with `data` typed from the sample
   payloads in `scripts/events.json`. Creating a webhook needs a token with the workspace settings
   permission and every site.
-- **Signatures.** Deliveries carry `Privatus-Signature: t=<unix>,v1=<hex HMAC-SHA256 of "<t>.<raw body>">`.
+- **Signatures.** Deliveries include `Privatus-Signature: t=<unix>,v1=<hex HMAC-SHA256 of "<t>.<raw body>">`.
   Make's IML has no access to the raw body, so the app cannot verify it. The webhook URL is the
   secret that only Make and Privatus Analytics know. This is stated in the app readme and in the
   review notes.
