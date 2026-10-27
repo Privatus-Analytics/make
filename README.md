@@ -153,6 +153,32 @@ Never rename a connection or webhook label after the first deploy, or the script
 The VS Code extension (open `src/`, right-click `makecomapp.json`, Deploy to Make) and
 `dist/deploy-with-make-cli.sh` are other routes to the same files.
 
+## Review scenarios
+
+`scripts/scenarios.js` builds the scenarios Make's review asks for (`SUBMISSION.md` step 12) through
+Make's API, in the team of the organization in `origins[0]`. Each scenario stays inactive, so the Free
+plan limit of 2 active scenarios is never reached.
+
+- A01 to A25: one scenario for each instant trigger (Make allows one trigger per scenario), each followed
+  by a Set Variable module.
+- B: every search with Limit 150, each on its own router route, so paging shows in the log.
+- C: every action in one chain, on a new test site it creates. The universal module makes the draft
+  experiment that Start, Pause and End need, because no module creates one.
+- D: Create a Goal with a blank name, so the log shows the API's 422 message.
+- E: Make an API Call, a GET of the workspace's sites.
+
+```sh
+node scripts/scenarios.js                                  # create or update the scenarios
+node scripts/scenarios.js --token-file .secrets/test-token --prep   # connection, ids, test alert and status page
+node scripts/scenarios.js --run C                          # switch on, run, switch off, print the result
+node scripts/scenarios.js --run A05 --wait 600             # switch on and wait for the webhook
+```
+
+It reads the Make token from `.secrets/apikey-scenarios` (scopes `scenarios:read`, `scenarios:write`,
+`scenarios:run`, `connections:read`, `connections:write`, plus `hooks:read` and `hooks:write` to add the
+webhooks of the trigger scenarios). The Privatus Analytics token must belong to a test workspace with
+demo data. The script refuses James's own workspace, and no token is printed.
+
 ## Updating the app after the API changes
 
 Re-run `npm run sync-spec` in `../zapier`, copy `lib/spec.json`, then generate, validate and test. A
