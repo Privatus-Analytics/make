@@ -57,13 +57,13 @@ const base = {
   log: { sanitize: ['request.headers.authorization'] },
   response: {
     error: {
-      400: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}} {{body.error.details}}' },
+      400: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}}' },
       401: { type: 'InvalidAccessTokenError', message: '[{{statusCode}}] {{body.error.message}}' },
       402: { type: 'RuntimeError', message: '[{{statusCode}}] {{body.error.message}} This needs a higher Privatus Analytics plan.' },
       403: { type: 'RuntimeError', message: '[{{statusCode}}] {{body.error.message}}' },
       404: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}}' },
       409: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}}' },
-      422: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}} {{body.error.details}}' },
+      422: { type: 'DataError', message: '[{{statusCode}}] {{body.error.message}}' },
       429: { type: 'RateLimitError', message: '[{{statusCode}}] {{body.error.message}}' },
       500: { type: 'ConnectionError', message: '[{{statusCode}}] {{body.error.message}}' },
       502: { type: 'ConnectionError', message: '[{{statusCode}}] The Privatus Analytics API is not reachable right now.' },
@@ -275,9 +275,10 @@ const buildUniversal = () => ({
   typeId: TYPE.universal,
   actionCrud: 'universal',
   communication: {
-    url: "{{'" + BASE_URL + "' + if(substring(parameters.url, 0, 1) === '/', '', '/') + parameters.url}}",
+    // A relative path, so the base adds the host and the Authorization header.
+    url: "{{if(substring(parameters.url, 0, 1) === '/', '', '/') + parameters.url}}",
     method: '{{parameters.method}}',
-    headers: '{{toCollection(parameters.headers, "key", "value")}}',
+    // No headers key: in Make any module headers replace the base headers, Authorization included.
     qs: '{{toCollection(parameters.qs, "key", "value")}}',
     body: '{{parameters.body}}',
     response: { output: { body: '{{body}}', headers: '{{headers}}', statusCode: '{{statusCode}}' } },
@@ -285,7 +286,6 @@ const buildUniversal = () => ({
   mappable: [
     { name: 'url', label: 'URL', type: 'text', required: true, help: 'A path relative to https://privatusanalytics.com, like /sites/pa_7Q2K9XH3AB/stats/aggregate.json. It must start with a slash. Every endpoint is listed at https://privatusanalytics.com/docs/api.', validate: { pattern: '^/(?!/)' } },
     { name: 'method', label: 'Method', type: 'select', required: true, default: 'GET', options: ['GET', 'POST', 'PATCH', 'PUT'].map((value) => ({ label: value, value })), help: 'The HTTP method. Deleting data is not available in this module.' },
-    { name: 'headers', label: 'Headers', type: 'array', help: 'Extra request headers. The Authorization header is added for you.', spec: [{ name: 'key', label: 'Key', type: 'text', required: true }, { name: 'value', label: 'Value', type: 'text' }] },
     { name: 'qs', label: 'Query String', type: 'array', help: 'Query string parameters, like period = 30d. For a list, write the key with brackets, like status[], once for each value.', spec: [{ name: 'key', label: 'Key', type: 'text', required: true }, { name: 'value', label: 'Value', type: 'text' }] },
     { name: 'body', label: 'Body', type: 'any', help: 'The request body as JSON, for POST, PATCH and PUT.' },
   ],

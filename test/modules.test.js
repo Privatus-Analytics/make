@@ -113,9 +113,10 @@ test('moderation modules hit the right endpoints', () => {
 test('make an API call stays on the Privatus Analytics host and cannot delete', () => {
   const { comm, params } = mod('makeApiCall');
   const url = (u) => lib.evalString(comm.url, { parameters: { url: u } });
-  assert.equal(url('/sites.json'), 'https://privatusanalytics.com/sites.json');
-  assert.equal(url('sites.json'), 'https://privatusanalytics.com/sites.json');
-  assert.equal(url('https://evil.example/x'), 'https://privatusanalytics.com/https://evil.example/x');
+  // Always a relative path, so the base puts the Privatus Analytics host in front.
+  assert.equal(url('/sites.json'), '/sites.json');
+  assert.equal(url('sites.json'), '/sites.json');
+  assert.equal(url('https://evil.example/x'), '/https://evil.example/x');
   assert.deepEqual(params.find((p) => p.name === 'method').options.map((o) => o.value), ['GET', 'POST', 'PATCH', 'PUT']);
   assert.equal(new RegExp(params.find((p) => p.name === 'url').validate.pattern).test('//evil.example'), false);
   assert.deepEqual(lib.evalString(comm.qs, { parameters: { qs: [{ key: 'period', value: '30d' }] } }), { period: '30d' });

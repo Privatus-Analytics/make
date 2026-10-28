@@ -1,7 +1,6 @@
 {
-  "url": "{{'https://privatusanalytics.com' + if(substring(parameters.url, 0, 1) === '/', '', '/') + parameters.url}}",
+  "url": "{{if(substring(parameters.url, 0, 1) === '/', '', '/') + parameters.url}}",
   "method": "{{parameters.method}}",
-  "headers": "{{toCollection(parameters.headers, \"key\", \"value\")}}",
   "qs": "{{toCollection(parameters.qs, \"key\", \"value\")}}",
   "body": "{{parameters.body}}",
   "response": {

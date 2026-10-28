@@ -49,7 +49,7 @@ hand, exports). Make removes a webhook itself through the detach step when a sce
   name is the connection label, so no module asks for a workspace. A 401 or an empty list marks the
   connection invalid. The token is sanitized in the logs of the base and the connection.
 - **Base** (`general/base.iml.json`): `https://privatusanalytics.com`, the bearer header, JSON both ways,
-  and error handling by status: 400/404/409/422 as DataError (with the API's `error.details`),
+  and error handling by status: 400/404/409/422 as DataError (with the API's message),
   401 InvalidAccessTokenError, 402 with a plan hint, 429 RateLimitError, 5xx ConnectionError.
 - **Searches** all have a Limit, ask the API for `per_page=min(limit, 100)` and page with `page` until
   `meta.total_pages` is reached. Top values uses the breakdown's own `page` and `has_more`.
@@ -162,14 +162,18 @@ plan limit of 2 active scenarios is never reached.
 - A01 to A25: one scenario for each instant trigger (Make allows one trigger per scenario), each followed
   by a Set Variable module.
 - B: every search with Limit 150, each on its own router route, so paging shows in the log.
-- C: every action in one chain, on a new test site it creates. The universal module makes the draft
+- C: every action in one chain, on a new test site it creates. A 3 second Sleep comes before Get a Site
+  and Get a Testimonial, because the API reads GET requests from a replica that can lag a moment. The universal module makes the draft
   experiment that Start, Pause and End need, because no module creates one.
+- C2: the actions a Free plan test workspace refuses or limits: Add a Campaign Cost and Ask for a
+  Testimonial (Business plan), and Run a Site Audit (one audit a day for an unverified domain).
 - D: Create a Goal with a blank name, so the log shows the API's 422 message.
 - E: Make an API Call, a GET of the workspace's sites.
 
 ```sh
 node scripts/scenarios.js                                  # create or update the scenarios
 node scripts/scenarios.js --token-file .secrets/test-token --prep   # connection, ids, test alert and status page
+node scripts/scenarios.js --token-file .secrets/test-token --cleanup  # delete C's test sites and example.com invitations
 node scripts/scenarios.js --run C                          # switch on, run, switch off, print the result
 node scripts/scenarios.js --run A05 --wait 600             # switch on and wait for the webhook
 ```

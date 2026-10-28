@@ -7,6 +7,7 @@
 //   node scripts/scenarios.js --token-file .secrets/test-token  also make the connection, find the ids it
 //                                                               needs in the test workspace and the webhooks
 //   node scripts/scenarios.js --token-file ... --prep           also create the test alert and status page
+//   node scripts/scenarios.js --token-file ... --cleanup        also delete C's test sites and example.com invitations
 //   node scripts/scenarios.js --run C                           switch one scenario on, run it, switch it off
 //   node scripts/scenarios.js --run A05 [--wait 600]            switch a trigger scenario on and wait for a delivery
 //   node scripts/scenarios.js --logs C                          print the last run of a scenario
@@ -83,6 +84,7 @@ async function context() {
   const site = sites.find((s) => s.id === opt('site')) || sites.find((s) => s.last_event_at) || sites[0];
   if (!site) throw new Error('The test workspace has no site.');
   ctx.siteId = site.id;
+  if (opt('cleanup')) await cleanup(ws.id, sites);
   console.log(`Test workspace ${ws.id}, site ${site.id} (${sites.length} sites)`);
 
   const alerts = (await pa('GET', `/workspaces/${ws.id}/alerts.json?per_page=100`)).data;
@@ -95,6 +97,15 @@ async function context() {
     console.log(`Created alert ${alert.id}`);
   }
   ctx.alertId = alert ? alert.id : '';
+  // A second alert that is never acknowledged, so the incidents B lists name no person.
+  let quiet = alerts.find((a) => a.name === 'Make review search alert');
+  if (!quiet && opt('prep')) {
+    quiet = (await pa('POST', `/workspaces/${ws.id}/alerts.json`, {
+      name: 'Make review search alert', kind: 'threshold', site_id: site.id, metric: 'visitors', operator: 'gte', threshold: 0, window_minutes: 1440,
+    })).data;
+    console.log(`Created alert ${quiet.id}`);
+  }
+  ctx.searchAlertId = quiet ? quiet.id : ctx.alertId;
 
   const pages = (await pa('GET', `/workspaces/${ws.id}/status_pages.json`)).data;
   let page = pages.find((p) => p.name === 'Make Review Test Status Page');
@@ -122,9 +133,24 @@ async function context() {
   return ctx;
 }
 
+// Removes what scenario C leaves behind: its test sites (only ones named Make Review Test Site
+// on an example.com domain) and pending invitations to example.com addresses.
+async function cleanup(workspaceId, sites) {
+  for (const s of sites.filter((x) => x.name === 'Make Review Test Site' && x.domain.endsWith('.example.com'))) {
+    await pa('DELETE', `/sites/${s.id}.json`, { confirm: s.domain }).catch((e) => console.log(`  ${e.message}`));
+    console.log(`Deleted test site ${s.id}`);
+  }
+  const invites = (await pa('GET', `/workspaces/${workspaceId}/invitations.json`)).data || [];
+  for (const i of invites.filter((x) => (x.email || '').endsWith('@example.com'))) {
+    await pa('DELETE', `/workspaces/${workspaceId}/invitations/${i.id}.json`).catch((e) => console.log(`  ${e.message}`));
+    console.log(`Revoked invitation ${i.id}`);
+  }
+}
+
 let TEAM;
 async function teamId() {
-  if (!TEAM) TEAM = (await make('GET', `/teams?organizationId=${ORG}`)).teams[0].id;
+  // The team of the organization in origins[0]. MAKE_TEAM skips the lookup (it needs teams:read).
+  if (!TEAM) TEAM = Number(process.env.MAKE_TEAM) || (await make('GET', `/teams?organizationId=${ORG}`).then((r) => r.teams[0].id).catch(() => 1409496));
   return TEAM;
 }
 
@@ -170,12 +196,12 @@ function searchScenario(ctx) {
     ['searchGoals', { site_id: s, status: 'all', period: '12mo' }],
     ['searchChartNotes', { site_id: s }],
     ['searchAlertRules', {}],
-    ['searchAlertIncidents', { id: ctx.alertId, open: false }],
+    ['searchAlertIncidents', { id: ctx.searchAlertId, open: false }],
     ['searchUptimeChecks', { site_id: s }],
     ['searchExperiments', { site_id: s, status: 'all' }],
     ['searchSiteAudits', { site_id: s }],
     ['searchExports', {}],
-    ['searchMembers', {}],
+    ['searchMembers', { query: 'example.com' }],
     ['searchTestimonials', { site_id: s, sort: 'received_desc' }],
     ['searchTestimonialPeople', { site_id: s, sort: 'name' }],
     ['searchTestimonialForms', { site_id: s, sort: 'name' }],
@@ -199,16 +225,18 @@ function actionScenario(ctx) {
   const stamp = Date.now().toString(36);
   const flow = [
     mod(1, 'createSite', { domain: `make-review-${stamp}.example.com`, name: 'Make Review Test Site', timezone: 'UTC', currency: 'USD' }, c),
+    // The API reads GET requests from a replica, so a record made a moment ago can 404. Wait first.
+    mod(40, 'util:FunctionSleep', { duration: 3 }),
     mod(2, 'getSite', { id: '{{1.id}}' }, c),
     mod(3, 'createGoal', { site_id: '{{1.id}}', name: 'Test Signup', kind: 'page', match_type: 'exact', pattern: '/signup', value_mode: 'none', count_mode: 'once_per_visit' }, c),
     mod(4, 'createChartNote', { site_id: '{{1.id}}', date: day(), title: 'Test note from Make', color: 'blue', source: 'manual' }, c),
     mod(5, 'createWorkspaceChartNote', { date: day(), title: 'Workspace test note from Make', color: 'neutral', source: 'manual' }, c),
     mod(6, 'createCampaignLink', { site_id: '{{1.id}}', name: 'Test Campaign Link', destination: `https://make-review-${stamp}.example.com/pricing`, utm_source: 'newsletter', utm_medium: 'email', utm_campaign: 'make_review' }, c),
-    mod(7, 'addCampaignCost', { site_id: '{{1.id}}', campaign: 'make_review', month: `${day().slice(0, 7)}-01`, amount: 12.5, currency: 'USD' }, c),
     mod(8, 'createUptimeCheck', { site_id: '{{1.id}}', name: 'Test Uptime Check', kind: 'http', url: 'https://example.com', expected_status: 200, http_method: 'GET', interval_seconds: 300, timeout_seconds: 20, public: false }, c),
     mod(9, 'pauseUptimeCheck', { site_id: '{{1.id}}', id: '{{8.id}}' }, c),
     mod(10, 'resumeUptimeCheck', { site_id: '{{1.id}}', id: '{{8.id}}' }, c),
     mod(11, 'createTestimonial', { site_id: '{{1.id}}', body: 'Setup took five minutes and the numbers are easy to read.', person_name: 'Test Person', person_email: 'test.person@example.com', person_company: 'Example Co', rating: 5, title: 'Easy to set up', status: 'pending', pinned: false, allow_duplicate: false }, c),
+    mod(41, 'util:FunctionSleep', { duration: 3 }),
     mod(12, 'getTestimonial', { site_id: '{{1.id}}', id: '{{11.id}}' }, c),
     mod(13, 'updateTestimonial', { site_id: '{{1.id}}', id: '{{11.id}}', highlight: 'five minutes', edit_note: 'Tidied up by a Make test' }, c),
     mod(14, 'approveTestimonial', { site_id: '{{1.id}}', id: '{{11.id}}' }, c),
@@ -216,10 +244,8 @@ function actionScenario(ctx) {
     mod(16, 'pendTestimonial', { site_id: '{{1.id}}', id: '{{11.id}}' }, c),
     mod(17, 'rejectTestimonial', { site_id: '{{1.id}}', id: '{{11.id}}' }, c),
     mod(18, 'createTestimonialPerson', { site_id: '{{1.id}}', name: 'Test Person Two', email: 'test.person2@example.com', company: 'Example Co', title: 'Owner' }, c),
-    mod(19, 'askForTestimonial', { site_id: ctx.requestSiteId, request_id: ctx.requestId, email: 'test.person@example.com', name: 'Test Person' }, c),
     mod(20, 'postStatusPageUpdate', { status_page_id: ctx.statusPageId, title: 'Test update from Make', body: 'This is a test post. Everything works.', status: 'resolved', notify: false }, c),
     mod(21, 'inviteMember', { emails: ['test.member@example.com'], role: 'viewer', all_sites: true }, c),
-    mod(22, 'runSiteAudit', { site_id: '{{1.id}}' }, c),
     // No module creates an experiment, so the universal module makes a draft for the next three.
     mod(23, 'makeApiCall', {
       url: '/sites/{{1.id}}/experiments.json',
@@ -237,6 +263,18 @@ function actionScenario(ctx) {
     mod(31, 'acknowledgeAlert', { id: ctx.alertId }, c),
   ];
   return { key: 'C', name: `${PREFIX} C: every action`, blueprint: blueprint(`${PREFIX} C: every action`, flow) };
+}
+
+// Modules that need the Business plan or hit a daily limit. Kept apart so C passes on a Free plan test workspace.
+function planScenario(ctx) {
+  nextX = 0;
+  const c = conn(ctx);
+  return { key: 'C2', name: `${PREFIX} C2: Business plan and daily limit actions`, blueprint: blueprint(`${PREFIX} C2: Business plan and daily limit actions`, [
+    mod(1, 'addCampaignCost', { site_id: ctx.siteId, campaign: 'make_review', month: `${day().slice(0, 7)}-01`, amount: 12.5, currency: 'USD' }, c),
+    mod(2, 'askForTestimonial', { site_id: ctx.requestSiteId || ctx.siteId, request_id: ctx.requestId, email: 'test.person@example.com', name: 'Test Person' }, c),
+    // An unverified site gets one audit per domain a day, so this one runs on its own.
+    mod(3, 'runSiteAudit', { site_id: ctx.siteId }, c),
+  ]) };
 }
 
 function errorScenario(ctx) {
@@ -311,11 +349,17 @@ async function executions(s) {
 }
 
 async function printLog(s, executionId) {
-  const runs = await executions(s);
-  const log = runs.find((l) => l.id === executionId || l.imtId === executionId) || runs[0];
+  let log;
+  if (executionId) {
+    // The list lags behind a run, so read the execution itself, retrying for a few seconds.
+    for (let i = 0; i < 10 && !(log && log.status); i++) {
+      log = await make('GET', `/scenarios/${s.id}/logs/${executionId}`).then((r) => r.scenarioLog).catch(() => undefined);
+      if (!(log && log.status)) await new Promise((r) => setTimeout(r, 3000));
+    }
+  } else log = (await executions(s))[0];
   if (!log) { console.log('No run yet.'); return; }
   const status = { 1: 'success', 2: 'warning', 3: 'error' }[log.status] || log.status;
-  console.log(`${s.name}: ${status}, ${log.operations ?? '?'} operations, execution ${log.imtId || log.id}`);
+  console.log(`${s.name}: ${status}, ${log.operations ?? '?'} operations, execution ${log.id}`);
   if (log.error) console.log(`  ${JSON.stringify(log.error).slice(0, 800)}`);
 }
 
@@ -338,7 +382,7 @@ async function run(key) {
     for (const end = Date.now() + wait; Date.now() < end;) {
       await new Promise((r) => setTimeout(r, 10000));
       const fresh = (await executions(s)).find((l) => !before.has(l.imtId || l.id));
-      if (fresh) { await printLog(s, fresh.imtId || fresh.id); return; }
+      if (fresh) { await printLog(s, fresh.id); return; }
     }
     console.log('No delivery arrived.');
   } finally {
@@ -355,7 +399,7 @@ async function main() {
   const team = await teamId();
   const ctx = await context();
   const hookIds = await hooks(ctx);
-  const all = [...triggerScenarios(ctx, hookIds), searchScenario(ctx), actionScenario(ctx), errorScenario(ctx), universalScenario(ctx)];
+  const all = [...triggerScenarios(ctx, hookIds), searchScenario(ctx), actionScenario(ctx), planScenario(ctx), errorScenario(ctx), universalScenario(ctx)];
   const existing = await listScenarios(team);
   const zone = MAKE.replace(/\/api\/v2$/, '');
   for (const s of all) {

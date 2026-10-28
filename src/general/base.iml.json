@@ -14,7 +14,7 @@
     "error": {
       "400": {
         "type": "DataError",
-        "message": "[{{statusCode}}] {{body.error.message}} {{body.error.details}}"
+        "message": "[{{statusCode}}] {{body.error.message}}"
       },
       "401": {
         "type": "InvalidAccessTokenError",
@@ -38,7 +38,7 @@
       },
       "422": {
         "type": "DataError",
-        "message": "[{{statusCode}}] {{body.error.message}} {{body.error.details}}"
+        "message": "[{{statusCode}}] {{body.error.message}}"
       },
       "429": {
         "type": "RateLimitError",

@@ -36,25 +36,6 @@
     "help": "The HTTP method. Deleting data is not available in this module."
   },
   {
-    "name": "headers",
-    "label": "Headers",
-    "type": "array",
-    "help": "Extra request headers. The Authorization header is added for you.",
-    "spec": [
-      {
-        "name": "key",
-        "label": "Key",
-        "type": "text",
-        "required": true
-      },
-      {
-        "name": "value",
-        "label": "Value",
-        "type": "text"
-      }
-    ]
-  },
-  {
     "name": "qs",
     "label": "Query String",
     "type": "array",
