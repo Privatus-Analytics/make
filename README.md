@@ -175,12 +175,15 @@ node scripts/scenarios.js                                  # create or update th
 node scripts/scenarios.js --token-file .secrets/test-token --prep   # connection, ids, test alert and status page
 node scripts/scenarios.js --token-file .secrets/test-token --cleanup  # delete C's test sites and example.com invitations
 node scripts/scenarios.js --run C                          # switch on, run, switch off, print the result
-node scripts/scenarios.js --run A05 --wait 600             # switch on and wait for the webhook
+node scripts/scenarios.js --run A05 --wait 600             # wait for a delivery to the webhook, then run it
 ```
 
 It reads the Make token from `.secrets/apikey-scenarios` (scopes `scenarios:read`, `scenarios:write`,
-`scenarios:run`, `connections:read`, `connections:write`, plus `hooks:read` and `hooks:write` to add the
-webhooks of the trigger scenarios). The Privatus Analytics token must belong to a test workspace with
+`scenarios:run`, `connections:read`, `connections:write`). The webhooks of the trigger scenarios are made
+with `.secrets/apikey`, which also has `hooks:read` and `hooks:write`. Make attaches each one, which adds
+the webhook in Privatus Analytics. The trigger scenarios have on-demand scheduling, so each delivery waits
+in the webhook queue until `--run` takes it. An uptime check only runs on a verified site's domain, so
+the uptime triggers need a verified test site. The Privatus Analytics token must belong to a test workspace with
 demo data. The script refuses James's own workspace, and no token is printed.
 
 ## Updating the app after the API changes

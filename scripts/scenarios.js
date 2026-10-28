@@ -10,11 +10,12 @@
 //                                                               alert is replaced, and fires within 5 minutes)
 //   node scripts/scenarios.js --token-file ... --cleanup        also delete C's test sites and example.com invitations
 //   node scripts/scenarios.js --run C                           switch one scenario on, run it, switch it off
-//   node scripts/scenarios.js --run A05 [--wait 600]            switch a trigger scenario on and wait for a delivery
+//   node scripts/scenarios.js --run A05 [--wait 600]            wait for a delivery to its webhook, then run it
 //   node scripts/scenarios.js --logs C                          print the last run of a scenario
 //
 // Make token: .secrets/apikey-scenarios (scopes scenarios:read, scenarios:write, scenarios:run,
-// connections:read, connections:write, and hooks:read, hooks:write for the instant triggers).
+// connections:read, connections:write). Webhooks are made with .secrets/apikey, which has hooks:read
+// and hooks:write. Make attaches each one, which adds the webhook in Privatus Analytics.
 // The Privatus Analytics token must belong to a test workspace with demo data. The script refuses
 // the workspaces in REFUSED_WORKSPACES. No token is ever printed.
 //
@@ -310,7 +311,7 @@ async function hooks(ctx) {
   if (!ctx.connectionId) return out;
   const team = await teamId();
   let existing;
-  try { existing = (await make('GET', `/hooks?teamId=${team}`)).hooks || []; } catch (e) {
+  try { existing = (await sdk('GET', `/hooks?teamId=${team}`)).hooks || []; } catch (e) {
     console.log(`  Webhooks skipped (${e.status === 401 ? 'the Make token needs hooks:read and hooks:write' : e.message}). Add each one in the editor instead.`);
     return out;
   }
@@ -321,7 +322,7 @@ async function hooks(ctx) {
     const name = `${PREFIX}: ${h.label}`;
     let hook = existing.find((x) => x.name === name);
     if (!hook) {
-      hook = (await make('POST', '/hooks', { name, teamId: team, typeName: `${PKG}:${remote.name}`, __IMTCONN__: ctx.connectionId, siteId: '' }).catch((e) => {
+      hook = (await sdk('POST', '/hooks', { name, teamId: team, typeName: `app#${remote.name}`, __IMTCONN__: ctx.connectionId }).catch((e) => {
         console.log(`  hook ${id}: ${e.message}`);
         return {};
       })).hook;
@@ -374,27 +375,27 @@ async function printLog(s, executionId) {
 }
 
 // Make only runs an active scenario. The Free plan allows 2 active ones, so each run
-// switches its scenario on, runs it (or waits for a webhook) and switches it off again.
+// switches its scenario on, runs it and switches it off again. A trigger scenario has
+// on-demand scheduling, so its webhook queues each delivery until a run takes it.
 async function run(key) {
   const s = await findScenario(key);
   const instant = key.startsWith('A');
-  const before = new Set((await executions(s)).map((l) => l.imtId || l.id));
+  if (instant) {
+    if (!s.hookId) { console.log(`${s.name}: no webhook yet.`); return; }
+    const wait = Number(opt('wait') || 600) * 1000;
+    let queued = 0;
+    for (const end = Date.now() + wait; ;) {
+      queued = (await sdk('GET', `/hooks/${s.hookId}`)).hook.queueCount;
+      if (queued || Date.now() > end) break;
+      console.log('Waiting for a delivery (cause the event now)...');
+      await new Promise((r) => setTimeout(r, 15000));
+    }
+    if (!queued) { console.log(`${s.name}: no delivery arrived.`); return; }
+  }
   await make('POST', `/scenarios/${s.id}/start`);
   try {
-    if (!instant) {
-      const r = await make('POST', `/scenarios/${s.id}/run`, { responsive: true });
-      console.log(`Run ${r.executionId}: ${r.status}`);
-      await printLog(s, r.executionId);
-      return;
-    }
-    const wait = Number(opt('wait') || 600) * 1000;
-    console.log(`Active. Cause the event now, waiting up to ${wait / 1000} s for a delivery...`);
-    for (const end = Date.now() + wait; Date.now() < end;) {
-      await new Promise((r) => setTimeout(r, 10000));
-      const fresh = (await executions(s)).find((l) => !before.has(l.imtId || l.id));
-      if (fresh) { await printLog(s, fresh.id); return; }
-    }
-    console.log('No delivery arrived.');
+    const r = await make('POST', `/scenarios/${s.id}/run`, { responsive: true });
+    await printLog(s, r.executionId);
   } finally {
     await make('POST', `/scenarios/${s.id}/stop`).catch((e) => console.error(`Could not switch it off: ${e.message}`));
   }
