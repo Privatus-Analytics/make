@@ -6,7 +6,8 @@
 //   node scripts/scenarios.js                                   create or update every scenario (inactive)
 //   node scripts/scenarios.js --token-file .secrets/test-token  also make the connection, find the ids it
 //                                                               needs in the test workspace and the webhooks
-//   node scripts/scenarios.js --token-file ... --prep           also create the test alert and status page
+//   node scripts/scenarios.js --token-file ... --prep           also create the test alert and status page (a used
+//                                                               alert is replaced, and fires within 5 minutes)
 //   node scripts/scenarios.js --token-file ... --cleanup        also delete C's test sites and example.com invitations
 //   node scripts/scenarios.js --run C                           switch one scenario on, run it, switch it off
 //   node scripts/scenarios.js --run A05 [--wait 600]            switch a trigger scenario on and wait for a delivery
@@ -89,6 +90,15 @@ async function context() {
 
   const alerts = (await pa('GET', `/workspaces/${ws.id}/alerts.json?per_page=100`)).data;
   let alert = alerts.find((a) => a.name === 'Make review test alert');
+  if (alert && opt('prep')) {
+    // Acknowledge in C needs an incident nobody has acknowledged. Once used, start a new alert.
+    const incidents = (await pa('GET', `/alerts/${alert.id}/history.json`)).data || [];
+    if (!incidents.some((i) => !i.acknowledged_at)) {
+      await pa('DELETE', `/alerts/${alert.id}.json`);
+      console.log(`Deleted used alert ${alert.id}`);
+      alert = undefined;
+    }
+  }
   if (!alert && opt('prep')) {
     // Visitors of 0 or more in a day is always true, so it fires at the next check (every 5 minutes).
     alert = (await pa('POST', `/workspaces/${ws.id}/alerts.json`, {
